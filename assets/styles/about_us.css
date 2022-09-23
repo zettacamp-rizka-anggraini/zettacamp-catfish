@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Quicksand:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        #039b7f 0%,
+        #039b7f 50%,
+        #ffffff 50%,
+        #ffffff 100%
+    );
+}
+
+
+.about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vw;
+}
+
+.about {
+    width: 90%;
+}
+
+
+article {
+    display: flex;
+    margin-bottom: 3%;
+    
+}
+
+.content-one, .content-two, .content-three {
+    flex-direction: column;
+    padding: 3%;
+    text-align: justify;
+    background-color: #FFFFFF;
+    border-radius: 1%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.kid-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+h1, h2{
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+section {
+    width: 350px;
+    height : 410px;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: beige;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+iframe, .audio img, audio, .movie img {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+h3 {
+    text-align: center;
+}
+
+.audio img, .movie img{
+    width: 300px;
+}
+.audio h3, .video h3, .movie h3 {
+    margin:15px 0;
+}
+
+.audio p, .video p, .movie p{
+    font-size: 1em;
+    text-align: center;
+    margin-top: 15px;
+    padding: 2px;
+}
+
+.content-three ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.content-three ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.content-three ul li a:hover{
+    border: 2px solid #039b7f;
+    background-color: #039b7f;
+    padding: 10px;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+.content-three p {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+
+ 
+
+

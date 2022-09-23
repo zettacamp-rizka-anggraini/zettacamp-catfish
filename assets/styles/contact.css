@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Quicksand:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background: linear-gradient(
+        to bottom,
+        #039b7f 0%,
+        #039b7f 50%,
+        #ffffff 50%,
+        #ffffff 100%
+    );
+}
+
+
+.contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vw;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 5%;
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+article {  
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 2%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2 {
+    font-weight: 400;
+}
+
+.mediasos h2{
+    margin-bottom: 20px;
+}
+
+.mediasos p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mediasos img{
+    width: 25px;
+}
+
+.mediasos p a {
+    text-decoration: none;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: black;
+    margin-left: 10px;
+}
