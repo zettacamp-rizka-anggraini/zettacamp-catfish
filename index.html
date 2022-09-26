@@ -2,30 +2,94 @@
 <html lang="en">
     <head>
         <title>My Profile</title>
+        <style>
+            .identity p{
+                display: flex;
+                width: 60%;
+                flex-direction: column;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .item p{
+                display: flex;
+                width: 20%;
+                margin-left: auto;
+                margin-right: auto;
+                justify-content: center;
+            }
+
+            .description p{
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: justify;
+            }
+
+            .description p span {
+                color: rgb(212, 9, 9);
+                font-weight: bolder;
+            }
+
+            h2 {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <h1 title="Profile" style="text-align: center">My Profile</h1>
         <p style="text-align: center"><img src="assets/Daisy-Flower.jpg" alt="Daisy Flower Image" width="300"></p>
-        <h2 style="text-align: center" title="Identity Of Me">Identity</h2>
-        <p style="text-align: center">Nick Name : Rizka <br>
-            Full Name : Rizka Dewi Anggraini <br>
-            Zetta Member Code : ZC/FY2022-092 <br>
-            Company email address : rizka.anggraini@zettacamp.pro <br>
-            Zettachat ID : Rizka.Anggraini <br>
-            <em>Date of Joining : Thursday, September 22, 2022<br>
-            Date Start of Onboaring : Thursday, September 22, 2022</em></p>
-        <h2 style="text-align: center" title="Description About Me">Description</h2>
-        <p style="text-align: center"> I'am very interested in development. I wants to have a goal to become good in <span style="font-weight: bold">full-stack development.</span><br>
-            As a first step, i really want to be an expert in Front End Developer. <br>
-            I really loves K-Pop, Kdrama, Watch Movie with all genre, Anime <span style="color: rgb(212, 9, 9);font-weight: bolder;">especially One Piece or contains comedy.</span><br>
-            Because i like laughs and funny things. Moreover, i like research about ML. <br> 
-            I have <strong>in research about ML fields </strong> especially talks about <u>recommender system based content.</u></p>
-        <h2 style="text-align: center" title="Hobby That I Like">Hobby</h3>
-        <p style="text-align: center">Watch Movie<br>Cooking<br>Coding<br><strong style="color: red">Books</strong><br>
-            Music<br>KDrama<br>Kmovie<br>Kpop</p>
-        <h2 style="text-align: center" title="Social Media That I Have">Social Media</h3>
-        <p style="text-align: center">Instagram : <a href="https://www.instagram.com/" title="HomePage Instagram" target="_blank">Rizka_dean</a></p>
-        <p style="text-align: center">Facebooks : <a href="https://www.facebook.com/" title="HomePage Facebook" target="_blank">Rizka Anggraini</a></p>
-        <p style="text-align: center">Twitter : <a href="https://www.twitter.com/" title="HomePage Twitter" target="_blank">RizkaAnggra</a></p>
-    </body>
+        <!-- bagian identitas -->
+        <section class="identity">
+            <h2 title="Identity Of Me">Identity</h2>
+            <p>
+                Nick Name &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;: Rizka <br>
+                Full Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: Rizka Dewi Anggraini <br>
+                Zetta Member Code &ensp;&ensp;&emsp;: ZC/FY2022-092 <br>
+                Company email address &ensp;: rizka.anggraini@zettacamp.pro <br>
+                Zettachat ID &emsp;&emsp;&emsp;&emsp;&emsp;: Rizka.Anggraini <br>
+                <em>Date of Joining&emsp;&emsp;&emsp;&ensp;&ensp;: Thursday, September 22, 2022<br>
+                Date Start of Onboaring&ensp;: Thursday, September 22, 2022</em>
+            </p>
+        </section>
+        <!-- bagian deskripsi -->
+        <section class="description">
+            <h2 title="Description About Me">Description</h2>
+            <p> 
+                &emsp;&emsp;I'am very interested in development. I have a goal that i want to become good in 
+                <strong>Full-Stack Development</strong>. As a first step, i really want to be an 
+                expert in Front End Developer.<br>
+                &emsp;&emsp;I really loves K-Pop, Kdrama, Watch Movie with all genre, Anime 
+                <span>especially One Piece or contains kind of comedy.</span> 
+                Because i like laughs and funny things. Moreover, i like research about ML. 
+                I have <strong>in research about ML fields </strong> especially talks about 
+                <u><em>recommender system based content</em></u>.
+            </p>
+        </section>
+        <section class="quote">
+            <h2>Quote Of The Day</h2>
+            <blockquote style="font-size: 2em; text-align: center;">
+                <strong>&ldquo;<mark>Apa Apa Naik Jadi Yaudah Aja Gitu</mark><br>
+                Cuma Pengen Kasih Tau Sajal&rdquor;</strong><br>
+                - <em>by Everyone, 2022</em>
+            </blockquote>
+        </section>
+        <!-- bagian hobi -->
+        <section class="hobby">
+            <h2 title="Hobby That I Like">Hobby</h3>
+            <p style="text-align: center">
+                Watch Movie<br>Cooking<br>Coding<br>
+                <b style="color: red">&hearts;&emsp;Books&emsp;&hearts;</b>
+                <br>Music<br>KDrama<br>Kmovie<br>Kpop
+            </p>
+        </section>
+        <!-- bagian media sosial -->
+        <section class="medsos">
+            <h2 title="Social Media That I Have">Social Media</h3>
+                <section class="item">
+                    <p>Instagram &emsp;&ensp;: &ensp;<a href="https://www.instagram.com/" title="HomePage Instagram" target="_blank"><img src=" https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20" alt="Flaticon Icon Instagram" title="My Instagram"></a></p>
+                    <p>Facebooks &emsp;: &ensp;<a href="https://www.facebook.com/" title="HomePage Facebook" target="_blank"><img src=" https://cdn-icons-png.flaticon.com/512/174/174848.png" width="20" alt="Flaticon Icon Facebook" title="My Facebook"></a></p>
+                    <p>Twitter &emsp;&emsp;&ensp;: &ensp;<a href="https://www.twitter.com/" title="HomePage Twitter" target="_blank"><img src=" https://cdn-icons-png.flaticon.com/512/3256/3256013.png" width="20" alt="Flaticon Icon Twitter" title="My Twitter"></a></p>
+                </section>
+        </section>
 </html>
