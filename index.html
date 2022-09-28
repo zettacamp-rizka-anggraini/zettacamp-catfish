@@ -34,6 +34,32 @@
             h2 {
                 text-align: center;
             }
+
+            .hobby ul {
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 0;
+            }
+
+            .hobby ul li {
+                list-style: none;
+                text-align: center;
+            }
+
+            table {
+                width: 60%;
+                background-color: black;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            td {
+                background-color: white;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -42,15 +68,43 @@
         <!-- bagian identitas -->
         <section class="identity">
             <h2 title="Identity Of Me">Identity</h2>
-            <p>
-                Nick Name &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;: Rizka <br>
-                Full Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: Rizka Dewi Anggraini <br>
-                Zetta Member Code &ensp;&ensp;&emsp;: ZC/FY2022-092 <br>
-                Company email address &ensp;: rizka.anggraini@zettacamp.pro <br>
-                Zettachat ID &emsp;&emsp;&emsp;&emsp;&emsp;: Rizka.Anggraini <br>
-                <em>Date of Joining&emsp;&emsp;&emsp;&ensp;&ensp;: Thursday, September 22, 2022<br>
-                Date Start of Onboaring&ensp;: Thursday, September 22, 2022</em>
-            </p>
+            <table>
+                <tr>
+                    <td>Nick Name</td>
+                    <td>:</td>
+                    <td>Rizka</td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td>:</td>
+                    <td>Rizka Dewi Anggraini</td>
+                </tr>
+                <tr>
+                    <td>Zeta Member Code</td>
+                    <td>:</td>
+                    <td>ZC/FY2022-092</td>
+                </tr>
+                <tr>
+                    <td>Company Email Address</td>
+                    <td>:</td>
+                    <td>rizka.anggraini@zettacamp.pro</td>
+                </tr>
+                <tr>
+                    <td>Zettachat ID</td>
+                    <td>:</td>
+                    <td>Rizka.Anggraini</td>
+                </tr>
+                <tr>
+                    <td>Date of Joining</td>
+                    <td>:</td>
+                    <td>Thursday, September 22, 2022</td>
+                </tr>
+                <tr>
+                    <td>Date Start of Onboaring</td>
+                    <td>:</td>
+                    <td>Thursday, September 22, 2022</td>
+                </tr>
+            </table>
         </section>
         <!-- bagian deskripsi -->
         <section class="description">
@@ -77,11 +131,16 @@
         <!-- bagian hobi -->
         <section class="hobby">
             <h2 title="Hobby That I Like">Hobby</h3>
-            <p style="text-align: center">
-                Watch Movie<br>Cooking<br>Coding<br>
-                <b style="color: red">&hearts;&emsp;Books&emsp;&hearts;</b>
-                <br>Music<br>KDrama<br>Kmovie<br>Kpop
-            </p>
+            <ul>
+                <li>Watch Movie</li>
+                <li>Cooking</li>
+                <li>Coding</li>
+                <li><b style="color: red">&hearts;&emsp;Books&emsp;&hearts;</b></li>
+                <li>Music</li>
+                <li>KDrama</li>
+                <li>Kmovie</li>
+                <li>Kpop</li>
+            </ul>
         </section>
         <!-- bagian media sosial -->
         <section class="medsos">
@@ -92,4 +151,5 @@
                     <p>Twitter &emsp;&emsp;&ensp;: &ensp;<a href="https://www.twitter.com/" title="HomePage Twitter" target="_blank"><img src=" https://cdn-icons-png.flaticon.com/512/3256/3256013.png" width="20" alt="Flaticon Icon Twitter" title="My Twitter"></a></p>
                 </section>
         </section>
+    </body>
 </html>

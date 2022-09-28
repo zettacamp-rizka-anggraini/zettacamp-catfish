@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping List</title>
+        <style>
+            table {
+                background-color: black;
+            }
+
+            th {
+                background-color: #04AA6D;
+                color: #ffffff;
+            }
+
+            th,td {
+                text-align: center;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            .descript-list {
+                width: 80%;
+                display: flex;
+                justify-content: space-around;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .descript-list h2, .descript-list p {
+                text-align: center;
+            }
+
+            .table-list img {
+                width: 100px;
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .table-list td p, .table-list td ul{
+                text-align: left;
+            }
+
+            .desc {
+                font-size: 0.8em;
+            }
+
+            .desc dt {
+                border-left: 5px solid red;
+                padding-left: 5px;
+            }
+
+            .table-list tr:nth-child(odd){
+                background-color: #ffffff;
+            }
+
+            .table-list tr:nth-child(even){
+                background-color: #f2f2f2;
+            }
+
+            .table-list tr:hover{
+                background-color: #ddd;
+            }
+
+            table dl {
+                text-align: left;
+            }
+
+            table dd{
+                padding-right: 5px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Welcome To Supermarket Jogja Istimewa</h1>
+        <p style="text-align: center;">We sell variety interesting item that would you like,
+            <br>We category them like below :
+        </p>
+        <section class="descript-list">
+            <section class="main-pro">
+                <h2>Main Product</h2>
+                <p>Below is our main product which is available</p>
+                <ol>
+                    <li>Food
+                        <ul>
+                            <li>Indomie</li>
+                        </ul>
+                    </li>
+                    <li>Beverage</li>
+                    <li>Fresh Product</li>
+                    <li>Health &amp; Beauty</li>
+                    <li>Home &amp; Living</li>
+                </ol>
+            </section>
+            <section class="additional-pro">
+                <h2>Additional Product</h2>
+                <p>Below is our additional product which is available</p>
+                <ul>
+                    <li>Ticket</li>
+                    <li>Pulsa &amp; Kuota Data</li>
+                    <li>Voucher Game</li>
+                </ul>
+            </section>
+        </section>
+        <section class="table-list">
+            <h2 style="text-align: center;">List Produk</h2>
+            <p style="text-align: center;">Below is our product list from above categorized product<br>
+                from main product or additional product</p>
+            <h3><small>description : </small></h3>
+            <dl class="desc">
+                <dt>Recomended Tag</dt>
+                <dd>Recomended Tag is our recomended to customer to try.</dd>
+                <dt>Popular Tag</dt>
+                <dd>Popular Tag is our product that most popular in our customer.</dd>
+                <dt>Highlight</dt>
+                <dd>The product that we display on main web.</dd>
+            </dl>
+            <!-- Main Product -->
+            <h3>Main Product</h3>
+            <table style="width:100%">
+                <tr>
+                    <th style="width: 150px;">Product Category</th>
+                    <th>Product Name</th>
+                    <th>Product Image</th>
+                    <th>Product Amount</th>
+                    <th>Product Price</th>
+                    <th>Total</th>
+                </tr>
+                <!-- Food -->
+                <tr>
+                    <td>Food</td>
+                    <td>
+                        <p>Arirang Instant Noodle <mark>Goreng Pedas 130g</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Flavor</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">The Flavors of Arirang Goreng Pedas is Really Spicy that make Your Mind Insane</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Kuah Sum Sum 130g</li>
+                            <li>Goreng Ayam 130g <sup>recomended</sup></li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20082164/20082164_1.jpg" alt="Arirang Noodle"></td>
+                    <td>1</td>
+                    <td>Rp<span>13000</span></td>
+                    <td>Rp<span>13000</span></td>
+                </tr>
+                <tr>
+                    <td>Food</td>
+                    <td>
+                        <p>Indomie Instant Noodle <mark>Goreng Original 85g</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Flavor</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">The Flavors of Indomie Goreng Original is So Delicious</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Goreng Kebab Rendang 83g</li>
+                            <li>Goreng Rica Rica 85g</li>
+                            <li>Goreng Ayam Geprek 85g</li>
+                            <li>Goreng Ayam Pop 85g</li>
+                            <li>Goreng Aceh 90g</li>
+                            <li>Goreng Rendang 91g <sup>recomended</sup></li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/10003517/10003517_1.jpg" width="100px" alt="Indomie Noodle"></td>
+                    <td>1</td>
+                    <td>Rp<span>3100</span></td>
+                    <td>Rp<span>3100</span></td>
+                </tr>
+                <!-- Beverage -->
+                <tr>
+                    <td>Beverage</td>
+                    <td>
+                        <p>Cimory Yoghurt Drink Low Fat <mark>Strawberry &amp; Mango 250ml</mark> <sup>popular</sup></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Flavor</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">The Flavors Cimory Strawberry Manggo is Like Sunrise</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Banana 250ml</li>
+                            <li>Tropical Fruit 250ml</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20103269/20103269_1.jpg" width="100px" alt="Cimory Yoghurt"></td>
+                    <td>1</td>
+                    <td>Rp<span>9100</span></td>
+                    <td>Rp<span>9100</span></td>
+                </tr>
+                <tr>
+                    <td>Beverage</td>
+                    <td>
+                        <p>Nu Green Tea <mark>Honey 500ml</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Flavor</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">The Flavors of Nu Green Tea Honey is Really Full of Sweetness </dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Honey 330ml</li>
+                            <li>Milk Tea 330ml</li>
+                            <li>Original 330ml</li>
+                            <li>Original 450ml</li>
+                            <li>Yogurt Tea 450ml <sup>popular</sup></li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20003786/20003786_1.jpg" width="100px" alt="Nu Green Tea"></td>
+                    <td>1</td>
+                    <td>Rp<span>6300</span></td>
+                    <td>Rp<span>6300</span></td>
+                </tr>
+                <!-- Fresh Product -->
+                <tr>
+                    <td>Fresh Product</td>
+                    <td>
+                        <p>So Good Chicken Nugget <mark>Alphabet 400g</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Note</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">So Good Chicken Nugget can served with anything</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Alphabet 200g</li>
+                            <li>Premium 400g</li>
+                            <li>Dino Bites Original 400g <sup>recomended</sup></li>
+                            <li>Original 400g</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/10030925/10030925_1.jpg" width="100px" alt="So Good Chicken Nugget"></td>
+                    <td>1</td>
+                    <td>Rp<span>52000</span></td>
+                    <td>Rp<span>52000</span></td>
+                </tr>
+                <tr>
+                    <td>Fresh Product</td>
+                    <td>
+                        <p>BBF Meat Daging Sapi <mark>Giling 500g</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Note</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">BBF Meat is well prepared and always fresh meet</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Rendang Sapi 500g</li>
+                            <li>Slice Shabu 1000g</li>
+                            <li>Sirloin 1000g</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20111187/20111187_1.jpg" width="100px" alt="BBF Meat Daging Sapi"></td>
+                    <td>1</td>
+                    <td>Rp<span>79875</span></td>
+                    <td>Rp<span>79875</span></td>
+                </tr>
+                <!-- Health and Beauty -->
+                <tr>
+                    <td>Health &amp; Beauty</td>
+                    <td>
+                        <p>Garnier Skin Natural Serum Mask <mark>Pure Charcoal 28g</mark> <sup>popular</sup></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Put on Frezer before using to make more calming</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Two Step Power Ginseng 22.5g</li>
+                            <li>Sakura White Water Glow 28g</li>
+                            <li>Night Hydra Bomb 28g</li>
+                            <li>Light Complete 32g</li>
+                            <li>Sakura White 32g</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20094162/20094162_1.jpg" width="100px" alt="Garnier Skin Natural Serum Mask"></td>
+                    <td>1</td>
+                    <td>Rp<span>23500</span></td>
+                    <td>Rp<span>23500</span></td>
+                </tr>
+                <tr>
+                    <td>Health &amp; Beauty</td>
+                    <td>
+                        <p>Giv Body Wash <mark>Flower &amp; Berry 450ml</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Put on in cold place to make more fresh</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Hijab Saffron &amp; Niancinamide 450ml</li>
+                            <li>Glowing White Mulbery &amp; Colagen 450ml <sup>recomended</sup></li>
+                            <li>Hijab Tin &amp; Zaitun 450ml</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20073514/20073514_1.jpg" width="100px" alt="Giv Body Wash"></td>
+                    <td>1</td>
+                    <td>Rp<span>28700</span></td>
+                    <td>Rp<span>28700</span></td>
+                </tr>
+                <!-- Home and Living -->
+                <tr>
+                    <td>Home &amp; Living</td>
+                    <td>
+                        <p>So Klin Detergent Liquid <mark>Anti Bacterial 750ml</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Change the place to make more lasting</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Softergent Pink 750ml <sup>popular</sup></li>
+                            <li>Violet Blossom 750ml</li>
+                            <li>Scarlet Blossom 750ml</li>
+                        </ul>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20039866/20039866_1.jpg" width="100px" alt="So Klin Detergent Liquid"></td>
+                    <td>1</td>
+                    <td>Rp<span>24700</span></td>
+                    <td>Rp<span>24700</span></td>
+                </tr>
+                <tr>
+                    <td>Home &amp; Living</td>
+                    <td>
+                        <p>Wipol Karbol <mark>Sereh &amp Jeruk 750ml</mark></p>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Use some hot water and salt to make more clean</dl>
+                        </dl>
+                        <p>Another Variety of Flavors Like : </p>
+                        <ul>
+                            <li>Cemara 750ml <sup>recomended</sup></li>
+                            <li>Lemon 750ml</li>
+                        </ul>
+                    </td>    
+                    <td><img src="https://assets.klikindomaret.com/products/20090066/20090066_1.jpg" width="100px" alt="Wipol Karbol"></td>
+                    <td>1</td>
+                    <td>Rp<span>20800</span></td>
+                    <td>Rp<span>20800</span></td>
+                </tr>
+            </table>
+            <!-- Additional Product -->
+            <h3>Additional Product</h3>
+            <table style="width:100%">
+                <tr>
+                    <th>Product Category</th>
+                    <th>Product Name</th>
+                    <th>Product Image</th>
+                    <th>Product Amount</th>
+                    <th>Product Price</th>
+                    <th>Total</th>
+                </tr>
+                <!-- Ticktet -->
+                <tr>
+                    <td>Ticket</td>
+                    <td>
+                        Wahana Funworld <mark>Botani Square Bogor</mark>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Please Order ahead of time to more get the promo</dl>
+                        </dl>
+                    </td>
+                    <td><img src="http://assets.klikindomaret.com/products/ticket/detail/detaillogofunworld.jpg" width="100px" alt="Funworld"></td>
+                    <td>1</td>
+                    <td>Rp<span>75000</span></td>
+                    <td>Rp<span>75000</span></td>
+                </tr>
+                <!-- Pulsa and Kuota Data -->
+                <tr>
+                    <td>Pulsa &amp Kuota Data</td>
+                    <td>
+                        Pulsa Electric <mark>Indosat 25.000</mark>
+                        <dl>
+                            <dt style="font-size: 0.8em;">Tip</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Always check the phone number before order it</dl>
+                        </dl>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/products/20078416/20078416_1.jpg" width="100px" alt="Pulsa and Kuota Data"></td>
+                    <td>1</td>
+                    <td>Rp<span>26000</span></td>
+                    <td>Rp<span>26000</span></td>
+                </tr>
+                <!-- Voucher Game -->
+                <tr>
+                    <td>Voucher Game</td>
+                    <td>
+                        Google Play Voucher Code
+                        <dl>
+                            <dt style="font-size: 0.8em;">Warning</dt>
+                            <dl style="font-size:0.8em; padding-left: 15px;">Beware Of Fraud Everywhere</dl>
+                        </dl>
+                    </td>
+                    <td><img src="https://assets.klikindomaret.com/images/virtualklik/category/category_googleplay.jpg" width="100px" alt="Voucher Google Play"></td>
+                    <td>1</td>
+                    <td>Rp<span>20000</span></td>
+                    <td>Rp<span>20000</span></td>
+                </tr>
+            </table>            
+        </section>
+    </body>
+</html>
