@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Item Input</title>
+        <link rel="stylesheet" href="assets/css/item.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h1>BlackPink's</h1>
+                <ul>
+                    <li><a href="item.html">Item</a></li> 
+                    <li><a href="itemlist.html">Item List</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="section-A">
+                <h2> Form Ordering Blackpink Albums &amp; Merchendise</h2>
+                <form class="data-card">
+                    <h3>My Data</h3>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="fname">First Name</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="text" id="fname" name="firstname" placeholder="Your First name....">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="lname">Last Name</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="text" id="lname" name="lastname" placeholder="Your Last name....">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="gender">Gender</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="radio" id="genF" name="gender" value="Female"> Female
+                            <input type="radio" id="genM" name="gender" value="Male"> Male
+                            <input type="radio" id="genN" name="gender" value="I'm not in both"> I'm not in both
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="address">Address</label>
+                        </section>
+                        <section class="column-75">
+                            <textarea name="address" id="address" cols="30" rows="5" placeholder="Your address here...."></textarea>
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="email">Email</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="email" id="email" placeholder="example@gmail.com">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="phone">Phone Number</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="phone" id="phone" placeholder="08234567821">
+                        </section>
+                    </section>
+
+                    <h3>I'm Order....</h3>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="typeItem">Type Order</label>
+                        </section>
+                        <section class="column-75">
+                            <select name="typeorder" id="typeorder">
+                                <option value="" selected disabled hidden>Choose here...</option>
+                                <option value="Albums">Albums</option>
+                                <option value="Merchendise">Merchendise</option>
+                                <option value="Music">Music</option>
+                                <option value="Ticket Concert">Ticket Concert</option>
+                                <option value="Costumize">Custom</option>
+                            </select>
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="nameItem">Name Item</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="text" id="nameItem" name="nameItem" placeholder="Name item....">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="date">Date Order</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="date" id="dateItem" name="dateItem">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <section class="column-25">
+                            <label for="payment">Proof of Payment</label>
+                        </section>
+                        <section class="column-75">
+                            <input type="file" accept="image/*" onchange="onFileSelected(event)">
+                        </section>
+                    </section>
+                    <section class="row">
+                        <input type="button" id="submit" value="Submit">
+                    </section>
+                </form>
+            </section>
+            <section class="section-B">
+                <section class="data-card">
+                    <h2>Receipt</h2>
+                    <section class="data-order" id="data-order">
+                        <label>First Name : <span id="firstName"></span></label>
+                        <br>
+                        <label>Last Name : <span id="lastName"></span></label>
+                        <br>
+                        <label>Gender : <span id="genMember"></span></label>
+                        <br>
+                        <label>Address : <span id="addressMember"></span></label>
+                        <br>
+                        <label>Email : <span id="emailMember"></span></label>
+                        <br>
+                        <label>Phone : <span id="phoneMember"></span></label>
+                        <br>
+                        <label>Item Order : <span id="itemOrder"></span></label>
+                        <br>
+                        <label>Name Order : <span id="nameOrder"></span></label>
+                        <br>
+                        <label>Date Order : <span id="dateOrder"></span></label>
+                        <br>
+                        <label>Payment Of Order : </label>
+                        <br>
+                        <img src="" height="200" alt="Image preview...">
+                    </section>
+                </section>
+            </section>
+            <script>
+                document.getElementById("submit").onclick = function () {
+                    document.getElementById("data-order").style.display = "block"
+
+                    firstName.innerHTML = document.getElementById("fname").value;
+                    lastName.innerHTML = document.getElementById("lname").value;
+                    genMember.innerHTML = document.querySelector('input[name="gender"]:checked').value;
+                    addressMember.innerHTML = document.getElementById("address").value;
+                    emailMember.innerHTML = document.getElementById("email").value;
+                    phoneMember.innerHTML = document.getElementById("phone").value;
+                    itemOrder.innerHTML = document.getElementById("typeorder").value;
+                    nameOrder.innerHTML = document.getElementById("nameItem").value;
+                    dateOrder.innerHTML = document.getElementById("dateItem").value;
+
+                    var preview = document.querySelector('img');
+                    var file = document.querySelector('input[type=file]').files[0];
+                    var reader = new FileReader();
+
+                    reader.onloadend = function () {
+                        preview.src = reader.result;
+                    }
+
+                    if(file){
+                        reader.readAsDataURL(file);
+                    } else {
+                        preview.src = "";
+                    }
+
+                    return false;
+                }
+            </script>
+        </main>
+        <footer>Today &copy; Rizka</footer>
+    </body>
+</html>
