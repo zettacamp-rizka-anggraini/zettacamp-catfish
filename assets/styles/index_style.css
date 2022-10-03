@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+header {
+    display: inline;
+}
+
+nav {
+    display: flex;
+    background-color: #D2001A;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    list-style: none;
+}
+
+nav ul li a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover{
+    color: #FFDE00;
+}
+
+nav h1 {
+    font-family: 'Patua One', cursive;
+    font-weight: 300;
+    color: white;
+}
+
+
+nav h1:hover{
+    color: #FFDE00;
+}
+
+/* index.html */
+.home-sec, .descrip-sec, .card-sec {
+    height: 50vw;
+}
+
+.home-sec {
+    display: flex;
+    justify-content: space-around;
+    width : 80%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-sec img {
+    height: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+
+.home-content h2 {
+    font-size: 3.2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'Rubik Dirt', cursive;
+}
+
+.home-content p {
+    font-size: 1.2em;
+}
+
+.descrip-sec, .company-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFDE00;
+    padding: 20px;
+}
+
+.company-sec{
+    height: 600px;
+}
+
+.descrip-sec h2, .company-sec h2 {
+    text-align: center;
+    font-size: 3.1em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.descrip-sec p, .company-sec p, .companybehind-sec p {
+    width: 70%;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.card-sec, .fitur-sec {
+    background-color: #EFEFEF;
+    padding-top: 50px;
+}
+
+.card-sec h2, .fitur-sec h2, .companybehind-sec h2 {
+    padding: 20px;
+    font-weight: 300;
+    text-align: center;
+    font-size: 2.2em;
+}
+
+.card-content {
+    display: flex;
+    padding: 3%;
+}
+
+.card-container {
+    width: 300px;
+    height : 550px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+}
+
+.card-container h3 {
+    text-align: center;
+    padding: 15px;
+    background-color: #D2001A;
+    color: white;
+}
+
+.card-container p {
+    text-align: center;
+    font-size: 3em;
+    padding: 50px 0px;
+}
+
+.benefit {
+    width: 200px;
+    height: 200px;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefit p {
+    padding-bottom: 5px;
+}
+
+.benefit p, .benefit ul li{
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.benefit ul li {
+    margin-left: 20px;
+}
+
+.card-container p sup{
+    font-size: 0.5em;
+}
+
+.card-container p sub{
+    font-size: 0.3em;
+}
+
+.card-container button {
+    background-color: #D2001A;
+
+    /*Belum Selesai*/
+    width: 50%;
+    height: 50px;
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 5px;
+    border: none;
+}
+
+.card-container button a{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.card-container:hover {
+    background-color: #FFDE00;
+    color: whitesmoke;
+}
+
+/* about html */
+.banner-sec {
+    height: 50vw;
+    background-image: url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    padding: 0;
+}
+
+.com-welcome {
+    float: right;
+    width:50%;
+    height: 50%;
+    margin-top: 20%;
+    padding-left: 60px;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.com-welcome h2{
+    margin-top: 150px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.com-welcome p {
+    margin-top: 10px;
+}
+
+.fitur-sec {
+    height: 800px;
+}
+
+.row {
+    width: 90%;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.colcard {
+    width: 70%;
+    height : 150px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    border-radius: 5px;
+    display: flex;
+}
+
+.col-left {
+    float: left;
+    margin-bottom: 30px;
+}
+
+.col-left img, .col-right img{
+    width: 200px;
+}
+
+.col-left p, .col-right p{
+    width: 80%px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5%;
+}
+
+.col-right {
+    float: right;
+    margin-bottom: 30px;
+}
+
+.companybehind-sec {
+    width: 80%;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.companybehind-sec ul{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+.companybehind-sec ul li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.companybehind-sec ul li img {
+    width: 200px;
+    margin-left: 20px;
+}
+
+footer{
+    text-align: center;
+    padding: 30px;
+}

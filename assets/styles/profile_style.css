@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+
+header {
+    display: inline;
+}
+
+nav {
+    display: flex;
+    background-color: #D2001A;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    list-style: none;
+}
+
+nav ul li a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover{
+    color: #FFDE00;
+}
+
+nav h1 {
+    font-family: 'Patua One', cursive;
+    font-weight: 300;
+    color: white;
+}
+
+
+nav h1:hover{
+    color: #FFDE00;
+}
+
+.data-profile {
+    width: 70%;
+    height: fit-content;
+    background-color: white;
+    padding: 30px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.3em;
+    padding: 30px;
+    font-weight: 300;
+}
+
+.pro-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
+.pro-img img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.pro-main {
+    margin-top: 100px;
+}
+
+input[type=file] {
+    width:40%;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type=button] {
+    width:20%;
+    padding: 10px;
+    border: 0.5px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.column-30 {
+    float: left;
+    width: 30%;
+    margin-top: 10px;
+}
+
+.column-70 {
+    float: left;
+    width: 70%;
+    margin-top: 10px;
+}
+
+.row:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+input[type=text], input[type=email], input[type=phone]{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=radio]{
+    margin-right: 5px;
+}
+
+span {
+    margin-right: 50px;
+}
+
+button {
+    background-color: black;
+    width: 30%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 70px;
+    margin-right: 5%;
+    float:right;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+button:hover{
+    background-color: #D2001A;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+button a:hover {
+    color: #FFDE00;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+/* Song Listing */
+table {
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+th {
+    background-color: #FFDE00;
+}
+
+th,td {
+    text-align: center;
+    font: 0.8em;
+    font-weight: 300;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table img {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr:nth-child(odd){
+    background-color: #ffffff;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+footer{
+    text-align: center;
+    padding: 30px;
+}

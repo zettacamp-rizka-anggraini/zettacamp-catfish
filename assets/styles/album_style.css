@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,600&family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background-color: #EFEFEF;
+}
+
+header {
+    display: inline;
+}
+
+nav {
+    display: flex;
+    background-color: #D2001A;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    list-style: none;
+}
+
+nav ul li a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover{
+    color: #FFDE00;
+}
+
+nav h1 {
+    font-family: 'Patua One', cursive;
+    font-weight: 300;
+    color: white;
+}
+
+
+nav h1:hover{
+    color: #FFDE00;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.3em;
+    padding: 30px;
+    font-weight: 300;
+}
+
+.descrip-album {
+    display: flex;
+    width: 85%;
+    height: fit-content;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.descrip-album img {
+    width: 300px;
+    margin-right: 50px;
+}
+
+.descrip h3 {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.descrip dl {
+    margin-left: 10%;
+    margin-bottom: 15px;
+}
+
+.descrip dt {
+    border-left: 2px solid #D2001A;
+    font-size: 0.8em;
+    padding-left: 5px;
+}
+
+.descrip dd {
+    font-size: 0.8em;
+}
+
+.descrip p {
+    width: 80%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.display {
+ display: flex;
+ width: 80%;
+ margin-left: auto;
+ margin-right: auto;
+ justify-content: space-around;
+}
+
+.artist-album, .music-album {
+    display: block;
+    height: fit-content;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.artist-album {
+    width: 30%;
+    margin-left: 10px;
+}
+
+.music-album {
+    width: 50%;
+    padding-left: 60px;
+}
+
+.music-album li {
+    padding-left: 10px;
+}
+
+button {
+    width: 200px;
+    height: 150px;
+    margin-left: 80%;
+    background-color: #D2001A;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:hover{
+    background-color: #FFDE00;
+    cursor: pointer;
+}
+
+button p {
+    font-size: 1.2em;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+button a {
+   text-decoration: none;
+   text-align: center;
+   color: white;
+   font-size: 3.6em; 
+}
+
+button a sup{
+    font-size: 0.4em; 
+ }
+
+footer{
+    text-align: center;
+    padding: 30px;
+}

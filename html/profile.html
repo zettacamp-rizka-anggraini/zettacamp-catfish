@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../assets/styles/profile_style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Play MOS</h1>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="song_listing.html">Song Listing</a></li>
+                <li><a href="album_preview.html">Album Preview</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>My Profile</h2>
+        <section class="data-profile">
+            <form class="profile">
+                <section class="pro-img">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png" alt="profile picture">
+                    <input type="file" accept="image/png, image/jpg, image/jpeg">
+                    <input type="button" value="Change">
+                </section>
+                <section class="pro-main">
+                    <!-- email -->
+                    <section class="row">
+                        <section class="column-30">
+                            <label for="email">Email</label>
+                        </section>
+                        <section class="column-70">
+                            <input type="email" value="rizka.anggraini@zettacamp.pro" disabled>
+                        </section>
+                    </section>
+                    <!-- name -->
+                    <section class="row">
+                        <section class="column-30">
+                            <label for="uname">username</label>
+                        </section>
+                        <section class="column-70">
+                            <input type="text" value="Rizka_Anggraini" disabled>
+                        </section>
+                    </section>
+                    <!-- name -->
+                    <section class="row">
+                        <section class="column-30">
+                            <label for="fname">Full Name</label>
+                        </section>
+                        <section class="column-70">
+                            <input type="text" value="Rizka Anggraini" disabled>
+                        </section>
+                    </section>
+                    <!-- phone number -->
+                    <section class="row">
+                        <section class="column-30">
+                            <label for="phone">Phone Number</label>
+                        </section>
+                        <section class="column-70">
+                            <input type="phone" value="0812345679" disabled>
+                        </section>
+                    </section>
+                    <!-- type service -->
+                    <section class="row">
+                        <section class="column-30">
+                            <label for="typeservice">Type Of Service</label>
+                        </section>
+                        <section class="column-70">
+                            <input type="radio" value="Free" disabled><span>Free</span>
+                            <input type="radio" value="Premium" disabled checked><span>Premium</span>
+                            <input type="radio" value="Master" disabled><span>Master</span>
+                        </section>
+                    </section>
+                    <section class="row">
+                        <button><a href="#">Edit</a></button>
+                    </section>
+                </section>
+            </form>
+        </section>
+    </main>
+    <footer>Music is Everything &copy; Rizka's Studio</footer>
+</body>
