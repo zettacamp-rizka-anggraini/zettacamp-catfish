@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    background-color: aqua;
+}
+
+header h1 {
+    text-align: center;
+    padding-top: 50px;
+    font-weight: 400;
+}
+
+.profile-main {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.data-profile h1 {
+    font-size: 3em;
+}
+
+img {
+    width: 300px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.sec-A {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sec-B {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sec-A p, .sec-B p, #name p {
+    font-size: 0.8em;
+    border-left: 3px solid red;
+    padding-left: 5px;
+}
+
+#name, .sec-A {
+    margin-bottom: 40px;
+}
+
+.card {
+    margin: 10px;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    border-radius: 5px;
+}
+
+.A {
+    width: 520px;
+}
+
+.B {
+    width: 200px;
+}
+
+.description-profile {
+    width: 80%;
+    padding: 30px 50px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.description-profile h2 {
+    margin-bottom: 40px;
+    font-size: 1.8em;
+}
+
+.description-profile p {
+    text-align: justify;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    margin-bottom: 70px;
+}
+
+.first {
+    font-size: 5.3em;
+    float: left;
+    line-height: 1;
+    margin: -4px 5px -10px -5px;
+}
+
+.second {
+    font-size: 0.5em;
+}
+
