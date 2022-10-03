@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiple Tables</title>
+        <style>
+            table {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            th {
+                background: #04AA6D;
+                color: #ffffff;
+            }
+
+            th,td {
+                text-align: center;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            #hobby-table table tr:nth-child(2){
+                background-color: green;
+            }
+
+            #favoriteMovie-table tr:nth-child(3){
+                background-color: red;
+            }
+
+            #favoriteSong-table tr:nth-child(4){
+                background-color: blue;
+            }
+
+            h1{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Multiple Tables</h1>
+        </header>
+        <main>
+            <section id="hobby-table">
+                <h2>Hobby</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Many Players</th>
+                        <th>Tool</th>
+                        <th>Place</th>
+                    </tr>
+                    <tr>
+                        <td>Football</td>
+                        <td>&plusmn; 11 Players</td>
+                        <td>Ball</td>
+                        <td>Outdoor like stadion, field, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Badminton</td>
+                        <td>1 until 2 players depends on the type </td>
+                        <td>Racket and shuttlecock</td>
+                        <td>Outdoor like stadion, field, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Vollyball</td>
+                        <td>&plusmn;</td>
+                        <td>particular ball</td>
+                        <td>Outdoor like stadion, field, etc.</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="favoriteMovie-table">
+                <h2>Favorite Movie</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Artist</th>
+                        <th>Genre</th>
+                        <th>Rate</th>
+                    </tr>
+                    <tr>
+                        <td>Squid Game</td>
+                        <td>HoYeon Jung, Lee Jung Jae, Park Hae Soo, Wi Ha-joon, Lee Yoo-Mi</td>
+                        <td>Action, Mystery, Drama, Thriller, Survival, Horror fiction, Action fiction</td>
+                        <td>8/10</td>
+                    </tr>
+                    <tr>
+                        <td>Thor: Love and Thunder</td>
+                        <td>Chris Hemsworth, Christian Bale, Natalie Portman, Taika Waititi, Tessa Thompson</td>
+                        <td>Action, Comedy, Superhero, Adventure, Science fiction, Fantasy</td>
+                        <td>6.4/10</td>
+                    </tr>
+                    <tr>
+                        <td>Ecanto</td>
+                        <td>Stephanie Beatriz, Wilmer Valderrama, John Leguizamo, Alan Tudyk, Sara-Nicole Robles, Maluma</td>
+                        <td>Childern's film, Adventure, Musical, Family film, Comedy, Fantasy, Animated Cartoon, Coming-of-age story</td>
+                        <td>7.2/10</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="favoriteSong-table">
+                <h2>Favorite Song</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Artist</th>
+                        <th>Release Date</th>
+                        <th>Platform to Listen</th>
+                    </tr>
+                    <tr>
+                        <td>Tutur Batin</td>
+                        <td>Yura Yunita</td>
+                        <td>October 22, 2021</td>
+                        <td>Spotify, Youtube Music, Apple Music, Deezer</td>
+                    </tr>
+                    <tr>
+                        <td>Thunderous</td>
+                        <td>Stray Kids</td>
+                        <td>2021</td>
+                        <td>Spotify, Youtube Music, Apple Music, Deezer</td>
+                    </tr>
+                    <tr>
+                        <td>Left And Right</td>
+                        <td>Charlie Puth ft. Jungkook BTS </td>
+                        <td>2022</td>
+                        <td>Spotify, Youtube Music, Apple Music, Deezer</td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+</html>
