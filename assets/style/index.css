@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: navy;
+}
+
+header {
+    width: 100%;
+    background-image: url('../img/loneliness\ is\ my\ best\ friend\ 6.png');
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    
+}
+
+.banner {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: inherit;
+}
+
+header h1 {
+    color: white;
+    padding-top: 70px;
+    text-align: center;
+}
+
+#title-book {
+    padding: 60px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#title-book h1{
+    color: black;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#img-book {
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 5px rgba( 15, 52, 96, 0.3);
+    background-color: #0F3460;
+    width: fit-content;
+    margin-right: 60px;
+    padding: 1px;
+    float: left;
+}
+
+#img-book img {
+    width: 300px;
+    margin: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    /* box-sizing border box digunakan untuk mempertahankan value width yang sudah diset 
+    sehingga tidak akan merubah atau menambah value yang ada*/
+}
+
+#paragraph-book {
+    width: 70%;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 5px rgba( 15, 52, 96, 0.3);
+    margin-left: 30%;
+    padding: 30px;
+}
+
+#paragraph-book h2 {
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+#paragraph-book p {
+    line-height: 2em;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+span {
+    font-weight: 600;
+    font-size: 1.8em;
+}
+
+#paragraph-book ol {
+    margin-left: 50px;
+    line-height: 2em;
+}
+
+#spesific-book {
+    float: left;
+    margin : 30% 0 0 -30%;
+}
+
+#spesific-book ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3em;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#benefit-book h2 {
+    text-align: center;
+    padding: 60px 0;
+    font-weight: 500;
+}
+
+.container .card {
+    display: block;
+    width: 250px;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 5px rgba( 15, 52, 96, 0.2);
+    padding: 20px 15px;
+    margin: 10px 0 10px 0;
+    border: 1px dashed navy;
+}
+
+.card h3 {
+    text-align: center;
+    font-weight: 300;
+}
+
+.card img {
+    width: 100px;
+    display: block;
+    margin: 4em auto;
+}
+
+.card p {
+    padding: 0 15px;
+    text-align: justify;
+    font-size: 0.8em;
+    line-height: 2em;;
+}
+
+footer {
+    text-align: center;
+    padding: 60px;
+}
