@@ -1,0 +1,76 @@
+main{
+    height: 60vh;
+}
+
+.about {
+    height: 100vh;
+}
+
+/* contact html */
+.container-info, .container-about{
+    width: 80%;
+    margin: 100px auto 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-info, .container-about{
+    padding: 3em;
+    display: block;
+    border-radius: 0.2em;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px 0 rgba(215, 192, 174, 0.2), 2px 2px 6px 0 rgba(150, 126, 118, 0.3);
+}
+.place p, .contact p, .mediasocial p {
+    display: flex;
+    margin: 10px 0 10px 0;
+}
+
+.place img, .contact img, .mediasocial img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.card-info:hover, .container-about:hover {
+    background-color: #967E76;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* about html */
+.container-about p {
+    padding: 0 20px 30px 20px;
+    text-align: center;
+}
+
+.container-about p::first-letter {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.container-about h2{
+    font-weight: 500;
+    text-align: center;
+}
+
+.container-about ul {
+    display: flex;
+    padding: 0 30px;
+    flex-wrap: wrap;
+    margin: 1.2em auto;
+    justify-content: center;
+}
+
+.container-about ul li {
+    list-style-type: none;
+}
+
+.container-about ul li img{
+    width: 100px;
+    margin: 1.2em;
+}
+
+.container-about p::selection {
+    color: red;
+    background: yellow;
+}
