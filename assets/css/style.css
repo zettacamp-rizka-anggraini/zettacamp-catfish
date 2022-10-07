@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*Class with one Properties*/
+/* bg color */
+.bg-color-1 {
+    background-color: #7895B2;
+}
+
+.bg-color-2 {
+    background-color: #AEBDCA;
+}
+
+.bg-color-3 {
+    background-color: #E8DFCA;
+}
+
+.bg-color-4 {
+    background-color: #F5EFE6;
+}
+
+/* display */
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dp-block {
+    display: block;
+}
+
+.dp-flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+.dp-flex-beetwen{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dp-flex-around{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dp-inlineblock-list {
+    display: inline-block;
+    list-style-type: none;
+}
+/* position */
+.ps-rel-top {
+    position: relative;
+    top:0;
+}
+
+/* margin */
+.mr-left-right-auto {
+    margin: 1.2rem auto;
+}
+
+.mr-all-1r {
+    margin: 1rem;
+}
+
+.mr-left-right-2r{
+    margin: 1.2rem 2rem;
+}
+
+.mr-right-1r{
+    margin-right: 3rem;
+}
+
+.mr-top-1r{
+    margin-top: 1rem;
+}
+
+.mr-bot-1r{
+    margin-bottom: 1rem;
+}
+
+.mr-top-3r{
+    margin-top: 3rem;
+}
+
+.mr-bot-3r{
+    margin-bottom: 3rem;
+}
+
+.mr-top-5r{
+    margin-top: 5rem;
+}
+
+.mr-top-7r{
+    margin-top: 7rem;
+}
+
+.mr-bot-7r{
+    margin-bottom: 7rem;
+}
+
+/* padding */
+.pd-all-5r {
+    padding: 5rem;
+}
+
+.pd-all-3r {
+    padding: 3rem;
+}
+
+.pd-all-2r {
+    padding: 2rem;
+}
+
+.pd-all-1r {
+    padding: 1rem;
+}
+
+.pd-all-05r {
+    padding: 0.5rem;
+}
+
+/* font */
+/* font-weight */
+.fw-600-center{
+    font-weight: 400;
+    text-align: center;
+}
+
+.fw-400-center{
+    font-weight: 400;
+    text-align: center;
+}
+
+.fw-300-center{
+    font-weight: 300;
+    text-align: center;
+}
+
+
+.fw-200-center{
+    font-weight: 200;
+    text-align: center;
+}
+
+/* font-size */
+.fs-1r{
+    font-size: 1rem;
+}
+
+.fs-1coma5r{
+    font-size: 1.5rem;
+}
+
+.fs-2r{
+    font-size: 2rem;
+}
+
+/* width & height*/
+.width-15{
+    width: 15vw;
+}
+
+.width-80{
+    width: 80vw;
+}
+
+.width-90{
+    width: 90vw;
+}
+
+.width-card{
+    width: 300px;
+    height: 470px;
+    flex: 0 0 30.333333%;
+}
+
+.height-100 {
+    height: 100vh;
+}
+
+/* border */
+.br-shadow {
+    border-radius: 0.2em;
+    box-shadow: 0 2px 4px 0 rgba(120, 149, 178, 0.2), 2px 2px 6px 0 rgba(232, 223, 202, 0.3);
+}
+
+/* card */
+.card h2 {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+    height: 80px;
+    width: 80%;
+}
+
+.card p {
+    font-size: 0.8em;
+    text-align: center;
+    padding: 0 1.2rem;
+}
+
+.card p+p {
+    font-size: 0.6rem;
+    text-align: justify;
+}
+
+.card p+p::first-line {
+    color: #7895B2;
+}
+
+.card img {
+    width: 200px;
+}
+
+/* card button */
+
+.button {
+    padding: 0.6rem 0;
+    border-radius: 0.6rem;
+    border: none;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.button a {
+    text-decoration: none;
+    color: black;
+}
+
+/* action hover */
+.button:hover {
+    background-color: #E8DFCA;
+    transform: scale(1.05);
+}
+
+.button a:hover {
+    font-weight: 600;  
+}
+
+.width-card:hover {
+    background-color: #AEBDCA;
+}
+
+a.anch:hover {
+    color: #7895B2;
+    font-weight: 600;
+}
+
+/* action active */
+.anchor:visited {
+    color: white;
+}
+
+/* input */
+input[type=text], textarea, input[type=email], select{
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #E8DFCA;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+input:required:invalid, textarea:required:invalid{
+    border-color: red;
+}
+
+input:required:valid, textarea:required:valid{
+    border-color: green;
+}
+
+input:focus, textarea:focus{
+    outline-color: #7895B2;
+}
+
+select:disabled {
+    outline-color: #E8DFCA;
+}
+
+
+
+@media only screen and (max-width: 1150px) {
+    .height-100{
+        height:170vh;
+    }
+}
+
+@media only screen and (max-width: 758px) {
+    .height-100{
+        height:300vh;
+    }
+}
+
+@media only screen and (max-width: 528px) {
+    .height-100{
+        height:250vh;
+    }
+}
