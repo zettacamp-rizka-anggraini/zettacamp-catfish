@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book Purchasing</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="container">
+            <section class="card">
+                <h1>Book Purchasing</h1>
+                <form>
+                    <label for="bName">Book Name</label> <br>
+                    <input type="text" id="nBook" name="nameBook"><br><br>
+                    <label for="bPrice">Book Price</label> <br>
+                    <input type="text" id="pBook" name="priceBook"><br><br>
+                    <label for="bDis">Book Discount</label> <br>
+                    <input type="text" id="dBook" name="discountBook" value="10%" disabled><br><br>
+                    <label for="bTax">Book Tax</label><br>
+                    <input type="text" id="tBook" name="taxBook" value="5%" disabled><br><br>
+                    <input type="button" id="submit" value="Submit">
+                </form>
+            </section>
+            <section class="card">
+                <h1>Receipt</h1>
+                <p>Book Name : <span id="bookNama"></span></p>
+                <p>Price Book : Rp <span id="bookPrice"></span></p>
+                <p>Amount of discount : Rp <span id="bookDis"></span></p>
+                <p>Price after discount : Rp <span id="bookAfterDis"></span></p>
+                <p>Amount of tax : Rp <span id="bookTax"></span></p>
+                <p>Price after tax : Rp <span id="bookAfterTax"></span></p>
+            </section>
+        </section>
+
+        <script>
+            document.getElementById("submit").onclick = function () {
+                let nameBook = document.getElementById("nBook").value;
+                let priceBook = parseInt(document.getElementById("pBook").value);
+                const discountBook = 10;
+                const taxBook = 5;
+
+                function bookPurchasing(nameBook, priceBook, discountBook, taxBook) {
+                    nameBook = nameBook;
+                    amountDiscount = priceBook*(discountBook/100);
+                    priceAfterDiscount = priceBook - amountDiscount;
+                    amountTax = priceAfterDiscount*(taxBook/100);
+                    priceAfterTax = priceAfterDiscount + amountTax;
+                    let type = (nameBook === priceAfterDiscount);
+
+                    return {
+                        'Book Name' : nameBook,
+                        'Amount Of Discount' : amountDiscount,
+                        'Price After Discount' : priceAfterDiscount,
+                        'Amount Of Tax' : amountTax,
+                        'Price After Tax' : priceAfterTax,
+                        'Type' : type
+                    };
+                }
+
+                const result = bookPurchasing(nameBook, priceBook, discountBook, taxBook);
+                
+                bookNama.innerHTML = result["Book Name"];
+                bookPrice.innerHTML = priceBook;
+                bookDis.innerHTML = result["Amount Of Discount"];
+                bookAfterDis.innerHTML = result["Price After Discount"];
+                bookTax.innerHTML = result["Amount Of Tax"];
+                bookAfterTax.innerHTML = result["Price After Tax"];
+            }
+        </script>
+    </body>
+</html>

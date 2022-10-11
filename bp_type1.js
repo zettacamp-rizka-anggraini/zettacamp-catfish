@@ -1,7 +1,7 @@
 let nameBook = "Book Of Life";
 let priceBook_1 = 120000;
-const discountBook = 10;
-const taxBook = 5;
+const discountBook = 5.75;
+const taxBook = 2.5;
 
 function bookPurchasing(nameBook, priceBook, discountBook, taxBook) {
     nameBook = nameBook;
