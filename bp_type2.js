@@ -21,7 +21,7 @@ function bookPurchasing(nameBook, priceBook, discountBook, taxBook) {
     };
 }
 
-const result = bookPurchasing(nameBook, priceBook_1, discountBook, taxBook);
+const result = bookPurchasing("book deh", priceBook_1, discountBook, taxBook);
 console.log(result);
 console.log("Book Purchasing");
 console.log("Book Name = ", result["Book Name"]);
