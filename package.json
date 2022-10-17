@@ -1,0 +1,22 @@
+{
+  "name": "rizka_zettacamp_catfish",
+  "version": "1.0.0",
+  "description": "Front-End Developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zettacamp-rizka-anggraini/zettacamp-catfish.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zettacamp-rizka-anggraini/zettacamp-catfish/issues"
+  },
+  "homepage": "https://github.com/zettacamp-rizka-anggraini/zettacamp-catfish#readme",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}
