@@ -1,0 +1,12 @@
+.jumbotron{
+    width: 100%;
+    height:30vh;
+    background-image: url("https://picsum.photos/seed/200/2000?grayscale");
+    background-repeat: no-repeat;
+}
+
+.dp-block{
+    width: 80%;
+    display: block;
+    margin:0 auto
+}

@@ -1,0 +1,9 @@
+<div class="table-container">
+    <form (ngSubmit)="submitNewUser()">
+        <label>ID</label><br>
+        <input type="text" [(ngModel)]="idUser" class="form" name="input_id" placeholder="Your ID Here....." ><br><br>
+        <label>Name</label><br>
+        <input type="text" [(ngModel)]="nameUser" name="input_name" placeholder="Your Name Here....."><br><br>
+        <button type="submit">Submit</button><br><br>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+.containerbox{
+    display: flex;
+    justify-content: space-around;
+    padding: 5rem;
+    margin-top: 2rem;
+    /* background-color: aquamarine; */
+}
+
+h1 {
+    color:pink;
+}
