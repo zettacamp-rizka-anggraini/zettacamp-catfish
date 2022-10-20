@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+.dp-block{
+    display: block;
+    margin: 1.5rem auto;
+}

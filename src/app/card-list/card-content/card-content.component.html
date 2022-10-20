@@ -1,0 +1,12 @@
+<div *ngFor="let item of itemArray; let i = index" class="cardbox br-shadow dp-block">
+    <h2 style="text-align: center;">Product {{item.id}}</h2>
+    <img class="dp-block" src="{{item.img}}">
+    <h3 style="text-align: center;">{{item.name | uppercase}}</h3>
+    <p style="text-align: center;">description : <br> {{item.description}}</p>
+    <p style="text-align: center;">shop : {{item.shop}}</p>
+    <button class="dp-block br-shadow" *ngIf="item==itemArray[i]" (click)="onAddShoppingCart(item)" [ngClass]="{'coral' : color, 'green' : !color}">{{status}}</button>
+</div>
+<p>{{productAddMessage}}</p>
+
+
+

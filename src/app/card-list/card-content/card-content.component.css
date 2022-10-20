@@ -1,0 +1,24 @@
+.cardbox {
+    background-color: white;
+    width:300px;
+    height: 400px;
+    flex: 0 0 30.333333%;
+}
+
+.coral {
+    background-color: coral;
+}
+
+.green {
+    background-color: greenyellow;
+}
+
+.br-shadow {
+    border-radius: 0.2em;
+    box-shadow: 0 2px 4px 0 rgba(120, 149, 178, 0.2), 2px 2px 6px 0 rgba(232, 223, 202, 0.3);
+}
+
+button{
+    border:none;
+    padding: 8px;
+}
