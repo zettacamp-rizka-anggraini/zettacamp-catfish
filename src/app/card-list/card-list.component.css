@@ -1,0 +1,27 @@
+/* .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  } */
+
+.container {
+  display: block;
+  margin: 1.2rem auto;
+  width: 80%;
+}
+
+.card h2 {
+  font-weight: 400;
+}
+.card mat-panel-description p {
+  padding-left: 10rem;
+}
+
+.br-shadow {
+  border-radius: 0.2em;
+  box-shadow: 0 2px 4px 0 rgba(120, 149, 178, 0.2),
+    2px 2px 6px 0 rgba(232, 223, 202, 0.3);
+}
+
+.m-top-bottom {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}

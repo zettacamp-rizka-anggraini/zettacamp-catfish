@@ -1,0 +1,43 @@
+.example-card {
+    max-width: 400px;
+  }
+
+.example-card img {
+    width: 200px;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dp-block {
+    display: block;
+    margin: 0 auto;
+}
+
+.width-card{
+    width: 200px;
+    height: 500px;
+    flex: 0 0 30.333333%;
+}
+
+h3{
+    font-weight: 400;
+}
+
+button{
+    border: none;
+    padding: 7px;
+    width: 150px;
+}
+
+.coral {
+    background-color: coral;
+}
+
+.green {
+    background-color: greenyellow;
+}

@@ -1,0 +1,17 @@
+<h1 style="text-align:center" class="m-top-bottom">List Hero</h1>
+<mat-accordion class="container">
+        <mat-expansion-panel class="card br-shadow" *ngFor="let item of arrayDataHero" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h2>{{item.name}}</h2>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p>{{item.position}}</p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>{{item.first_mision}}</p>
+            <p>{{item.status}}</p>
+        </mat-expansion-panel>
+</mat-accordion>
+<h1 style="text-align:center" class="m-top-bottom">Card View Hero</h1>
+<app-card-view></app-card-view>
