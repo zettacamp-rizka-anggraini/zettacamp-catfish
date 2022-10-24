@@ -1,0 +1,9 @@
+<!-- <app-member-header></app-member-header> -->
+<app-member-form [listMember]="arrayMember" (addMember)="addNewMember($event)"></app-member-form>
+<button (click)="nameTitle=true">Change Name</button>
+<button (click)="nameTitle=false">Change Back</button>
+<button (click)="deleteToday()">Delete</button>
+<app-member-cardview [listViewMember]="arrayMember" [changeNewTitle] = "nameTitle" (deleteRow)="deleteNow($event)">
+    <!-- <button class="dp-block" style="margin: 0 auto 1.5rem auto;" >Change Status</button> -->
+</app-member-cardview>
+

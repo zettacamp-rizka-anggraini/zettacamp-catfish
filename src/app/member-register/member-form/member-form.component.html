@@ -1,0 +1,46 @@
+<h1 style="text-align: center;">Form Register For Member ABC</h1>
+<div class="container-form">
+    <div class="formcontainer">
+        <div class="row">
+            <div class="col-30">
+                <label>Fullname</label>
+            </div>
+            <div class="col-70">
+                <input type="text" name="input_fullname" #fullname_member>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-30">
+                <label>Nick Name</label>
+            </div>
+            <div class="col-70">
+                <input type="text" name="input_fullname" #nickname_member>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-30">
+                <label>Mini Description</label>
+            </div>
+            <div class="col-70">
+                <input type="text" name="input_minidescription" #minidesc_member>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-30">
+                <label>URL Image</label>
+            </div>
+            <div class="col-70">
+                <input type="url" name="input_urlimage" #urlimg_member>
+            </div>
+        </div>
+        <div class="row">
+            <button (click)="onAddNewMember(fullname_member)">Submit</button>
+        </div>
+    </div>
+</div>
+<!-- <div class="container">
+    <div class="displaycontent" *ngFor="let member of listMember">
+        <p>{{member.id_member}}</p>
+        <p>{{member.fullname_member}}</p>
+    </div>
+</div> -->

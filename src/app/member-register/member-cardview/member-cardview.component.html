@@ -1,0 +1,15 @@
+<h1 style="text-align: center; margin: 5rem 0">{{nameTitleNow}}</h1>
+<div style="height: fit-content; width: 80%; margin: 1.2rem auto;" class="flex-container">
+    <div *ngFor="let view of listViewMember">
+        <div class="width-card br-shadow card dp-block">
+            <h2 class="dp-block" style="margin: 0 auto;">{{view.nickname_member}}</h2>
+            <img class="dp-block" style="margin: 0 auto 1.5rem auto;" src="{{view.urlimg_member}}">
+            <p>ID: {{view.id_member}}</p>
+            <p>Name: {{view.fullname_member}}</p>
+            <p>Description: {{view.minidesc_member}}</p>
+            <p>Status: {{view.status_member}}</p>
+            <button (click)="onDestroyThis(view)">Destroy This Card</button>
+            <!-- <ng-content></ng-content> -->
+        </div>
+    </div>
+</div>
