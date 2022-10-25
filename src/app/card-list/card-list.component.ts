@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CardListService } from './card-list.service';
 
 @Component({
@@ -6,13 +6,20 @@ import { CardListService } from './card-list.service';
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css'],
 })
-export class CardListComponent implements OnInit {
+export class CardListComponent implements OnInit, OnDestroy {
   arrayDataHero:any;
   
   constructor(private serviceData: CardListService) { }
-
+  
   ngOnInit(): void {
-    this.arrayDataHero=this.serviceData.arrayHero;
+    this.serviceData.dataHero$.subscribe(heroUser => {
+      console.log(heroUser);
+      this.arrayDataHero = heroUser;
+    })
   }
 
+  ngOnDestroy(): void {
+   
+  }
+  
 }

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardListService {
-  constructor() {}
-
-  arrayHero = [
+  arrayHero= [
     {
       name: 'Iron Man',
       position: 'Marvel Universe',
@@ -51,10 +50,16 @@ export class CardListService {
     },
   ];
 
+  private userHero = new BehaviorSubject<{}>(this.arrayHero);
+  dataHero$ = this.userHero.asObservable();
+
+  constructor() {}
+
+
   updateNameSub(newStatus){
-    let index = this.arrayHero.findIndex(x=> x.name == newStatus.name);
-    console.log("index = ", index);
-    this.arrayHero[index].status = "Died";
-    alert("Super Hero = " + this.arrayHero[index].name + " Status Has Been Update");
+    // let index = this.arrayHero.findIndex(x=> x.name == newStatus.name);
+    this.arrayHero[newStatus.index].status = "Died";
+    alert("Super Hero = " + this.arrayHero[newStatus.index].name + " Status Has Been Update");
+    // this.userHero.next();
   }
 }

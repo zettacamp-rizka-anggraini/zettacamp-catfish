@@ -1,5 +1,5 @@
 <div style="height:120vh;" class="flex-container">
-    <mat-card *ngFor="let i of cardViewHero" class="example-card br-shadow width-card dp-block">
+    <mat-card *ngFor="let i of cardViewHero; let ind = index" class="example-card br-shadow width-card dp-block">
         <mat-card-header class="dp-block">
             <mat-card-title><h3 style="text-align: center;">{{i.name}}</h3></mat-card-title>
         </mat-card-header>
@@ -7,10 +7,10 @@
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
         <mat-card-content style="width: 68%; margin-top: 1rem;" class="dp-block">
             <p>{{i.position}}</p>
-            <p>{{i.first_mision}}</p>
+            <p>{{i.first_mision}}&emsp;{{i.status}}</p>
         </mat-card-content>
         <mat-card-action >
-            <button mat-button class="dp-block br-shadow" style="margin-top: 1rem;" (click)=onUpdate(i)>UPDATE</button>
+            <button mat-button class="dp-block br-shadow" style="margin-top: 1rem;" (click)=onUpdate(i,ind)>UPDATE</button>
         </mat-card-action>
     </mat-card>
     
