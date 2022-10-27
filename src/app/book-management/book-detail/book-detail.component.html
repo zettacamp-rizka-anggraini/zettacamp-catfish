@@ -1,0 +1,35 @@
+<!-- <div class="boxcontainer">
+    <mat-card *ngIf="bookSelected; else null_content">
+        <h3>{{bookSelected.name}}</h3>
+        <p>{{bookSelected.author}}</p>
+        <p>{{bookSelected.publisher}}</p>
+        <p>{{bookSelected.publish_date}}</p>
+        <a [routerLink]="[':id', bookSelected.id]">More Details</a>
+        <button (click)="closeDataBooks()">Close</button>
+    </mat-card>
+</div>
+
+<ng-template #null_content>
+    <h2>You dont have any selected book yet, Please select from list of book that available</h2>
+</ng-template> -->
+
+<div class="container">
+  <mat-card class="br-shadow">
+    <h3 style="text-align: center;">{{ name }}</h3>
+    <div style="display:flex; justify-content:space-around">
+        <div>
+            <p>Author: {{ author }}</p>
+            <p>Publisher: {{ publisher }}</p>
+            <p>Publish Date : {{ publish_date }}</p>
+        </div>
+        <div>
+            <p>Address: {{address}}</p>
+            <p>Origin: {{origin}}</p>
+        </div>
+    </div>
+    
+    <mat-card-actions align="center">
+      <button mat-button class="br-shadow" (click)="onBack()">Close</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

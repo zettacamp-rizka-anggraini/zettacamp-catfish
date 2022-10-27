@@ -1,0 +1,31 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "name": "Loneliness",
+      "author": "Arvi Syarhin",
+      "publisher": "Arvi and Ardi",
+      "publish_date": "09/09/2022",
+      "address":"Tangerang",
+      "origin":"Indonesia"
+    },
+    {
+      "id": "2",
+      "name": "Part To Me",
+      "author": "Belle O Cornell",
+      "publisher": "Comedia Tex",
+      "publish_date": "09/09/2019",
+      "address":"Orlando",
+      "origin":"Amerika"
+    },
+    {
+      "id": "3",
+      "name": "Dark in the west",
+      "author": "alyawis",
+      "publisher": "Dooorbell",
+      "publish_date": "09/09/2018",
+      "address":"Seoul",
+      "origin":"South Korea"
+    }
+  ]
+}
