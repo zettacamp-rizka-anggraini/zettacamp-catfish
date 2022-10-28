@@ -1,0 +1,32 @@
+.container{
+    display: block;
+    width: 70%;
+    margin: 2rem auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+button{
+    padding: 2px 100px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+}
+
+a:hover {
+    color:green;
+}
+
+form{
+    margin-top: 2rem;
+}

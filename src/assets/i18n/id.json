@@ -1,0 +1,36 @@
+{
+    "userForm": {
+            "id": "Nomor ID",
+            "name": "Nama",
+            "age": "Umur",
+            "gender": "Jenis Kelamin",
+            "email": "Email",
+            "position": "Posisi",
+            "martial_status": "Status Pernikahan",
+            "address" : "Alamat",
+            "zip_code" : "Kode Pos",
+            "city": "Kota",
+            "country": "Negara"
+        },
+    "userButton": {
+        "submit" : "Kirim",
+        "back" : "Kembali Ke Halaman Utama"
+    },
+    "userLang" : {
+        "lang" : "Bahasa"
+    },
+    "userMartial": {
+        "Single" : "Sendirian",
+        "Married" : "Menikah" 
+    },
+    "userPosition": {
+        "Manager" : "Manager atau Pengelola",
+        "Data Scientist" : "Data Science",
+        "IT instructor" : "Insturktur IT"
+
+    },
+    "userGender": {
+        "Male" : "Laki-Laki",
+        "Female" : "Wanita"
+    }
+}

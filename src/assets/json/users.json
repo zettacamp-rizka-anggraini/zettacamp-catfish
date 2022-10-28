@@ -1,0 +1,20 @@
+{
+    "user": [
+        {
+            "id": "1",
+            "name": "Ayu",
+            "age": 18,
+            "gender": "female",
+            "email": "ayu.ayu@gmail.com",
+            "position": "data scientist",
+            "martial_status": "single",
+            "address" : {
+                "address_name" : "simanjutak downtown",
+                "zip_code" : "55515",
+                "city": "jakarta",
+                "country": "indonesia"
+            }
+
+        }
+    ]
+}

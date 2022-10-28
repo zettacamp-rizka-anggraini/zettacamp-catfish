@@ -1,0 +1,37 @@
+{
+    "userForm": {
+            "id": "ID Number",
+            "name": "Name",
+            "age": "Age",
+            "gender": "Gender",
+            "email": "Email",
+            "position": "Position",
+            "martial_status": "Martial Status",
+            "address" : "Address",
+            "zip_code" : "Zip Code",
+            "city": "City",
+            "country": "Country"
+        },
+    "userButton": {
+        "submit" : "Submit",
+        "back" : "Back To Home"
+    },
+    "userLang" : {
+        "lang" : "Language"
+    },
+    "userMartial": {
+        "Single" : "Single",
+        "Married" : "Married" 
+    },
+    "userPosition": {
+        "Manager" : "Manager",
+        "Data Scientist" : "Data Sciencetist",
+        "IT instructor" : "IT instructor"
+
+    },
+    "userGender": {
+        "Male" : "Laki-Laki",
+        "Female" : "Wanita"
+    }
+
+}
