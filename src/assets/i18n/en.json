@@ -38,6 +38,11 @@
         "Select" : "Select",
         "Main" : "Main",
         "Additional" : "Additional"
+    },
+    "userError": {
+        "errorId" : "Input Your ID",
+        "errorName" : "Input Your Name",
+        "errorAge" : "You Have To Pass 10 Years Old"
     }
 
 }

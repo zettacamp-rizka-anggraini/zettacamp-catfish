@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ResolveEnd, Router } from '@angular/router';
 import { UserManagementService } from '../user-management.service';
 import { FormBuilder } from '@angular/forms'; // form builder
 import { FormArray } from '@angular/forms'; // form array
-
+import Swal from 'sweetalert2'
 
 //ngx-translate
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-creation-page',
@@ -66,18 +67,29 @@ export class UserCreationPageComponent implements OnInit {
     // })
 
     this.initForm();
+
+    this.signUpForm.get('name').valueChanges.subscribe((currentValue)=>{
+      // console.log("value berubah");
+      let regex =  /[^A-z|\s]/;
+      // console.log(currentValue);
+      let names:any;
+
+      names = currentValue.replace(regex, "");
+      // console.log(names);
+      this.signUpForm.get("name").patchValue(names, {emitEvent: false});
+    })
   }
 
   initForm() {
     
     this.signUpForm = this.fb.group({
-      id: [null],
-      name: [null],
-      age: [null],
-      gender: [null],
-      email: [null],
-      position: [null],
-      martial_status: [null],
+      id: [null, Validators.required],
+      name: [null, Validators.required],
+      age: [null, Validators.required, this.minAgeFormValidator],
+      gender: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      position: [null, Validators.required],
+      martial_status: [null, Validators.required],
       address: this.fb.array([]),
     });
     
@@ -113,11 +125,11 @@ export class UserCreationPageComponent implements OnInit {
 
   newAddress(): FormGroup {
     return this.fb.group({
-      status: [null],
-      address_name: [null],
-      zip_code: [null],
-      city: [null],
-      country: [null],
+      status: [null, Validators.required],
+      address_name: [null, Validators.required],
+      zip_code: [null, Validators.required],
+      city: [null, Validators.required],
+      country: [null, Validators.required],
     })
   }
 
@@ -128,15 +140,50 @@ export class UserCreationPageComponent implements OnInit {
   
   onSubmit() {
     // console.log(this.signUpForm.value);
-    if (this.id) {
-      let updateId = this.id;
-      let updateValue = this.signUpForm.value;
-      this.serviceUser.updateData(updateId, updateValue);
+    let updateId = this.id;
+    let updateValue = this.signUpForm.value;
+    if (updateId) {
+      if(this.signUpForm.valid){
+        // console.log("berhasil");
+        this.serviceUser.updateData(updateId, updateValue);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Data has been Edited',
+          icon: 'success',
+          confirmButtonText: 'Back To Home'
+        }).then(()=>{
+          this.route.navigate(['user-management']);
+        })
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Data cant be Edited',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+      }
     } else {
       let data = this.signUpForm.value;
-      this.serviceUser.addNewUser(data);
+      if(this.signUpForm.valid){
+        this.serviceUser.addNewUser(data);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Data has been Edited',
+          icon: 'success',
+          confirmButtonText: 'Back To Home'
+        }).then(()=>{
+          this.route.navigate(['user-management']);
+        })
+      } else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Data Has Not Been Filled',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+      }
     }
-    this.route.navigate(['user-management']);
+    
   }
   
   changeLang(lang:any){
@@ -155,5 +202,41 @@ export class UserCreationPageComponent implements OnInit {
 
   removeAddress(i:number){
     this.addresses.removeAt(i);
+  }
+
+  //Validators
+  minAgeFormValidator(control: FormControl): Promise<any> | Observable<any>{
+    const promise = new Promise<any>((resolve) => {
+      setTimeout(() => {
+        if(control.value <= 10){
+          resolve({'ageIsForbidden':true});
+          // return 'age not valid';
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+    return promise;
+  }
+
+  // noCharacterNameValidator(control: FormControl): Promise<any> | Observable<any>{
+  //   const promise = new Promise<any>((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if(!/^[\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}]+$/u.test(control.value) || /^[0-9]+$/u.test(control.value)){
+  //         resolve({'nameIsForbidden':true});
+  //       } else {
+  //         resolve(null);
+  //       }
+  //     }, 1200);
+  //   });
+  //   return promise;
+  // }
+
+  getEmailErrorMessage(){
+    if(this.signUpForm.get('email').hasError('required')){
+      return 'Input Your Email';
+    }
+
+    return this.signUpForm.get('email').hasError('email') ? 'Not a valid email' : '';
   }
 }

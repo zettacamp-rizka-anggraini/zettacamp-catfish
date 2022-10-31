@@ -39,5 +39,10 @@
         "Select": "Pilih",
         "Main" : "Utama",
         "Additional" : "Tambahan"
+    },
+    "userError": {
+        "errorId" : "Masukan ID Kamu",
+        "errorName" : "Masukan Nama Kamu",
+        "errorAge" : "Kamu Harus Melewati Umur 10 Tahun"
     }
 }

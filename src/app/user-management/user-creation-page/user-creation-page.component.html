@@ -15,18 +15,21 @@
     <!-- id number -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>{{ "userForm.id" | translate }}</mat-label>
-      <input type="text" matInput formControlName="id" />
+      <input type="text" matInput formControlName="id"/>
+      <mat-error *ngIf="this.signUpForm.get('id')?.invalid">{{"userError.errorId" | translate}}</mat-error>
     </mat-form-field>
     <!-- name -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>{{ "userForm.name" | translate }}</mat-label>
       <input type="text" matInput formControlName="name" />
+      <mat-error *ngIf="this.signUpForm.get('name')?.invalid">{{"userError.errorName" | translate}}</mat-error>
     </mat-form-field>
 
     <!-- age -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>{{ "userForm.age" | translate }}</mat-label>
       <input type="number" matInput name="age" formControlName="age" />
+      <mat-error *ngIf="this.signUpForm.get('age')?.invalid">{{"userError.errorAge" | translate}}</mat-error>
     </mat-form-field>
 
     <!-- gender -->
@@ -39,12 +42,13 @@
       <mat-radio-button name="gfemale" value="female">{{
         "userGender.Female" | translate
       }}</mat-radio-button> </mat-radio-group
-    ><br /><br />
+    ><br/><br />
 
     <!-- email -->
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>{{ "userForm.email" | translate }}</mat-label>
-      <input type="text" formControlName="email" matInput name="email" />
+      <input type="text" formControlName="email" matInput placeholder="pat@example.com" name="email" required/>
+      <mat-error *ngIf="this.signUpForm.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <!-- position -->
@@ -56,6 +60,7 @@
           {{ "userPosition." + post.viewValue | translate }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="this.signUpForm.get('position')?.invalid">Select Your Position</mat-error>
     </mat-form-field>
 
     <!-- martial status -->
@@ -67,6 +72,7 @@
           {{ "userMartial." + status.viewValue | translate }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="this.signUpForm.get('martial_status')?.invalid">Input Your Martial Status</mat-error>
     </mat-form-field>
 
     <!-- address -->
@@ -92,27 +98,30 @@
               matInput
               id="address_name"
             />
+            <mat-error *ngIf="this.addresses.at(i).get('address_name')?.invalid">Input Your Address</mat-error>
           </mat-form-field>
 
           <table class="example-full-width" cellspacing="0">
             <tr>
               <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="example-50-width space" appearance="fill">
                   <mat-label>{{ "userForm.zip_code" | translate }}</mat-label>
                   <input formControlName="zip_code" type="number" matInput />
+                  <mat-error *ngIf="this.addresses.at(i).get('zip_code')?.invalid">Input Your Zip Code</mat-error>
                 </mat-form-field>
               </td>
               <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="example-50-width space" appearance="fill">
                   <mat-label>{{ "userForm.city" | translate }}</mat-label>
                   <input formControlName="city" type="text" matInput />
+                  <mat-error *ngIf="this.addresses.at(i).get('city')?.invalid">Input Your City</mat-error>
                 </mat-form-field>
               </td>
               <td>
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="example-50-width space" appearance="fill">
                   <mat-label>{{ "userForm.country" | translate }}</mat-label>
                   <input formControlName="country" type="text" matInput />
-                  <mat-hint align="end"></mat-hint>
+                  <mat-error *ngIf="this.addresses.at(i).get('country')?.invalid">Input Your Country</mat-error>
                 </mat-form-field>
               </td>
             </tr>

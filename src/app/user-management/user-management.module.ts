@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
+    SweetAlert2Module,
     // ngx-translate and loader module
     HttpClientModule,
     TranslateModule.forRoot({
