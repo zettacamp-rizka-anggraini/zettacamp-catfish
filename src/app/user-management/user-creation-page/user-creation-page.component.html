@@ -125,6 +125,7 @@
               (click)="removeAddress(i)"
               type="button"
               [disabled]="status"
+              *ngIf="addresses?.length > 1"
             >
               &plus; {{ "userButton.removeAddress" | translate }}
             </button> </mat-card-actions

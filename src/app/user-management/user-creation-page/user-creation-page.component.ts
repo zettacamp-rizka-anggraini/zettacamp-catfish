@@ -86,6 +86,7 @@ export class UserCreationPageComponent implements OnInit {
       this.getUserDatas(this.id);
     } else {
       this.id == null;
+      this.addNewAddress();
     }
     // console.log(userId)
   }
@@ -98,7 +99,7 @@ export class UserCreationPageComponent implements OnInit {
 
         // Instead, correct the class name and use the optional chaining (?.) operator to check if the element at index 0 contains the property. undefined or null.
         let sum = this.userId[0]?.address.length; 
-  
+
         for(let i=0; i < sum;i++){
           this.addNewAddress();
         }
