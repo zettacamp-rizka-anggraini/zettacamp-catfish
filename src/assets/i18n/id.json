@@ -14,7 +14,9 @@
         },
     "userButton": {
         "submit" : "Kirim",
-        "back" : "Kembali Ke Halaman Utama"
+        "back" : "Kembali Ke Halaman Utama",
+        "addAddress" : "Tambah Alamat Baru",
+        "removeAddress" : "Hapus Alamat"
     },
     "userLang" : {
         "lang" : "Bahasa"
@@ -32,5 +34,10 @@
     "userGender": {
         "Male" : "Laki-Laki",
         "Female" : "Wanita"
+    },
+    "userLabel": {
+        "select": "Pilih",
+        "main" : "Utama",
+        "additional" : "Tambahan"
     }
 }

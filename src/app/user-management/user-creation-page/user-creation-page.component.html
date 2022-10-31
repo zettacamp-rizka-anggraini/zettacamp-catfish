@@ -1,7 +1,9 @@
 <div class="container">
-  <a routerLink="/user-management">&larr; {{'userButton.back' | translate}}</a>
-  <mat-form-field appearance="outline" style="position:relative;float:right">
-    <mat-label>{{'userLang.lang' | translate}}</mat-label>
+  <a routerLink="/user-management"
+    >&larr; {{ "userButton.back" | translate }}</a
+  >
+  <mat-form-field appearance="outline" style="position: relative; float: right">
+    <mat-label>{{ "userLang.lang" | translate }}</mat-label>
     <mat-select name="lang" (valueChange)="changeLang($event)">
       <mat-option *ngFor="let langu of lang" [value]="langu.value">
         {{ langu.viewValue }}
@@ -12,90 +14,144 @@
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <!-- id number -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{'userForm.id' | translate}}</mat-label>
+      <mat-label>{{ "userForm.id" | translate }}</mat-label>
       <input type="text" matInput formControlName="id" />
     </mat-form-field>
     <!-- name -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{'userForm.name' | translate}}</mat-label>
+      <mat-label>{{ "userForm.name" | translate }}</mat-label>
       <input type="text" matInput formControlName="name" />
     </mat-form-field>
 
+    <!-- age -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{'userForm.age' | translate}}</mat-label>
+      <mat-label>{{ "userForm.age" | translate }}</mat-label>
       <input type="number" matInput name="age" formControlName="age" />
     </mat-form-field>
 
-    <label>{{'userForm.gender' | translate}}</label><br />
+    <!-- gender -->
+    <label>{{ "userForm.gender" | translate }}</label
+    ><br />
     <mat-radio-group formControlName="gender" aria-label="Select an option">
-    <mat-radio-button name="gmale" value="male">{{"userGender.Male" | translate}}</mat-radio-button>
-      <mat-radio-button name="gfemale" value="female"
-        >{{"userGender.Female" | translate}}</mat-radio-button
-      > </mat-radio-group
-    ><br/><br/>
+      <mat-radio-button name="gmale" value="male">{{
+        "userGender.Male" | translate
+      }}</mat-radio-button>
+      <mat-radio-button name="gfemale" value="female">{{
+        "userGender.Female" | translate
+      }}</mat-radio-button> </mat-radio-group
+    ><br /><br />
 
+    <!-- email -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{'userForm.email' | translate}}</mat-label>
+      <mat-label>{{ "userForm.email" | translate }}</mat-label>
       <input type="text" formControlName="email" matInput name="email" />
     </mat-form-field>
 
+    <!-- position -->
     <mat-form-field appearance="fill" style="margin-right: 20px">
-      <mat-label>{{'userForm.position' | translate}}</mat-label>
+      <mat-label>{{ "userForm.position" | translate }}</mat-label>
       <mat-select name="positions" formControlName="position">
         <mat-option>None</mat-option>
         <mat-option *ngFor="let post of positions" [value]="post.value">
-          {{ "userPosition."+post.viewValue | translate }}
+          {{ "userPosition." + post.viewValue | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
+    <!-- martial status -->
     <mat-form-field appearance="fill">
-      <mat-label>{{'userForm.martial_status' | translate}}</mat-label>
+      <mat-label>{{ "userForm.martial_status" | translate }}</mat-label>
       <mat-select name="martialstatus" formControlName="martial_status">
         <mat-option>None</mat-option>
         <mat-option *ngFor="let status of martialStatus" [value]="status.value">
-          {{ "userMartial."+status.viewValue | translate}}
+          {{ "userMartial." + status.viewValue | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div formGroupName="address">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>{{'userForm.address' | translate}}</mat-label>
-        <input
-          formControlName="address_name"
-          type="text"
-          matInput
-          id="address_name"
-        />
-      </mat-form-field>
 
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>{{'userForm.zip_code' | translate}}</mat-label>
-              <input formControlName="zip_code" type="number" matInput />
+    <!-- address -->
+    <div formArrayName="address">
+      <div *ngFor="let item of addresses.controls; let i = index">
+        <div [formGroupName]="i">
+          <div style="display: flex; align-items: center;">
+            <mat-label><h1>{{ "userForm.address" | translate }}&emsp;</h1></mat-label>
+            <mat-form-field appearance="outline" style="position: relative; float: left">
+              <mat-label>{{ "userLabel.select" | translate }}</mat-label>
+              <mat-select name="labelStatus" formControlName="status">
+                <mat-option *ngFor="let label of labelAddress" [value]="label.value">
+                  {{ label.viewValue }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>{{'userForm.city' | translate}}</mat-label>
-              <input formControlName="city" type="text" matInput />
-            </mat-form-field>
-          </td>
-          <td>
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>{{'userForm.country' | translate}}</mat-label>
-              <input formControlName="country" type="text" matInput />
-              <mat-hint align="end"></mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
+          </div>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>{{ "userForm.address" | translate }}</mat-label>
+            <input
+              formControlName="address_name"
+              type="text"
+              matInput
+              id="address_name"
+            />
+          </mat-form-field>
+
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>{{ "userForm.zip_code" | translate }}</mat-label>
+                  <input formControlName="zip_code" type="number" matInput />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>{{ "userForm.city" | translate }}</mat-label>
+                  <input formControlName="city" type="text" matInput />
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>{{ "userForm.country" | translate }}</mat-label>
+                  <input formControlName="country" type="text" matInput />
+                  <mat-hint align="end"></mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <mat-card-actions align="end">
+            <button
+              mat-raised-button
+              color="primary"
+              style="margin-right: 20px"
+              (click)="removeAddress(i)"
+              type="button"
+              [disabled]="status"
+            >
+              &plus; {{ "userButton.removeAddress" | translate }}
+            </button> </mat-card-actions
+          ><br /><br />
+        </div>
+      </div>
     </div>
-    <mat-card-actions align="end">
-      <button mat-raised-button color="primary" style="margin-right: 20px">
-        {{'userButton.submit' | translate}}
+
+    <mat-card-actions align="center">
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-right: 20px"
+        (click)="addNewAddress()"
+        type="button"
+      >
+        &plus; {{ "userButton.addAddress" | translate }}
+      </button> </mat-card-actions
+    ><br /><br />
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        style="margin-right: 20px"
+      >
+        {{ "userButton.submit" | translate }}
       </button>
     </mat-card-actions>
   </form>

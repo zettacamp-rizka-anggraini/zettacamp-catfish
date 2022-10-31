@@ -7,7 +7,7 @@ import { BehaviorSubject, map } from 'rxjs';
   providedIn: 'root'
 })
 export class UserManagementService {
-  private user = new BehaviorSubject<any>([]);
+  user = new BehaviorSubject<any>([]);
   userData$ = this.user.asObservable();
 
   private userEdit = new BehaviorSubject<{}>({});

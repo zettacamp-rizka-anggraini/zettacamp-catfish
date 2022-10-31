@@ -14,7 +14,9 @@
         },
     "userButton": {
         "submit" : "Submit",
-        "back" : "Back To Home"
+        "back" : "Back To Home",
+        "addAddress" : "Add New Address",
+        "removeAddress" : "Delete Address"
     },
     "userLang" : {
         "lang" : "Language"
@@ -27,11 +29,15 @@
         "Manager" : "Manager",
         "Data Scientist" : "Data Sciencetist",
         "IT instructor" : "IT instructor"
-
     },
     "userGender": {
         "Male" : "Laki-Laki",
         "Female" : "Wanita"
+    },
+    "userLabel": {
+        "select" : "Select",
+        "main" : "Main",
+        "additional" : "Additional"
     }
 
 }

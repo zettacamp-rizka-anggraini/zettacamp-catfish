@@ -1,20 +1,29 @@
 {
-    "user": [
+  "user": [
+    {
+      "id": "1",
+      "name": "Ayu",
+      "age": 18,
+      "gender": "female",
+      "email": "ayu.ayu@gmail.com",
+      "position": "data scientist",
+      "martial_status": "single",
+      "address": [
         {
-            "id": "1",
-            "name": "Ayu",
-            "age": 18,
-            "gender": "female",
-            "email": "ayu.ayu@gmail.com",
-            "position": "data scientist",
-            "martial_status": "single",
-            "address" : {
-                "address_name" : "simanjutak downtown",
-                "zip_code" : "55515",
-                "city": "jakarta",
-                "country": "indonesia"
-            }
-
+          "status" : "main",
+          "address_name": "simanjutak downtown",
+          "zip_code": "55515",
+          "city": "jakarta",
+          "country": "indonesia"
+        },
+        {
+          "status": "additional",
+          "address_name": "downtown simanjutak",
+          "zip_code": "55235",
+          "city": "bandung",
+          "country": "indonesia"
         }
-    ]
+      ]
+    }
+  ]
 }

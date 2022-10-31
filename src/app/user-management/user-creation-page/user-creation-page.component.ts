@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserManagementService } from '../user-management.service';
+import { FormBuilder } from '@angular/forms'; // form builder
+import { FormArray } from '@angular/forms'; // form array
+
 
 //ngx-translate
 import { TranslateService } from '@ngx-translate/core';
@@ -28,15 +31,24 @@ export class UserCreationPageComponent implements OnInit {
     { value: 'id', viewValue: 'Indonesia' },
   ];
 
+  labelAddress = [
+    { value: 'main', viewValue: 'Main' },
+    { value: 'additional', viewValue: 'Additional' },
+  ];
+
   signUpForm: FormGroup;
   dataUserss: any;
+  userId:any;
   id: any;
+  labelStatusAddress:any;
+  status:boolean;
 
   constructor(
     private serviceUser: UserManagementService,
     private route: Router,
     private routeActived: ActivatedRoute,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private fb: FormBuilder
   ) {
     translate.addLangs(['en','id']);
     translate.setDefaultLang('en');
@@ -57,41 +69,63 @@ export class UserCreationPageComponent implements OnInit {
   }
 
   initForm() {
+    
+    this.signUpForm = this.fb.group({
+      id: [null],
+      name: [null],
+      age: [null],
+      gender: [null],
+      email: [null],
+      position: [null],
+      martial_status: [null],
+      address: this.fb.array([]),
+    });
+    
     if (this.routeActived.snapshot.params['id']) {
       this.id = this.routeActived.snapshot.params['id'];
+      this.getUserDatas(this.id);
     } else {
       this.id == null;
     }
-
-    this.signUpForm = new FormGroup({
-      id: new FormControl(null),
-      name: new FormControl(null),
-      age: new FormControl(null),
-      gender: new FormControl(null),
-      email: new FormControl(null),
-      position: new FormControl(null),
-      martial_status: new FormControl(null),
-      address: new FormGroup({
-        address_name: new FormControl(null),
-        zip_code: new FormControl(null),
-        city: new FormControl(null),
-        country: new FormControl(null),
-      }),
-    });
-
-    this.getUserDatas();
     // console.log(userId)
   }
 
-  getUserDatas() {
-    this.serviceUser.userData$.subscribe((x) => {
-      this.dataUserss = x;
-      // console.log(this.dataUserss);
-      let userId = this.dataUserss.filter((x) => x.id == this.id);
-      this.signUpForm.patchValue(userId[0]);
-    });
+  getUserDatas(id) {
+      this.serviceUser.userData$.subscribe((x) => {
+        this.dataUserss = x;
+        this.userId = this.dataUserss.filter((x) => x.id == id);
+        this.labelStatusAddress = this.userId.status;
+
+        // Instead, correct the class name and use the optional chaining (?.) operator to check if the element at index 0 contains the property. undefined or null.
+        let sum = this.userId[0]?.address.length; 
+  
+        for(let i=0; i < sum;i++){
+          this.addNewAddress();
+        }
+        
+        this.signUpForm.patchValue(this.userId[0]);
+      }); 
   }
 
+  get addresses(): FormArray{
+    return this.signUpForm.get('address') as FormArray;
+  }
+
+  newAddress(): FormGroup {
+    return this.fb.group({
+      status: [null],
+      address_name: [null],
+      zip_code: [null],
+      city: [null],
+      country: [null],
+    })
+  }
+
+  addNewAddress(){
+    this.addresses.push(this.newAddress());
+  }
+
+  
   onSubmit() {
     // console.log(this.signUpForm.value);
     if (this.id) {
@@ -104,9 +138,22 @@ export class UserCreationPageComponent implements OnInit {
     }
     this.route.navigate(['user-management']);
   }
-
+  
   changeLang(lang:any){
     this.translate.use(lang);
     // console.log(lang);
+  }
+
+  hasStatusOptions(statusAdd){
+    if(statusAdd == "main"){
+      console.log(statusAdd);
+    } else if(statusAdd == "additional") {
+      this.status = false;
+    }
+  }
+
+
+  removeAddress(i:number){
+    this.addresses.removeAt(i);
   }
 }
