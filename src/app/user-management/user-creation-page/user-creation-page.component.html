@@ -76,10 +76,10 @@
           <div style="display: flex; align-items: center;">
             <mat-label><h1>{{ "userForm.address" | translate }}&emsp;</h1></mat-label>
             <mat-form-field appearance="outline" style="position: relative; float: left">
-              <mat-label>{{ "userLabel.select" | translate }}</mat-label>
+              <mat-label>{{ "userLabel.Select" | translate }}</mat-label>
               <mat-select name="labelStatus" formControlName="status">
                 <mat-option *ngFor="let label of labelAddress" [value]="label.value">
-                  {{ label.viewValue }}
+                  {{ "userLabel." + label.viewValue | translate }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

@@ -31,13 +31,13 @@
         "IT instructor" : "IT instructor"
     },
     "userGender": {
-        "Male" : "Laki-Laki",
-        "Female" : "Wanita"
+        "Male" : "Male",
+        "Female" : "Female"
     },
     "userLabel": {
-        "select" : "Select",
-        "main" : "Main",
-        "additional" : "Additional"
+        "Select" : "Select",
+        "Main" : "Main",
+        "Additional" : "Additional"
     }
 
 }

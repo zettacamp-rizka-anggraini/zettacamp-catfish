@@ -36,8 +36,8 @@
         "Female" : "Wanita"
     },
     "userLabel": {
-        "select": "Pilih",
-        "main" : "Utama",
-        "additional" : "Tambahan"
+        "Select": "Pilih",
+        "Main" : "Utama",
+        "Additional" : "Tambahan"
     }
 }
