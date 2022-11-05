@@ -70,7 +70,7 @@ export class UserCreationPageComponent implements OnInit {
 
     this.signUpForm.get('name').valueChanges.subscribe((currentValue)=>{
       // console.log("value berubah");
-      let regex =  /[^A-z|\s]/;
+      let regex =  /[^A-zÁ|\s]/;
       // console.log(currentValue);
       let names:any;
 

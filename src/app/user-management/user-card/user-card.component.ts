@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserManagementService } from '../user-management.service';
 
@@ -9,7 +10,10 @@ import { UserManagementService } from '../user-management.service';
 })
 export class UserCardComponent implements OnInit {
   usersList:any;
-  constructor(private serviceUser:UserManagementService, private route:Router) { }
+  searchCard: string = "";
+  constructor(private serviceUser:UserManagementService, private route:Router, private fb: FormBuilder) {
+    
+  }
 
   ngOnInit(): void {
     this.serviceUser.userData$.subscribe(dataUser => {

@@ -17,6 +17,11 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
+import {MatIconModule} from '@angular/material/icon';
+import { AccentCharacterPipe } from './pipe/accent-character.pipe';
+import { FormsModule } from '@angular/forms';
+import { CombineWordPipe } from './pipe/combine-word.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     UserListComponent,
     UserCardComponent,
     UserCreationPageComponent,
+    SearchFilterPipe,
+    AccentCharacterPipe,
+    CombineWordPipe,
   ],
   imports: [
     CommonModule,
@@ -34,8 +42,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     RouterModule,
     SweetAlert2Module,
+    FormsModule,
     // ngx-translate and loader module
     HttpClientModule,
     TranslateModule.forRoot({

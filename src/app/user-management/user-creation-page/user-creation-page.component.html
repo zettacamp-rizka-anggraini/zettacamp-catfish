@@ -20,7 +20,7 @@
     </mat-form-field>
     <!-- name -->
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ "userForm.name" | translate }}</mat-label>
+      <mat-label>{{ "userForm.name" | translate | lowercase }}</mat-label>
       <input type="text" matInput formControlName="name" />
       <mat-error *ngIf="this.signUpForm.get('name')?.invalid">{{"userError.errorName" | translate}}</mat-error>
     </mat-form-field>
