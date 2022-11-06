@@ -1,0 +1,64 @@
+{
+    "actor": [
+        {
+            "id": "1",
+            "name": "Leonardo DiCaprio",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_UY317_CR10,0,214,317_AL_.jpg",
+            "movie": ["The Wolf of Wall Street", "Titanic", "The Departed Billy"]
+        },
+        {
+            "id": "2",
+            "name": "Lady Gaga",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTg1NjQwMzU4MF5BMl5BanBnXkFtZTgwNTk5NjQ4NjE@._V1_UX214_CR0,0,214,317_AL_.jpg",
+            "movie": ["Joker: Folie à Deux","House of Gucci","A Star Is Born"]
+        },
+        {
+            "id": "3",
+            "name": "Tom Cruise",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BYTFlOTdjMjgtNmY0ZC00MDgxLThjNmEtZGIxZTQyZDdkMTRjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY317_CR10,0,214,317_AL_.jpg",
+            "movie": ["Top Gun: Maverick","Mission: Impossible - Fallout","American Made"]
+        },
+        {
+            "id": "4",
+            "name": "Zoe Saldana",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTM2MjIwOTc0Nl5BMl5BanBnXkFtZTcwNzQ5ODM1Mw@@._V1_UX214_CR0,0,214,317_AL_.jpg",
+            "movie": ["The Adam Project","Avengers: Endgame","My Little Pony: The Movie"]
+        },
+        {
+            "id": "5",
+            "name": "Robert Downey Jr.",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_UX214_CR0,0,214,317_AL_.jpg",
+            "movie": ["Avengers: Endgame","Sherlock Holmes","Iron Man"]
+        },
+        {
+            "id": "6",
+            "name": "Julia Roberts",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTQzNjU3MDczN15BMl5BanBnXkFtZTYwNzY2Njc4._V1_UX214_CR0,0,214,317_AL_.jpg",
+            "movie": ["Wonder","Eat Pray Love","Pretty Woman"]
+        },
+        {
+            "id": "7",
+            "name": "Johnny Depp",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BOTBhMTI1NDQtYmU4Mi00MjYyLTk5MjEtZjllMDkxOWY3ZGRhXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_UY317_CR0,0,214,317_AL_.jpg",
+            "movie": ["Fantastic Beasts: The Crimes of Grindelwald","Murder on the Orient Express","Pirates of the Caribbean: On Stranger Tides"]
+        },
+        {
+            "id": "8",
+            "name": "Anne Hathaway",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTRhNzQ3NGMtZmQ1Mi00ZTViLTk3OTgtOTk0YzE2YTgwMmFjXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_UY317_CR20,0,214,317_AL_.jpg",
+            "movie": ["Ocean's Eight","The Princess Diaries","Bride Wars"]
+        },
+        {
+            "id": "9",
+            "name": "Tom Hanks",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ2MjMwND…tZTcwMTA2NDY3NQ@@._V1_UY317_CR2,0,214,317_AL_.jpg",
+            "movie": ["Forrest Gump","Toy Story","Catch Me If You Can"]
+        },
+        {
+            "id": "10",
+            "name": "Emma Watson ",
+            "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ3ODE2NTMxMV5BMl5BanBnXkFtZTgwOTIzOTQzMjE@._V1_UY317_CR21,0,214,317_AL_.jpg",
+            "movie": ["Little Women","Beauty and the Beast","Harry Potter and the Order of the Phoenix"]
+        }
+    ]
+}
