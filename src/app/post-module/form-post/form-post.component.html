@@ -1,1 +1,32 @@
-<p>form-post works!</p>
+<div class="container">
+  <a routerLink="/post-module">&larr; Back</a>
+  <form [formGroup]="formPosts" (ngSubmit)="onSubmit()" class="example-form">
+    <div class="flex-container">
+      <mat-form-field class="example-half-width" appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput type="number" id="id" formControlName="id" />
+      </mat-form-field>
+      <mat-form-field class="example-half-width" appearance="outline">
+        <mat-label>User ID</mat-label>
+        <input matInput type="number" id="userid" formControlName="userId" />
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" id="title" formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Body</mat-label>
+      <textarea matInput id="body" formControlName="body" rows="10"></textarea>
+    </mat-form-field>
+    <mat-card-actions align="end">
+      <button
+        mat-flat-button
+        type="submit"
+        color="primary"
+        style="padding: 0 50px;"
+      >
+      Submit</button>
+    </mat-card-actions>
+  </form>
+</div>

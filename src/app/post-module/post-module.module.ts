@@ -5,10 +5,15 @@ import { ListPostComponent } from './list-post/list-post.component';
 import { CardPostComponent } from './list-post/card-post/card-post.component';
 import { FormPostComponent } from './form-post/form-post.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 //angular material
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -23,7 +28,12 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     HttpClientModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     ListPostComponent,

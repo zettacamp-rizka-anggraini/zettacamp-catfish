@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostModuleService } from '../post-module.service';
 
 @Component({
@@ -9,12 +10,16 @@ import { PostModuleService } from '../post-module.service';
 export class ListPostComponent implements OnInit {
   listPost:any;
 
-  constructor(private servicePost:PostModuleService) { }
+  constructor(private servicePost:PostModuleService, private route:Router) { }
 
   ngOnInit(): void {
-    this.servicePost.getPosts().subscribe(data=>{
+    this.servicePost.getData().subscribe(data=>{
       this.listPost = data;
     })
+  }
+
+  onNavigateAdd(){
+    this.route.navigate(['/post-form-add']);
   }
 
 }

@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:"post-module", component:PostModuleComponent},
   // {path:"post-list", component:ListPostComponent},
   // {path:"post-card", component:CardPostComponent},
+  {path:"post-form-add", component:FormPostComponent},
   {path:"post-form/:id", component:FormPostComponent},
   {path:"", redirectTo:"post-module", pathMatch:"full"}
 ];

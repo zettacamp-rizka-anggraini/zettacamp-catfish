@@ -4,6 +4,10 @@
             <mat-card-title>{{user.title | titlecase}}</mat-card-title>
             <mat-card-subtitle>ID : {{user.id}} | User ID : {{user.userId}}</mat-card-subtitle>
             <mat-card-content>{{user.body}}</mat-card-content>
+            <mat-card-actions align="center" style="display: flex; justify-content: space-evenly;">
+                <button mat-flat-button color="warn" (click)="isDelete(user.id)">Delete</button>
+                <button mat-flat-button color="primary" (click)="isEdit(user.id)">Edit</button>
+            </mat-card-actions>
         </mat-card>
     </div>
 </div>
