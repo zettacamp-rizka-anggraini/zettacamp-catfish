@@ -1,0 +1,39 @@
+{
+    "userTable": {
+            "id": "Numéro d'identification",
+            "first_name": "Prénom",
+            "last_name" : "Nom de famille",
+            "gender": "Le sexe",
+            "birth_date": "Date de naissance",
+            "civility" : "Civilité"
+        },
+    "userButton": {
+        "add_data" : "Ajouter un nouvel utilisateur",
+        "submit" : "Ajouter un nouvel utilisateur",
+        "cancel" : "Annuler"
+    },
+    "userLabelTitle" : {
+        "title_dialog" : "Ajouter un nouvel utilisateur",
+        "title_success" : "Succès!",
+        "title_error" : "Erreur!"
+    },
+    "userMessageAlert" : {
+        "fail_add" : "Les données n'ont pas été remplies",
+        "success_add" : "Les données ont été ajoutées"
+    },
+    "userConfrimButton" : {
+        "confrim_success" : "De retour à la maison",
+        "confrim_fail": "D'accord"
+    },
+    "userLang" : {
+        "lang" : "Langue"
+    },
+    "userGender": {
+        "male" : "Mâle",
+        "female" : "Femelle" 
+    },
+    "userCivility" : {
+        "teacher" : "Le maître",
+        "science" : "La science"
+    }
+}

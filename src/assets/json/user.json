@@ -1,0 +1,12 @@
+{
+    "user" : [
+        {
+            "id" : "1",
+            "first_name": "rizka",
+            "last_name": "anggraini",
+            "civility": "science",
+            "date_birth": "Nov 30, 2022",
+            "gender": "female"
+        }
+    ]
+}

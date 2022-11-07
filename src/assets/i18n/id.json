@@ -1,0 +1,39 @@
+{
+    "userTable": {
+            "id": "Nomor ID",
+            "first_name": "Nama Awalan",
+            "last_name" : "Nama Akhiran",
+            "gender": "Jenis Kelamin",
+            "birth_date": "Tanggal lahir",
+            "civility" : "Status Jabatan"
+        },
+    "userButton": {
+        "add_data" : "Tambah Pengguna Baru",
+        "submit" : "Tambah Pengguna Baru",
+        "cancel" : "Batalkan"
+    },
+    "userLabelTitle" : {
+        "title_dialog" : "Tambah Pengguna Baru",
+        "title_success" : "Berhasil!",
+        "title_error" : "Gagal!"
+    },
+    "userMessageAlert" : {
+        "fail_add" : "Data Tidak Boleh Kosong",
+        "success_add" : "Data Berhasil Ditambahkan"
+    },
+    "userConfrimButton" : {
+        "confrim_success" : "Kembali Ke Halaman Utama",
+        "confrim_fail": "Ok"
+    },
+    "userLang" : {
+        "lang" : "Bahasa"
+    },
+    "userGender": {
+        "male" : "Laki - Laki",
+        "female" : "Perempuan" 
+    },
+    "userCivility" : {
+        "teacher" : "Guru",
+        "science" : "Sains"
+    }
+}

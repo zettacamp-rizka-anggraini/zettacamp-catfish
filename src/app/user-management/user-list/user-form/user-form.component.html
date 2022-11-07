@@ -1,0 +1,43 @@
+<div class="add-user-form">
+    <h2 mat-dialog-title>{{"userLabelTitle.title_dialog" | translate}}</h2>
+    <mat-dialog-content [formGroup]="formUser">
+        <div class="dialog-container">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{"userTable.id" | translate}}</mat-label>
+                <input type="text" matInput formControlName="id"/>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{"userTable.first_name" | translate}}</mat-label>
+                <input type="text" matInput formControlName="first_name"/>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>{{"userTable.last_name" | translate}}</mat-label>
+                <input matInput type="text" formControlName="last_name">
+            </mat-form-field>
+            <mat-label style="margin-bottom: 1rem;">{{"userTable.civility" | translate}}</mat-label>
+                <mat-radio-group formControlName="civility" aria-label="Select an option" style="display: flex; justify-content:space-evenly">
+                    <mat-radio-button name="civil_teacher" value="teacher">{{"userCivility.teacher" | translate}}</mat-radio-button>
+                    <mat-radio-button name="civil_science" value="science">{{"userCivility.science" | translate}}</mat-radio-button>
+                  </mat-radio-group>
+                  <mat-form-field appearance="fill">
+                    <mat-label>{{"userTable.birth_date" | translate}}</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date_birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"userTable.gender" | translate}}</mat-label>
+                <mat-select name="gender" formControlName="gender">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let gen of gender" [value]="gen.value">
+                    {{"userGender." + gen.viewValue | translate | titlecase}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-raised-button (click)="close()">{{"userButton.cancel" | translate}}</button>
+      <button mat-raised-button color="primary" (click)="add()">{{"userButton.submit" | translate}}</button>
+  </mat-dialog-actions>
+</div>

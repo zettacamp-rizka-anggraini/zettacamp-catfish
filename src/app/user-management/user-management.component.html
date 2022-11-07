@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button style="background-color: rgba(0,0,0,0);" (click)="opened=!opened">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+  <span style="padding-left: 2rem;">User Management</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+        <mat-list-item><mat-icon>person</mat-icon><a routerLink="/user-list">User</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <h1>halo semua</h1> -->
