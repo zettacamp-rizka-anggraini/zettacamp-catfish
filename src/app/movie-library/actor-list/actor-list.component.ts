@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieLibraryService } from '../movie-library.service';
 
 @Component({
   selector: 'app-actor-list',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actor-list.component.css']
 })
 export class ActorListComponent implements OnInit {
+  actorList:any;
 
-  constructor() { }
+  constructor(private serviceAct:MovieLibraryService) { }
 
   ngOnInit(): void {
+    this.serviceAct.dataActor$.subscribe((data)=>{
+      this.actorList = data.actor;
+      console.log(this.actorList);
+    })
   }
 
 }

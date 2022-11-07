@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-library.component.css']
 })
 export class MovieLibraryComponent implements OnInit {
-
+  opened = false;
   constructor() { }
 
   ngOnInit(): void {

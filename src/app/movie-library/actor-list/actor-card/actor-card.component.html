@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="flex-container">
+        <div *ngFor="let item of eachActor">
+            <mat-card>
+                <img src="{{item.img_url}}">
+                <mat-card-title>{{item.name}}</mat-card-title>
+                <mat-card-actions align="center">
+                    <button mat-flat-button color="primary" (click)="onNavigateDetail(item.id)">Detail</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

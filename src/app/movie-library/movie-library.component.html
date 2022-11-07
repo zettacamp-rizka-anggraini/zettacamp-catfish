@@ -1,1 +1,19 @@
-<p>movie-library works!</p>
+<mat-toolbar color="primary">
+    <button mat-icon-button style="background-color: rgba(0,0,0,0);" (click)="opened=!opened">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+  <span style="padding-left: 2rem;">Movie Library</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+        <mat-list-item><a routerLink="/movie-list">Movie</a></mat-list-item>
+        <mat-list-item><a routerLink="/actor-list">Actor</a></mat-list-item>
+        <mat-list-item><a routerLink="/about-movie">About</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

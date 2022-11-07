@@ -4,13 +4,17 @@
       "id": "1",
       "name": "Leonardo DiCaprio",
       "img_url": "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_UY317_CR10,0,214,317_AL_.jpg",
-      "movie": ["The Wolf of Wall Street", "Titanic", "The Departed Billy"]
+      "movie": ["The Wolf of Wall Street", "Titanic", "The Departed Billy"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "2",
       "name": "Lady Gaga",
       "img_url": "https://m.media-amazon.com/images/M/MV5BMTg1NjQwMzU4MF5BMl5BanBnXkFtZTgwNTk5NjQ4NjE@._V1_UX214_CR0,0,214,317_AL_.jpg",
-      "movie": ["Joker: Folie à Deux", "House of Gucci", "A Star Is Born"]
+      "movie": ["Joker: Folie à Deux", "House of Gucci", "A Star Is Born"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "3",
@@ -20,7 +24,9 @@
         "Top Gun: Maverick",
         "Mission: Impossible - Fallout",
         "American Made"
-      ]
+      ],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "4",
@@ -30,19 +36,25 @@
         "The Adam Project",
         "Avengers: Endgame",
         "My Little Pony: The Movie"
-      ]
+      ],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "5",
       "name": "Robert Downey Jr.",
       "img_url": "https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_UX214_CR0,0,214,317_AL_.jpg",
-      "movie": ["Avengers: Endgame", "Sherlock Holmes", "Iron Man"]
+      "movie": ["Avengers: Endgame", "Sherlock Holmes", "Iron Man"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "6",
       "name": "Julia Roberts",
       "img_url": "https://m.media-amazon.com/images/M/MV5BMTQzNjU3MDczN15BMl5BanBnXkFtZTYwNzY2Njc4._V1_UX214_CR0,0,214,317_AL_.jpg",
-      "movie": ["Wonder", "Eat Pray Love", "Pretty Woman"]
+      "movie": ["Wonder", "Eat Pray Love", "Pretty Woman"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "7",
@@ -52,19 +64,25 @@
         "Fantastic Beasts: The Crimes of Grindelwald",
         "Murder on the Orient Express",
         "Pirates of the Caribbean: On Stranger Tides"
-      ]
+      ],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "8",
       "name": "Anne Hathaway",
       "img_url": "https://m.media-amazon.com/images/M/MV5BMTRhNzQ3NGMtZmQ1Mi00ZTViLTk3OTgtOTk0YzE2YTgwMmFjXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_UY317_CR20,0,214,317_AL_.jpg",
-      "movie": ["Ocean's Eight", "The Princess Diaries", "Bride Wars"]
+      "movie": ["Ocean's Eight", "The Princess Diaries", "Bride Wars"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "9",
       "name": "Tom Hanks",
-      "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ2MjMwND…tZTcwMTA2NDY3NQ@@._V1_UY317_CR2,0,214,317_AL_.jpg",
-      "movie": ["Forrest Gump", "Toy Story", "Catch Me If You Can"]
+      "img_url": "https://m.media-amazon.com/images/M/MV5BMTQ2MjMwNDA3Nl5BMl5BanBnXkFtZTcwMTA2NDY3NQ@@._V1_UY317_CR2,0,214,317_AL_.jpg",
+      "movie": ["Forrest Gump", "Toy Story", "Catch Me If You Can"],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     },
     {
       "id": "10",
@@ -74,7 +92,9 @@
         "Little Women",
         "Beauty and the Beast",
         "Harry Potter and the Order of the Phoenix"
-      ]
+      ],
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "age" : "50"
     }
   ]
 }

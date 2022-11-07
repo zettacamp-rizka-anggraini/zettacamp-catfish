@@ -1,0 +1,26 @@
+<mat-tab-group animationDuration="0ms">
+    <mat-tab label="Detail Movie">
+       <div class="container">
+          <mat-grid-list cols="3" rowHeight="70px">
+              <mat-grid-tile rowspan="5">
+                  <img src="{{data?.img_url}}"/>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2">
+                  <h1 style="padding-top: 1rem; margin-top: 1rem;">{{ data?.name }}</h1>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2">
+                  <p>{{ data?.release }}</p>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2">
+                  <p>{{ data?.desc }} Years Old</p>
+              </mat-grid-tile>
+            </mat-grid-list>
+       </div>
+    </mat-tab>
+    <mat-tab label="Actor">
+      <mat-list *ngFor="let item of data?.actor">
+          <mat-list-item>{{item}}</mat-list-item>
+      </mat-list>
+    </mat-tab>
+  </mat-tab-group>
+  
