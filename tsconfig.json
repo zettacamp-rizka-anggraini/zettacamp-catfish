@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "react-jsx", 
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

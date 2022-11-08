@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="flex-container">
+        <mat-card style="line-height: 1.8rem;">
+            <img src="{{promoData?.image_url}}">
+            <mat-card-title style="text-align: center; " [innerHTML] = "promoData?.title"></mat-card-title>
+            <mat-card-subtitle style="text-align: center; " [innerHTML] = "promoData?.sub_title"></mat-card-subtitle>
+            <mat-card-content style="text-align: center; " [innerHTML] = "promoData?.ref"></mat-card-content>
+            <mat-card-content style="text-align: justify; " [innerHTML] = "promoData?.description"></mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,12 +1,27 @@
 import {NgModule} from '@angular/core';
 import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
+import {ApolloClientOptions, ApolloLink, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
+import { environment } from 'src/environments/environment';
+import { setContext } from '@apollo/client/link/context';
 
-const uri = 'https://48p1r2roz4.sse.codesandbox.io'; // <-- add the URL of the GraphQL server here
+const uri = environment.apiUrl; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
+  const http = httpLink.create({uri: uri});
+  const authLink = new ApolloLink((operation, forward) => {
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmZlYzVjMmNlNjM1YjJmYjZhODFmMmQiLCJlbWFpbCI6Im0ubXVnbmllcjJAeW9wbWFpbC5jb20iLCJpYXQiOjE2Njc4ODE4OTUsImV4cCI6MTY2Nzk2ODI5NX0.UwRcszmRPVJDQhqBL7u5JYx04nMXqKCynTW7x-QVNA8";
+
+    operation.setContext({
+      headers: {
+        Authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+
+    return forward(operation);
+  });
+
   return {
-    link: httpLink.create({uri}),
+    link: authLink.concat(http),
     cache: new InMemoryCache(),
   };
 }
