@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="flex-container">
+        <mat-card style="line-height: 1.8rem;" *ngFor="let promo of promoData">
+            <mat-card-title style="text-align: center; " [innerHTML] = "promo?.title"></mat-card-title>
+            <mat-card-subtitle style="text-align: center; " [innerHTML] = "promo?.sub_title"></mat-card-subtitle>
+            <mat-card-content style="text-align: justify; " [innerHTML] = "promo?.description"></mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
