@@ -1,0 +1,36 @@
+.border-column {
+    border: 1px solid black;
+}
+
+.mt-10{
+    margin-top: 10px;
+}
+
+.mb-1rem{
+    margin-bottom: 1rem;
+}
+
+.ml-10{
+    margin-left: 10px;
+}
+
+.dp-block{
+    display: block;
+    margin: 1.5rem auto;
+}
+
+.container{
+    width: 100%;
+}
+
+.column-h-left{
+    height: 95vh;
+}
+
+.column-h-right{
+    height: 31.9333%;
+}
+
+.width-100{
+    width: 100%;
+}
