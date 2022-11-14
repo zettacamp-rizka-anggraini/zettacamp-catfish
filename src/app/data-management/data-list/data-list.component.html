@@ -1,0 +1,9 @@
+<div class="container">
+      <div class="flex-container">
+        <img [src]="srcImages">
+          <mat-action-list>
+            <button mat-raised-button color="primary" *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)" [innerHTML]="language"></button>
+          </mat-action-list>
+      </div>
+</div>
+<app-data-card [dataCard]="dataList"></app-data-card>

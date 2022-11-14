@@ -1,0 +1,30 @@
+{
+    "dataCard":{
+        "button-details" : "Lebih Lengkap"
+    },
+    "userLang" : {
+        "lang" : "Bahasa"
+    },
+    "dialog" : {
+        "details-product": "Produk Detail",
+        "details-description": "Deskripsi",
+        "details-price": "Harga",
+        "details-Size": "Ukuran",
+        "details-Color": "Warna",
+        "details-button-close": "Tutup"
+    },
+    "app-other" : {
+        "data-management" : "Manajemen Data"
+    },
+    "color" : {
+        "Black" : "Hitam",
+        "Green" : "Hijau",
+        "Grey" : "Abu-Abu",
+        "Orange" : "Oranye",
+        "Purple" : "Ungu",
+        "Red" : "Merah"
+    },
+    "text" : {
+        "Short-description" : "Ideal untuk pelatihan cuaca dingin atau bekerja di luar ruangan, Chaz Hoodie menjanjikan kehangatan superior dengan setiap pemakaian."
+    }
+}

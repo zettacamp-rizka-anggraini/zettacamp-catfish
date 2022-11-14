@@ -1,0 +1,38 @@
+img{
+    width: 100px;
+    margin-bottom: 0.8rem;
+}
+
+mat-card {
+    width: 220px;
+    height: 350px;
+    margin-bottom: 1rem;
+}
+
+.dp-block{
+    display: block;
+    margin: 0.8rem auto;
+}
+
+.container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h2{
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    height: 60px;
+}
+
+p{
+    font-size: 0.8rem;
+    text-align: justify;
+    height: 70px;
+}
+
+.mt-2rem{
+    margin-top: 2rem;
+}

@@ -1,0 +1,30 @@
+{
+    "dataCard":{
+        "button-details" : "More Details"
+    },
+    "userLang" : {
+        "lang" : "Language"
+    },
+    "dialog" : {
+        "details-product": "Details Product",
+        "details-description": "Description",
+        "details-price": "Price",
+        "details-Size": "Size",
+        "details-Color": "Color",
+        "details-button-close": "Close"
+    },
+    "app-other" : {
+        "data-management" : "Data Management"
+    },
+    "color" : {
+        "Black" : "Black",
+        "Green" : "Green",
+        "Grey" : "Grey",
+        "Orange" : "Orange",
+        "Purple" : "Purple",
+        "Red" : "Red"
+    },
+    "text" : {
+        "Short-description" : "Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear."
+    }
+}

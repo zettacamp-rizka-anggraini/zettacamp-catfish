@@ -1,0 +1,8 @@
+<div class="container dp-block">
+    <mat-card class="dp-block" *ngFor="let data of dataCard">
+        <img class="dp-block" src="{{data?.Images}}">
+        <h2 class="dp-block">{{data["Name"]}}</h2>
+        <p class="dp-block">{{"text.Short-description"| translate}}</p>
+        <button class="dp-block mt-2rem" mat-flat-button color="primary" (click)="openDialog(data.ID)">{{"dataCard.button-details" | translate}}</button>
+    </mat-card>
+</div>

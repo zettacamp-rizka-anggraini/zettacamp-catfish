@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{"dialog.details-product" | translate}}</h2>
+<mat-dialog-content>
+  <div>
+    <div>
+      <h2>{{"dialog.details-description" | translate}}</h2>
+      <div [innerHTML]="dataDetails?.description"></div>
+      <div class="flex-container">
+          <p>{{"dialog.details-price" | translate}}</p>
+          <p>${{dataDetails["Regular price"]}}</p>
+      </div>
+      <div class="flex-container">
+          <p>{{"dialog.details-"+dataDetails["Attribute 1 name"] | translate}}</p>
+          <p>{{dataDetails["Attribute 1 value(s)"]}}</p>
+      </div>
+      <div class="flex-container">
+        <p>{{"dialog.details-"+dataDetails["Attribute 2 name"] | translate}}</p>
+        <p>{{"color."+ dataDetails["Attribute 2 value(s)"] | translate}}</p>
+    </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="warn">{{"dialog.details-button-close" | translate}}</button>
+</mat-dialog-actions>
