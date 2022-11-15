@@ -1,0 +1,114 @@
+/* home */
+.home{
+    display: flex;
+}
+
+.home-welcome{
+    padding: 10rem ;
+}
+
+.home-img img{
+    width: 700px;
+}
+
+.home-button {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    width: 70%;
+}
+
+.home-button button {
+    color: white;
+    border-radius: 2rem;
+}
+
+.home-button button .arrow{
+    font-size: 1.2rem;
+    align-self: center;
+}
+
+
+/* achieve */
+.achieve {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.order h1, .score h1, .receipt h1, .natural h1{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.order p, .score p, .receipt p, .natural p{
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.score img{
+    width: 40px;
+    padding-left: 1rem;
+}
+
+/* best-menu */
+.best-menu {
+    padding-top: 3rem;
+}
+
+.best-menu h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+mat-card {
+    width: 300px;
+    height: 400px;
+}
+
+mat-card img{
+    width: 50%;
+    margin-bottom: 1.5rem;
+}
+
+mat-card-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+mat-card-content {
+    width: 80%;
+    text-align: justify;
+   line-height: 1.3rem;
+}
+
+/* footer */
+.footer{
+    color: white;
+    padding-top: 2rem;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-list ul li{
+    list-style: none;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-medsos img{
+    width: 32px;
+}

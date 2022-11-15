@@ -9,13 +9,27 @@ import { environment } from 'src/environments/environment';
 })
 export class HomepageRestaurantComponent implements OnInit {
   logout:boolean = false;
+  opened:boolean = false;
+  landingPage:boolean = false;
+  admin:boolean = false;
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem(environment.tokenKey);
-    if(token !== null){
-      this.logout = true;
+    const role = JSON.parse(localStorage.getItem(environment.role));
+    // console.log(token);
+    // console.log(role);
+    if(token == null){
+      this.landingPage = true;
+    } else if (token !== null && role == "admin"){
+      this.landingPage = false;
+      this.admin = true;
+      this.router.navigate(['/admin-page']);
+    } else if(token !== null && role == "user"){
+      this.landingPage = false;
+      this.admin = false;
+      this.router.navigate(['./user-page']);
     }
   }
 
@@ -25,8 +39,10 @@ export class HomepageRestaurantComponent implements OnInit {
 
   logoutPage(){
     localStorage.removeItem(environment.tokenKey);
-    this.router.navigate(['/home-page']);
+    localStorage.removeItem(environment.tokenKey);
+    this.router.navigate(['home-page']);
     this.logout = false;
+    this.landingPage = true;
   }
 
 }

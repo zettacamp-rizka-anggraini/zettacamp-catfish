@@ -17,7 +17,8 @@ export class LoginPageService {
       mutation: gql`
       mutation{
         login (email: "${email}", password: "${password}"){
-          token
+          token,
+          role
         }
       }`
     }).pipe(
@@ -29,7 +30,9 @@ export class LoginPageService {
   }
 
   userLogin(data:any){
-    // console.log(data);
+    console.log(data);
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
+    localStorage.setItem(environment.role, JSON.stringify(data.login.role));
   }
+
 }

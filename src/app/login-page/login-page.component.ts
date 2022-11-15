@@ -37,13 +37,13 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(){
     const payload = this.loginForm.value;
-    console.log(payload.email);
+    // console.log(payload.email);
     this.subs.sink = this.serviceLogin.loginUser(payload.email, payload.password).subscribe(resp => {
       console.log(resp);
       if(resp) {
         this.router.navigate(['/home-page']);
       }
-    })
+    });
   }
 
 }
