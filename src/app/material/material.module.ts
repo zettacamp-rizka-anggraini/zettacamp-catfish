@@ -10,6 +10,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +32,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     MatSidenavModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
     MatIconModule,
@@ -39,6 +49,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatListModule,
     MatSidenavModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
 })
 export class MaterialModule {}

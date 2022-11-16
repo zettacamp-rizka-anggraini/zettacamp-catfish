@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogStockComponent } from './dialog-stock/dialog-stock.component';
 
 @Component({
   selector: 'app-stock-management',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  onAddNew(){
+    this.dialog.open(DialogStockComponent);
   }
 
 }

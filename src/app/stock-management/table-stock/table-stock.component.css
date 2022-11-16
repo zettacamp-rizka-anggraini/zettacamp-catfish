@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+th, td{
+    width:20%;
+}
+
+.container{
+    width: 80%;
+}
+
+.dp-block{
+    display: block;
+    margin: 1.2rem auto;
+}
+
+
+.actions-button{
+    display: flex;
+}

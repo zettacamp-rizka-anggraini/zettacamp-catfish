@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
@@ -9,7 +9,7 @@ import { LoginPageService } from './login-page.service';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   loginreload:boolean = true;
   loginForm: FormGroup;
@@ -44,6 +44,10 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['/home-page']);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

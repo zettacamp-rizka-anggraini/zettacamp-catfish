@@ -18,7 +18,13 @@ export class LoginPageService {
       mutation{
         login (email: "${email}", password: "${password}"){
           token,
-          role
+          role,
+          usertype{
+            name
+            icon_name
+            view
+            slug
+          }
         }
       }`
     }).pipe(
@@ -33,6 +39,7 @@ export class LoginPageService {
     console.log(data);
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
     localStorage.setItem(environment.role, JSON.stringify(data.login.role));
+    localStorage.setItem(environment.usertype, JSON.stringify(data.login.usertype));
   }
 
 }

@@ -94,7 +94,7 @@ mat-sidenav-container{
 }
 
 mat-sidenav{
-    width: 200px;
+    width: 250px;
 }
 
 mat-list-item {
@@ -111,7 +111,3 @@ a:hover{
     color: #C21010;
 }
 
-.user mat-list-item, .admin mat-list-item{
-    display: flex;
-    justify-content: center;
-}

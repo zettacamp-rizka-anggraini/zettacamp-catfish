@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://c947-103-236-192-220.ap.ngrok.io',
+  apiUrl: 'https://beb6-103-236-192-220.ap.ngrok.io',
   tokenKey: 'token',
   role: 'role',
+  usertype: 'usertype'
 };
 
 

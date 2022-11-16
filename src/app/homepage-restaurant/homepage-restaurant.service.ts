@@ -9,19 +9,19 @@ export class HomepageRestaurantService {
 
   constructor(private apollo:Apollo) { }
 
-  getAllUser(email:string):Observable<any>{
-    return this.apollo.query({
-      query: gql`
-      query($email: String){
-        getAllUser(email: $email){
-          data {
-            role
-          }
-        }
-      }`,
-      variables:{
-        email
-      }
-    })
-  }
+  // getAllUser(email:string):Observable<any>{
+  //   return this.apollo.query({
+  //     query: gql`
+  //     query($email: String){
+  //       getAllUser(email: $email){
+  //         data {
+  //           role
+  //         }
+  //       }
+  //     }`,
+  //     variables:{
+  //       email
+  //     }
+  //   })
+  // }
 }

@@ -8,11 +8,12 @@ const uri = environment.apiUrl; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   const http = httpLink.create({uri:uri});
   const authLink = new ApolloLink((operation, forward) => {
-    const token = localStorage.getItem(environment.tokenKey);
+    const token = JSON.parse(localStorage.getItem(environment.tokenKey));
+    // console.log(token);
 
     operation.setContext({
       headers: {
-        Authorization: token ? `Bearer ${token}` : ''
+        Authorization: token ? `${token}` : ''
       }
     });
 

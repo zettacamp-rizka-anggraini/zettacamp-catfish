@@ -32,7 +32,7 @@ const routes: Routes = [
     children:[
       {path:"", redirectTo:"menu-page", pathMatch:"full"},
       {path:"menu-page", loadChildren:()=>import("./menu-page/menu-page.module").then(m=>m.MenuPageModule)},
-      {path:"cart-page", loadChildren:()=>import("./cart-page/cart-page.module").then(m=>m.CartPageModule)},
+      {path:"cart-page", loadChildren:()=>import("./cart-page/cart-page.module").then(m=>m.CartPageModule)}
     ]
   },
   {
@@ -40,6 +40,7 @@ const routes: Routes = [
     component:HomepageRestaurantComponent,
     children:[
       {path:"", redirectTo:"stock-management", pathMatch:"full"},
+      {path:"menu-page", loadChildren:()=>import("./menu-page/menu-page.module").then(m=>m.MenuPageModule)},
       {path:"stock-management", loadChildren:()=>import("./stock-management/stock-management.module").then(m=>m.StockManagementModule)},
       {path:"menu-management", loadChildren:()=>import("./menu-management/menu-management.module").then(m=>m.MenuManagementModule)}
     ]

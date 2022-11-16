@@ -1,5 +1,4 @@
 <div class="container">
-  <div>
     <mat-toolbar class="color-trinary">
         <div *ngIf = "!landingPage">
             <button mat-icon-button (click)="opened=!opened">
@@ -21,15 +20,17 @@
             </mat-list>
         </div>
     </mat-toolbar>
-  </div>
   <div *ngIf="!landingPage">
     <!-- after login for usertype : User -->
       <div *ngIf="!admin">
         <mat-sidenav-container class="user">
             <mat-sidenav [(opened)]="opened" mode="side">
               <mat-list>
-                  <mat-list-item><a class="p-grid p-align-center" [routerLink]="['menu-page']"><mat-icon class="mr-right-1">restaurant-menu</mat-icon>Menu</a></mat-list-item>
-                  <mat-list-item><a class="p-grid p-align-center" [routerLink]="['cart-page']"><mat-icon class="mr-right-1">shopping_cart</mat-icon>Cart</a></mat-list-item>
+                  <mat-list-item *ngFor="let menu of menuAllow">
+                    <a class="p-grid" [routerLink]="[menu?.slug]">
+                      <mat-icon class="mr-right-1">{{menu?.icon_name}}</mat-icon>{{menu?.name}}
+                    </a>
+                  </mat-list-item>
                   <mat-list-item>
                     <button mat-flat-button class="login color-secondary" (click)="logoutPage()">Logout</button>
                   </mat-list-item>
@@ -44,15 +45,16 @@
       <div *ngIf="admin">
         <mat-sidenav-container class="admin">
             <mat-sidenav [(opened)]="opened" mode="side">
-              <mat-list>
                 <mat-list>
-                    <mat-list-item><a class="p-grid p-align-center" [routerLink]="['stock-management']"><mat-icon class="mr-right-1">library_books</mat-icon>Stock</a></mat-list-item>
-                    <mat-list-item><a class="p-grid p-align-center" [routerLink]="['menu-management']"><mat-icon class="mr-right-1">restaurant_menu</mat-icon>Menu</a></mat-list-item>
+                    <mat-list-item *ngFor="let menu of menuAllow">
+                      <a [routerLink]="[menu?.slug]">
+                        <mat-icon class="mr-right-1">{{menu?.icon_name}}</mat-icon>{{menu?.name}}
+                      </a>
+                    </mat-list-item>
                     <mat-list-item>
                       <button mat-flat-button class="login color-secondary" (click)="logoutPage()">Logout</button>
                     </mat-list-item>
                 </mat-list>
-              </mat-list>
             </mat-sidenav>
             <mat-sidenav-content>
                 <router-outlet></router-outlet>

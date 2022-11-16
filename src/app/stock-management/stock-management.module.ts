@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockManagementComponent } from './stock-management.component';
 import { RouterModule, Routes } from '@angular/router';
+import { TableStockComponent } from './table-stock/table-stock.component';
+import { MaterialModule } from '../material/material.module';
+import { DialogStockComponent } from './dialog-stock/dialog-stock.component';
 
 const routes : Routes = [
   {path:"", component:StockManagementComponent}
@@ -9,14 +12,18 @@ const routes : Routes = [
 
 @NgModule({
   declarations: [
-    StockManagementComponent
+    StockManagementComponent,
+    TableStockComponent,
+    DialogStockComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    MaterialModule
   ],
   exports: [
-    StockManagementComponent
+    StockManagementComponent,
+    TableStockComponent
   ]
 })
 export class StockManagementModule { }

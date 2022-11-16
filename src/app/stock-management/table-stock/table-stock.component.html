@@ -1,0 +1,42 @@
+<div class="container dp-block">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name | titlecase }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef>Stock</th>
+      <td mat-cell *matCellDef="let element">{{ element.stock }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.status == 'active'" matTooltip="active">done</mat-icon>
+        <mat-icon [ngStyle]="{color:'red'}" *ngIf="element.status === 'deleted'" matTooltip="deleted">close</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions" class="actions">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-list class="actions-button">
+          <mat-list-item>
+            <button mat-flat-button color="primary" matTooltip="Edit" (click)="openDialog(element.id)" [disabled]="element?.status == 'deleted'">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-flat-button color="warn" matTooltip="Delete" (click)="deleteStock(element.id)" [disabled]="element?.status == 'deleted'">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
