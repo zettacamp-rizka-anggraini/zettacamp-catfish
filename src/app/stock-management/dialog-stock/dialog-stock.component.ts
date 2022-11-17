@@ -42,45 +42,33 @@ export class DialogStockComponent implements OnInit, OnDestroy {
     }
   }
 
+  //kurang swal untuk error server and server
   onSubmit(){
     if(this.id){
       const updatedId = this.id;
       const updatedValue = this.formStock.value;
       if(this.formStock.valid){
         this.subs.sink = this.serviceStock.updateStock(updatedId, updatedValue.name, updatedValue.stock).subscribe(()=>{
-          Swal.fire({
-              title: 'Success!',
-              text: 'Data Stock Has Been Created',
-              icon: 'success',
-              confirmButtonText: 'Close'
-            })
           this.serviceStock.getAllStock().refetch();
+        });
+        Swal.fire({
+          title: 'Success!',
+          text: 'Data Stock Has Been Updated',
+          icon: 'success',
+          confirmButtonText: 'Close'
         });
       }
     } else {
       const stockData = this.formStock.value;
       if(this.formStock.valid){
-        this.subs.sink = this.serviceStock.createNewStock(stockData.name, stockData.stock).subscribe({
-          next: (resp) => {
-            console.log(resp);
-            this.serviceStock.getAllStock().refetch();
-            Swal.fire({
-              title: 'Success!',
-              text: 'New Stock Has Been Created',
-              icon: 'success',
-              confirmButtonText: 'Back To Home'
-            })
-          },
-          error: () => {
-            // console.log(error);
-  
-            Swal.fire({
-              title: 'Error!',
-              text: 'New Stock Has Not Been Created',
-              icon: 'error',
-              confirmButtonText: 'Back To Home'
-            })
-          }
+        this.subs.sink = this.serviceStock.createNewStock(stockData.name, stockData.stock).subscribe(()=>{
+          this.serviceStock.getAllStock().refetch();
+        });
+        Swal.fire({
+          title: 'Success!',
+          text: 'Data Stock Has Been Created',
+          icon: 'success',
+          confirmButtonText: 'Close'
         });
       }
     }
