@@ -15,6 +15,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -36,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     MatChipsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   exports: [
     MatIconModule,
@@ -53,7 +55,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     MatChipsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
 })
 export class MaterialModule {}
