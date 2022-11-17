@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubSink } from 'subsink';
@@ -12,7 +12,7 @@ import { MenuManagementService } from '../menu-management.service';
   templateUrl: './table-menu.component.html',
   styleUrls: ['./table-menu.component.css']
 })
-export class TableMenuComponent implements OnInit {
+export class TableMenuComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   dataMenu:any = [];
   displayedColumns: string[] = ['recipe_name', 'detail-menu','available', 'price','status', 'actions'];
@@ -70,4 +70,7 @@ export class TableMenuComponent implements OnInit {
 
   }
 
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }

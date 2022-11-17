@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubSink } from 'subsink';
@@ -10,7 +10,7 @@ import { MenuManagementService } from '../menu-management.service';
   templateUrl: './dialog-menu.component.html',
   styleUrls: ['./dialog-menu.component.css']
 })
-export class DialogMenuComponent implements OnInit {
+export class DialogMenuComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   private id:any;
   dataMenu:any;
@@ -161,4 +161,8 @@ export class DialogMenuComponent implements OnInit {
       };
     };
   };
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }
