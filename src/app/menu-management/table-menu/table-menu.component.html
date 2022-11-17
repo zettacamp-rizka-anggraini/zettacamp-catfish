@@ -1,0 +1,57 @@
+<div class="container dp-block">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="recipe_name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element?.recipe_name | titlecase }}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="detail-menu">
+          <th mat-header-cell *matHeaderCellDef>Detail Ingredients</th>
+          <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="detail" (click)="openDetailDialog(element?.id)">More Detail</button>
+          </td>
+        </ng-container>
+
+      <ng-container matColumnDef="available">
+        <th mat-header-cell *matHeaderCellDef>Available</th>
+        <td mat-cell *matCellDef="let element">{{ element?.available }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element?.price }}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">
+            <div class="status-button">
+                <button mat-flat-button *ngIf="element?.status == 'publish'" color="publish" (click)="updateStatus(element.id, element.status)">{{element.status}}</button>
+                <button mat-flat-button *ngIf="element?.status == 'unpublish'" color="unpublish" (click)="updateStatus(element.id, element.status)">{{element.status}}</button>
+            </div>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions" class="actions">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-list class="actions-button">
+            <mat-list-item>
+              <button mat-flat-button color="primary" matTooltip="Edit" (click)="openDialogMenu(element.id)" [disabled]="element?.status == 'deleted'">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </mat-list-item>
+            <mat-list-item>
+              <button mat-flat-button color="warn" matTooltip="Delete" (click)="deleteMenu(element.id)" [disabled]="element?.status == 'deleted'">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>

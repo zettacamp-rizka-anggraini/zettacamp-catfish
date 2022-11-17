@@ -1,0 +1,26 @@
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.mr-bottom-1 {
+  margin-bottom: 1rem;
+}
+
+.mr-left-1 {
+  margin-left: 1rem;
+}
+
+td:first-child{
+  padding-right: 10px;
+}
+
+.delete-button{
+    padding-left: 10px;
+    padding-bottom: 15px;
+}
+
+

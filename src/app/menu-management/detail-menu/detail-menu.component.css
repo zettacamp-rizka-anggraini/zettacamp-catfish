@@ -1,0 +1,7 @@
+.ingredients-table{
+    width: 500px;
+}
+
+.i-stock p, .i-status p, .i-quantity {
+    text-align: center;
+}

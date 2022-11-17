@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{dataMenu?.recipe_name | titlecase}}</h2>
+<mat-dialog-content>
+        <table class="ingredients-table">
+            <tr>
+                <th>Name Ingredients</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Quantity Used</th>
+            </tr>
+            <tr *ngFor="let item of dataMenu?.ingredients">
+                <td><p>{{item?.ingredient_id?.name}}</p></td>
+                <td class="i-stock"><p>{{item?.ingredient_id?.stock}}</p></td>
+                <td class="i-status"><p>{{item?.ingredient_id?.status}}</p></td>
+                <td class="i-quantity"><p>{{item?.stock_used}}</p></td>
+            </tr>
+        </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

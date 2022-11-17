@@ -1,1 +1,92 @@
-<p>dialog-menu works!</p>
+<h2 mat-dialog-title>Add New Menu</h2>
+<mat-dialog-content [formGroup]="formMenu">
+  <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="recipe_name"/>
+    <mat-error *ngIf="this.formMenu.get('recipe_name')?.invalid">
+      This field is required !
+    </mat-error>
+  </mat-form-field>
+  <table class="full-width" cellspacing="0">
+    <tr>
+      <td class="">
+        <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="number" matInput formControlName="price" />
+          <mat-error *ngIf="this.formMenu.get('price')?.invalid">
+            This field is required !
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+          <mat-label>Status</mat-label>
+          <mat-select name="labelStatus" formControlName="status">
+            <mat-option *ngFor="let label of labelStatus" [value]="label.value">
+              {{ label.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div formArrayName="ingredients">
+    <div *ngFor="let item of ingredientss.controls; let i = index">
+      <div [formGroupName]="i">
+        <mat-label
+          ><h1>Ingredients {{ i + 1 }}</h1></mat-label
+        >
+        <table>
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Ingredients Name</mat-label>
+                <mat-select name="ingerdient_id" formControlName="ingredient_id">
+                  <mat-option
+                    *ngFor="let inger of allIngredients"
+                    [value]="inger?.id"
+                  >
+                    {{ inger?.name | titlecase }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Quantity</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  name="stock_used"
+                  formControlName="stock_used"
+                />
+              </mat-form-field>
+            </td>
+            <td class="delete-button">
+                <button mat-flat-button color="warn" (click)="deleteIngred(inger.id)"><mat-icon>delete</mat-icon></button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin-right: 20px"
+    (click)="addNewIngredients()"
+    type="button"
+  >
+    <mat-icon>add</mat-icon> Ingredients
+  </button>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="warn">Cancel</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</mat-dialog-actions>
