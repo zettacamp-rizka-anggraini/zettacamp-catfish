@@ -42,7 +42,7 @@ export class StockManagementService {
   };
 
   createNewStock(name:string, stock:number):Observable<any>{
-    console.log(name, stock);
+    // console.log(name, stock);
     return this.apollo.mutate({
       mutation: gql`
       mutation CreateIngredints($name: String, $stock: Int) {

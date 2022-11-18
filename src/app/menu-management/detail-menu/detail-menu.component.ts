@@ -19,7 +19,7 @@ export class DetailMenuComponent implements OnInit, OnDestroy {
     this.id = this.data;
     this.subs.sink = this.serviceMenu.getOneMenu(this.id).subscribe((resp)=>{
       this.dataMenu = resp.data.getOneRecipes;
-      console.log(this.dataMenu);
+      // console.log(this.dataMenu);
     })
   }
 

@@ -24,7 +24,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
       this.dataMenu = resp.data;
       this.dataMenu = this.dataMenu?.getAllRecipes?.data;
       this.dataSource = new MatTableDataSource(this.dataMenu);
-      console.log(this.dataMenu);
+      // console.log(this.dataMenu);
     })
   }
 
@@ -66,6 +66,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
     })
   }
 
+  //delete not yet
   deleteMenu(){
 
   }
