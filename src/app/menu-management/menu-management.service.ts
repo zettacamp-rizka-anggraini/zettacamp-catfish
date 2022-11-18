@@ -60,6 +60,8 @@ export class MenuManagementService {
           price
           recipe_name
           status
+          description
+          image
         }
       }`,
       variables:{
@@ -68,18 +70,20 @@ export class MenuManagementService {
     });
   };
 
-  createNewMenu(name:string, ingredients:[], status: string, price:number){
+  createNewMenu(name:string, description:string, image:string, ingredients:[], status: string, price:number){
     return this.apollo.mutate({
       mutation: gql`
-      mutation CreateRecipes($recipeName: String, $ingredients: [ingredientidinput], $status: status_recipe, $price: Int) {
-        CreateRecipes(recipe_name: $recipeName, ingredients: $ingredients, status: $status, price: $price) {
+      mutation CreateRecipes($recipeName: String, $description: String, $image: String, $ingredients: [ingredientidinput], $status: status_recipe, $price: Int) {
+        CreateRecipes(recipe_name: $recipeName, description: $description, image: $image, ingredients: $ingredients, status: $status, price: $price) {
           available
+          description
           id
+          image
           ingredients {
             ingredient_id {
-              status
               name
               id
+              status
               stock
             }
             stock_used
@@ -93,16 +97,18 @@ export class MenuManagementService {
         recipeName:name,
         ingredients:ingredients,
         status:status,
-        price:price
+        price:price,
+        image: image,
+        description: description
       }
     });
   };
 
-  updateMenu(id:string, name:string, ingredients:[], status: string, price:number):Observable<any>{
+  updateMenu(id:string, name:string, description:string, image:string, ingredients:[], status: string, price:number):Observable<any>{
     return this.apollo.mutate({
       mutation: gql`
-      mutation UpdateRecipe($updateRecipeId: ID, $status: status_recipe, $recipeName: String, $ingredients: [ingredientidinput], $price: Int) {
-        UpdateRecipe(id: $updateRecipeId, status: $status, recipe_name: $recipeName, ingredients: $ingredients, price: $price) {
+      mutation UpdateRecipe($updateRecipeId: ID, $status: status_recipe, $recipeName: String, $price: Int, $ingredients: [ingredientidinput], $image: String, $description: String) {
+        UpdateRecipe(id: $updateRecipeId, status: $status, recipe_name: $recipeName, price: $price, ingredients: $ingredients, image: $image, description: $description) {
           id
           status
           available
@@ -117,6 +123,8 @@ export class MenuManagementService {
           }
           price
           recipe_name
+          description
+          image
         }
       }`,
       variables:{
@@ -124,7 +132,9 @@ export class MenuManagementService {
         recipeName:name,
         ingredients:ingredients,
         status:status,
-        price:price
+        price:price,
+        image: image,
+        description: description
       }
     })
   }

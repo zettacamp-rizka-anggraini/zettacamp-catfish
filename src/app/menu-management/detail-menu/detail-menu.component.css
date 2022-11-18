@@ -1,7 +1,42 @@
-.ingredients-table{
+.table-ingre{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table{
     width: 500px;
 }
 
 .i-stock p, .i-status p, .i-quantity {
     text-align: center;
+}
+
+.dp-block{
+    display: block;
+    margin: 1.2rem 0;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu img {
+    width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+mat-card-title{
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    font-weight: 500;
+}
+
+mat-dialog-content {
+    width: 600px;
 }

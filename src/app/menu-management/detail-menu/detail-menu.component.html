@@ -1,20 +1,36 @@
-<h2 mat-dialog-title>{{dataMenu?.recipe_name | titlecase}}</h2>
+<mat-card-title>{{ dataMenu?.recipe_name | titlecase }}</mat-card-title>
 <mat-dialog-content>
-        <table class="ingredients-table">
-            <tr>
-                <th>Name Ingredients</th>
-                <th>Stock</th>
-                <th>Status</th>
-                <th>Quantity Used</th>
-            </tr>
-            <tr *ngFor="let item of dataMenu?.ingredients">
-                <td><p>{{item?.ingredient_id?.name}}</p></td>
-                <td class="i-stock"><p>{{item?.ingredient_id?.stock}}</p></td>
-                <td class="i-status"><p>{{item?.ingredient_id?.status}}</p></td>
-                <td class="i-quantity"><p>{{item?.stock_used}}</p></td>
-            </tr>
+    <h2>Description</h2>
+    <p>{{dataMenu?.description}}</p>
+    <h2>Image</h2>
+    <div class="menu">
+        <img [src]="dataMenu?.image" alt="image menu">
+    </div>
+    <div class="table-ingre">
+        <table>
+          <tr>
+            <th>Name Ingredients</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Quantity Used</th>
+          </tr>
+          <tr *ngFor="let item of dataMenu?.ingredients">
+            <td>
+              <p>{{ item?.ingredient_id?.name }}</p>
+            </td>
+            <td class="i-stock">
+              <p>{{ item?.ingredient_id?.stock }}</p>
+            </td>
+            <td class="i-status">
+              <p>{{ item?.ingredient_id?.status }}</p>
+            </td>
+            <td class="i-quantity">
+              <p>{{ item?.stock_used }}</p>
+            </td>
+          </tr>
         </table>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Close</button>
+  <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

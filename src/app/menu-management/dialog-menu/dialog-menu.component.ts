@@ -37,6 +37,8 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
     this.formMenu = this.fb.group({
       recipe_name: ['', [Validators.required]],
       price: ['', [Validators.required, Validators.min(1)]],
+      image: [''],
+      description: [''],
       status: [''],
       ingredients: this.fb.array([]),
     });
@@ -51,7 +53,7 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
   }
 
   getOnePatchMenu(id:string){
-    this.serviceMenu.getOneMenu(id).subscribe((resp)=>{
+    this.subs.sink = this.serviceMenu.getOneMenu(id).subscribe((resp)=>{
       this.dataMenu = resp.data.getOneRecipes;
       const ingred = this.dataMenu?.ingredients.length;
 
@@ -99,7 +101,7 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
     const menu = this.formMenu.value;
     if(this.id){
       if(this.formMenu.valid){
-        this.serviceMenu.updateMenu(this.id, menu.recipe_name, menu.ingredients, menu.status, menu.recipe).subscribe({
+        this.subs.sink = this.serviceMenu.updateMenu(this.id, menu.recipe_name, menu.description,menu.image, menu.ingredients, menu.status, menu.recipe).subscribe({
           next:()=>{
             Swal.fire({
               title: "Updated",
@@ -130,7 +132,7 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
       };
     }else{
       if(this.formMenu.valid){
-        this.subs.sink = this.serviceMenu.createNewMenu(menu.recipe_name, menu.ingredients, menu.status, menu.price).subscribe({
+        this.subs.sink = this.subs.sink = this.serviceMenu.createNewMenu(menu.recipe_name, menu.description, menu.image,menu.ingredients, menu.status, menu.price).subscribe({
           next:()=>{
             Swal.fire({
               title: "Success",

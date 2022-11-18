@@ -27,8 +27,8 @@
         <th mat-header-cell *matHeaderCellDef>Status</th>
         <td mat-cell *matCellDef="let element">
             <div class="status-button">
-                <button mat-flat-button *ngIf="element?.status == 'publish'" color="publish" (click)="updateStatus(element.id, element.status)">{{element.status}}</button>
-                <button mat-flat-button *ngIf="element?.status == 'unpublish'" color="unpublish" (click)="updateStatus(element.id, element.status)">{{element.status}}</button>
+                <button mat-flat-button *ngIf="element?.status == 'publish'" color="publish" (click)="updateStatus(element.id, element.recipe_name, element.status)">{{element.status}}</button>
+                <button mat-flat-button *ngIf="element?.status == 'unpublish'" color="unpublish" (click)="updateStatus(element.id, element.recipe_name,element.status)">{{element.status}}</button>
             </div>
         </td>
       </ng-container>

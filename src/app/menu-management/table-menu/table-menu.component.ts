@@ -37,7 +37,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
     this.dialog.open(DialogMenuComponent, {data:id});
   }
 
-  updateStatus(id:string, status:string){
+  updateStatus(id:string, name:string, status:string){
     Swal.fire({
       title: 'Change Status',
       text: 'Are You Sure Want To Change Status?',
@@ -49,19 +49,24 @@ export class TableMenuComponent implements OnInit, OnDestroy {
         if(status=="publish"){
           const tempStatus = "unpublish";
           this.subs.sink = this.serviceMenu.updateStatusMenu(id, tempStatus).subscribe(()=>{
+            Swal.fire(
+              'Change Success!',
+              'Your Menu ' + name + ' Has Been ' + tempStatus,
+              'success'
+            )
             this.serviceMenu.getAllMenu().refetch();
           });
         } else if(status=="unpublish"){
           const tempStatus = "publish";
           this.subs.sink = this.serviceMenu.updateStatusMenu(id, tempStatus).subscribe(()=>{
+            Swal.fire(
+              'Change Success!',
+              'Your Menu ' + name + ' Has Been ' + tempStatus,
+              'success'
+            )
             this.serviceMenu.getAllMenu().refetch();
           });
         }
-        Swal.fire(
-          'Change Success!',
-          'Your Status Have Been Changed',
-          'success'
-        )
       }
     })
   }

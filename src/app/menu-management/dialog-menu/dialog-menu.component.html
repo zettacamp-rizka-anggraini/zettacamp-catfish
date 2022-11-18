@@ -1,15 +1,33 @@
 <h2 mat-dialog-title>Add New Menu</h2>
 <mat-dialog-content [formGroup]="formMenu">
   <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+    <!-- name field -->
     <mat-label>Name</mat-label>
     <input type="text" matInput formControlName="recipe_name"/>
     <mat-error *ngIf="this.formMenu.get('recipe_name')?.invalid">
       This field is required !
     </mat-error>
   </mat-form-field>
+  <!-- description field -->
+  <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    <!-- <mat-error *ngIf="this.formMenu.get('description')?.invalid">
+      This field is required !
+    </mat-error> -->
+  </mat-form-field>
+  <!-- image field -->
+  <mat-form-field class="full-width mr-bottom-1" appearance="fill">
+    <mat-label>Image</mat-label>
+    <input type="url" matInput formControlName="image"/>
+    <!-- <mat-error *ngIf="this.formMenu.get('recipe_name')?.invalid">
+      This field is required !
+    </mat-error> -->
+  </mat-form-field>
   <table class="full-width" cellspacing="0">
     <tr>
-      <td class="">
+      <td>
+        <!-- price field -->
         <mat-form-field class="full-width mr-bottom-1" appearance="fill">
           <mat-label>Price</mat-label>
           <input type="number" matInput formControlName="price" />
@@ -19,6 +37,7 @@
         </mat-form-field>
       </td>
       <td>
+        <!-- status field -->
         <mat-form-field class="full-width mr-bottom-1" appearance="fill">
           <mat-label>Status</mat-label>
           <mat-select name="labelStatus" formControlName="status">
@@ -30,6 +49,7 @@
       </td>
     </tr>
   </table>
+  <!-- ingredients field -->
   <div formArrayName="ingredients">
     <div *ngFor="let item of ingredientss.controls; let i = index">
       <div [formGroupName]="i">
