@@ -82,7 +82,7 @@ export class StockManagementService {
 
   //delete belum jadi
   deleteStock(id:string):Observable<any>{
-    console.log(id);
+    // console.log(id);
     return this.apollo.mutate({
       mutation: gql`
       mutation DeleteIngredients($deleteIngredientsId: ID) {

@@ -4,6 +4,7 @@ import { StockManagementService } from '../stock-management.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogStockComponent } from '../dialog-stock/dialog-stock.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-table-stock',
@@ -32,9 +33,35 @@ export class TableStockComponent implements OnInit, OnDestroy {
     this.dialog.open(DialogStockComponent, {data:id});
   }
 
-  deleteStock(id:string){
-    this.subs.sink = this.serviceStock.deleteStock(id).subscribe(()=>{
-      this.serviceStock.getAllStock().refetch();
+  deleteStock(id:string, name:string){
+    this.subs.sink = this.serviceStock.deleteStock(id).subscribe({
+      next: ()=>{
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your stock '+ name +' has been deleted.',
+              'success'
+            )
+            this.serviceStock.getAllStock().refetch();
+          }
+        })
+      },
+      error: ()=>{
+        Swal.fire(
+          'Error!',
+          'Your stock '+ name +' cannot be deleted.',
+          'error'
+        )
+      }
     });
   }
 
