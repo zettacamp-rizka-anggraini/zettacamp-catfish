@@ -34,35 +34,35 @@ export class TableStockComponent implements OnInit, OnDestroy {
   }
 
   deleteStock(id:string, name:string){
-    this.subs.sink = this.serviceStock.deleteStock(id).subscribe({
-      next: ()=>{
-        Swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.isConfirmed) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subs.sink = this.serviceStock.deleteStock(id).subscribe({
+          next: ()=>{
             Swal.fire(
               'Deleted!',
               'Your stock '+ name +' has been deleted.',
               'success'
-            )
+            ),
             this.serviceStock.getAllStock().refetch();
+          },
+          error: ()=>{
+            Swal.fire(
+              'Error!',
+              'Your stock '+ name +' cannot be deleted.',
+              'error'
+            )
           }
-        })
-      },
-      error: ()=>{
-        Swal.fire(
-          'Error!',
-          'Your stock '+ name +' cannot be deleted.',
-          'error'
-        )
+        });
       }
-    });
+    })
   }
 
   ngOnDestroy(): void {
