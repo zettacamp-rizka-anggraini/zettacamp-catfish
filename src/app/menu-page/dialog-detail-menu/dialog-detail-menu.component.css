@@ -1,35 +1,49 @@
-
-.dp-block{
-    display: block;
-    margin: 1.2rem 0;
+.dp-block {
+  display: block;
+  margin: 1.2rem 0;
 }
 
 .menu {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .menu img {
-    width: 200px;
-    margin-bottom: 1.5rem;
+  width: 200px;
+  margin-bottom: 1.5rem;
 }
 
-mat-card-title{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.2rem;
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
 }
 
-h2{
-    font-weight: 500;
+h2 {
+  font-weight: 500;
 }
 
 .detail-menu {
-    width: 600px;
+  width: 600px;
 }
 
 .desc {
-    line-height: 2rem;
-    text-align: justify;
+  line-height: 2rem;
+  text-align: justify;
+}
+
+.group-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-flat-button.mat-addcart {
+  color: #f0fff3;
+  background-color: #388e3c;
+}
+
+.counter{
+    display: flex;
+    justify-content: center;
 }

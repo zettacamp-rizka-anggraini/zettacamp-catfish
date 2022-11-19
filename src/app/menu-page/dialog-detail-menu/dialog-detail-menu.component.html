@@ -2,14 +2,42 @@
 <mat-dialog-content class="detail-menu">
     <h2>Description</h2>
     <p>{{detailMenu?.description}}</p>
-    <h2>Ingredients</h2>
-    <div *ngFor="let item of detailMenu?.ingredients">
-        <p>&ensp;{{item?.ingredient_id?.name | titlecase}}</p>
-    </div>
-    <div>
+    <div class="group-item">
+        <div class="ingre-item">
+            <h2>Ingredients</h2>
+            <div *ngFor="let item of detailMenu?.ingredients">
+                <p>&ensp;{{item?.ingredient_id?.name | titlecase}}</p>
+            </div>
+        </div>
+        <div class="price-item">
+          <h2>price</h2>
+          <p>Rp {{ detailMenu?.price }}</p>
+        </div>
+        <div class="avail-item">
+          <h2>available</h2>
+          <p>{{ detailMenu?.available }}</p>
+        </div>
+      </div>
+      <h2>How Many You Want To Buy?</h2>
+      <div [formGroup]="counter" class="counter">
         <!-- quantity field -->
-    </div>
+        <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input type="number" matInput formControlName="quantity" />
+            <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
+              This field is required !
+            </mat-error> -->
+          </mat-form-field>
+      </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>
+  <button
+          mat-flat-button
+          color="addcart"
+          class="add-cart"
+          (click)="addToCart(detailMenu?.id)"
+        >
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
 </mat-dialog-actions>

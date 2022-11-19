@@ -1,20 +1,56 @@
 <div class="container dp-block">
-    <div *ngIf="!menulist">
-        <h1>Menu Is Not Here Yet</h1>
-    </div>
-    <div class="flex-container" *ngIf="menulist">
-            <mat-card *ngFor="let item of listMenu">
-                <img class="dp-block-0" src="{{item.image}}">
-                <mat-card-title>{{item.recipe_name | titlecase}}</mat-card-title>
-                <div>
-                    <!-- quantity field -->
-                </div>
-                <mat-card-actions align="center">
-                    <button mat-flat-button color="primary" class="detail-menu" (click)="openDetailDialog(item.id)">Detail</button>
-                    <button mat-flat-button color="addcart" class="add-cart" (click)="addToCart(item.id)"><mat-icon>add_shopping_cart</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
-    </div>
-    <mat-paginator [length]="totalSize" [pageSizeOptions]="[10]" [pageSize]="pagination?.limit" [pageIndex]="pagination?.page-1" (page)="handlePage($event)"></mat-paginator>
+  <div *ngIf="!menulist">
+    <h1>Menu Is Not Here Yet</h1>
+  </div>
+  <div class="flex-container" *ngIf="menulist">
+    <mat-card *ngFor="let item of listMenu">
+      <img class="dp-block-0" src="{{ item?.image }}" />
+      <mat-card-title>{{ item.recipe_name | titlecase }}</mat-card-title>
+      <div class="group-item">
+        <div class="price-item">
+          <mat-card-subtitle>price</mat-card-subtitle>
+          <h2>Rp {{ item?.price }}</h2>
+        </div>
+        <div class="avail-item">
+          <mat-card-subtitle>available</mat-card-subtitle>
+          <h2>{{ item?.available }}</h2>
+        </div>
+      </div>
+      <div [formGroup]="counter" class="counter">
+        <!-- quantity field -->
+        <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input type="number" matInput formControlName="quantity" />
+            <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
+              This field is required !
+            </mat-error> -->
+          </mat-form-field>
+      </div>
+      <mat-card-actions align="center">
+        <button
+          mat-flat-button
+          color="primary"
+          class="detail-menu"
+          (click)="openDetailDialog(item?.id)"
+        >
+          Detail
+        </button>
+        <button
+          mat-flat-button
+          color="addcart"
+          class="add-cart"
+          (click)="addToCart(item?.id)"
+        >
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <mat-paginator
+    [length]="totalSize"
+    [pageSizeOptions]="[5, 10]"
+    [pageSize]="pagination?.limit"
+    [pageIndex]="pagination?.page - 1"
+    (page)="handlePage($event)"
+  ></mat-paginator>
 </div>
-

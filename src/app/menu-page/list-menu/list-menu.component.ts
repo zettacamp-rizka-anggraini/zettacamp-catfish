@@ -4,6 +4,7 @@ import { SubSink } from 'subsink';
 import { DialogDetailMenuComponent } from '../dialog-detail-menu/dialog-detail-menu.component';
 import { MenuPageService } from '../menu-page.service';
 import { PageEvent } from '@angular/material/paginator';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list-menu',
@@ -19,11 +20,19 @@ export class ListMenuComponent implements OnInit, OnDestroy {
     limit: 10
   }
   totalSize = 0;
+  counter: FormGroup;
 
-  constructor(private serviceMenu:MenuPageService, private dialog:MatDialog) { }
+  constructor(private serviceMenu:MenuPageService, private dialog:MatDialog, private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getDataMenu();
+    this.getCounterQuan();
+  }
+
+  getCounterQuan(){
+    this.counter = this.fb.group({
+      quantity: ['', [Validators.min(1)]]
+    })
   }
 
   getDataMenu(){
@@ -54,6 +63,10 @@ export class ListMenuComponent implements OnInit, OnDestroy {
 
   openDetailDialog(id:string){
     this.dialog.open(DialogDetailMenuComponent, {data:id});
+  }
+
+  addToCart(id:string){
+
   }
 
   ngOnDestroy(): void {
