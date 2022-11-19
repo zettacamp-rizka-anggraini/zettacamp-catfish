@@ -9,19 +9,32 @@ export class StockManagementService {
 
   constructor(private apollo:Apollo) { }
 
-  getAllStock(){
+  getAllStock(pagination:any){
+    // console.log(pagination);
     return this.apollo.watchQuery({
       query:gql`
-      query GetAllIngredients{
-        getAllIngredients(page: 1, limit: 100, stock: 1) {
-          id
-          name
-          stock
-          status
+      query GetAllIngredients($getAllIngredientsStock2: Int, $getAllIngredientsLimit2: Int, $getAllIngredientsPage2: Int){
+        getAllIngredients(stock: $getAllIngredientsStock2, limit: $getAllIngredientsLimit2, page: $getAllIngredientsPage2) {
+          page
+          max_page
+          data {
+            id
+            name
+            status
+            stock
+          }
+          count_active
         }
-      }`
+      }`,
+      variables:{
+        getAllIngredientsStock2: pagination.stock,
+        getAllIngredientsLimit2: pagination.limit,
+        getAllIngredientsPage2: pagination.page
+      },
+      fetchPolicy: 'network-only'
     });
   };
+  
 
   getOneStock(id:any):Observable<any>{
     // console.log(id);

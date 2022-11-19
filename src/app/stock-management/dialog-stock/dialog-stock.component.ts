@@ -16,6 +16,11 @@ export class DialogStockComponent implements OnInit, OnDestroy {
   dataStock:any;
   formStock: FormGroup;
   addData:boolean = true;
+  pagination:any = {
+    page: 1,
+    limit: 10,
+    stock: 1
+  }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private serviceStock:StockManagementService, private fb:FormBuilder, private dialogRef: MatDialogRef<DialogStockComponent>) { }
 
@@ -56,7 +61,7 @@ export class DialogStockComponent implements OnInit, OnDestroy {
               icon: "success",
               confirmButtonText: "Ok"
             }).then(()=>{
-              this.serviceStock.getAllStock().refetch();
+              this.serviceStock.getAllStock(this.pagination).refetch();
               this.dialogRef.close();
             });
           },
@@ -88,8 +93,8 @@ export class DialogStockComponent implements OnInit, OnDestroy {
               icon: "success",
               confirmButtonText: "Ok"
             }).then(()=>{
+              this.serviceStock.getAllStock(this.pagination).refetch();
               this.dialogRef.close();
-              this.serviceStock.getAllStock().refetch();
             });
           },
           error:()=>{
