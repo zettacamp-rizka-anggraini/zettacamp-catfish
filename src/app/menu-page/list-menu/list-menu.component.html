@@ -1,0 +1,20 @@
+<div class="container dp-block">
+    <div *ngIf="!menulist">
+        <h1>Menu Is Not Here Yet</h1>
+    </div>
+    <div class="flex-container" *ngIf="menulist">
+            <mat-card *ngFor="let item of listMenu">
+                <img class="dp-block-0" src="{{item.image}}">
+                <mat-card-title>{{item.recipe_name | titlecase}}</mat-card-title>
+                <div>
+                    <!-- quantity field -->
+                </div>
+                <mat-card-actions align="center">
+                    <button mat-flat-button color="primary" class="detail-menu" (click)="openDetailDialog(item.id)">Detail</button>
+                    <button mat-flat-button color="addcart" class="add-cart" (click)="addToCart(item.id)"><mat-icon>add_shopping_cart</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+    </div>
+    <mat-paginator [length]="totalSize" [pageSizeOptions]="[10]" [pageSize]="pagination?.limit" [pageIndex]="pagination?.page-1" (page)="handlePage($event)"></mat-paginator>
+</div>
+

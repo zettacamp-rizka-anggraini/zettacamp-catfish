@@ -1,0 +1,15 @@
+<mat-card-title>{{detailMenu?.recipe_name | titlecase}}</mat-card-title>
+<mat-dialog-content class="detail-menu">
+    <h2>Description</h2>
+    <p>{{detailMenu?.description}}</p>
+    <h2>Ingredients</h2>
+    <div *ngFor="let item of detailMenu?.ingredients">
+        <p>&ensp;{{item?.ingredient_id?.name | titlecase}}</p>
+    </div>
+    <div>
+        <!-- quantity field -->
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
