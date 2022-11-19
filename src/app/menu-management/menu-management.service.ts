@@ -14,28 +14,60 @@ export class MenuManagementService {
       query:gql`
       query GetAllIngredients{
         getAllIngredients(page: 1, limit: 100, stock: 1) {
-          id
-          name
+          data {
+            id
+            name
+          }
         }
       }`
     });
   };
 
-  getAllMenu(){
+  getAllMenu(pagination:any){
+    // console.log(pagination);
     return this.apollo.watchQuery({
       query: gql`
-      query GetAllRecipes{
-        getAllRecipes(page: 1, limit: 100) {
-          count
-          data {
+      query GetAllRecipes($page: Int, $limit: Int){
+        getAllRecipes(page: $page, limit: $limit) {
+          count_unpublish
+          count_total
+          count_publish
+          count_deleted
+          page
+          max_page
+          data_recipes {
             available
             id
             status
             recipe_name
             price
           }
-          max_page
+        }
+      }`,
+      variables:{
+        page: pagination.page,
+        limit: pagination.limit
+      },
+      fetchPolicy:"network-only"
+    });
+  }
+
+  getTempMenu(){
+    // console.log(pagination);
+    return this.apollo.watchQuery({
+      query: gql`
+      query GetAllRecipes{
+        getAllRecipes(page: 1, limit: 10) {
+          count
           page
+          max_page
+          data_recipes {
+            available
+            id
+            status
+            recipe_name
+            price
+          }
         }
       }`
     });
