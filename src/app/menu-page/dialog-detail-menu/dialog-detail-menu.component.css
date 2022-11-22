@@ -43,7 +43,15 @@ h2 {
   background-color: #388e3c;
 }
 
-.counter{
+.cart-form{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.cart-counter {
+  width: 30%;
+}
+
+.cart-message{
+  width: 60%;
 }

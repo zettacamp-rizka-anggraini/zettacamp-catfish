@@ -59,7 +59,7 @@ export class TableStockComponent implements OnInit, OnDestroy {
 
   deleteStock(id:string, name:string){
     Swal.fire({
-      title: 'Are you sure?',
+      title: 'Are you sure want to delete this stock?',
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
@@ -85,8 +85,8 @@ export class TableStockComponent implements OnInit, OnDestroy {
             )
           }
         });
-      }
-    })
+      };
+    });
   }
 
   ngOnDestroy(): void {

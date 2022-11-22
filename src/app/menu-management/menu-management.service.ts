@@ -186,4 +186,20 @@ export class MenuManagementService {
       }
     });
   }
+
+  deleteMenu(id:string):Observable<any>{
+    return this.apollo.mutate({
+      mutation: gql`
+      mutation DeleteRecipe($deleteRecipeId: ID) {
+        DeleteRecipe(id: $deleteRecipeId) {
+          id
+          recipe_name
+          status
+        }
+      }`,
+      variables: {
+        deleteRecipeId: id
+      }
+    })
+  }
 }

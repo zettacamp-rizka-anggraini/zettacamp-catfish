@@ -1,6 +1,6 @@
 mat-card {
   width: 300px;
-  height: 500px;
+  height: 510px;
   flex: 0 0 30.333333%;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px 0 rgba(120, 149, 178, 0.2),
@@ -26,23 +26,9 @@ mat-card-content {
   text-align: justify;
 }
 
-.dp-block {
-  display: block;
-  margin: 1.2rem auto;
-}
-
-.dp-block-0 {
-  display: block;
-  margin: 1.2rem auto;
-}
-
 img {
   width: 270px;
   height: 180px;
-}
-
-.container {
-  width: 80%;
 }
 
 .flex-container {
@@ -78,4 +64,9 @@ img {
 .quantity{
     width:100px;
     font-size: 0.8rem;
+}
+
+.top{
+  color:red;
+  margin-top: 10px;
 }

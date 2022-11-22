@@ -1,22 +1,14 @@
-.dp-block {
-  display: block;
-  margin: 1.2rem auto;
-}
-
-.container {
-  width: 90%;
-}
-
 table {
   width: 100%;
 }
 
-th,td {
+th,
+td {
   width: 20%;
 }
 
 th {
-    text-align: center;
+  text-align: center;
 }
 
 .actions-button {
@@ -24,21 +16,21 @@ th {
 }
 
 .status-button button {
-    width: 100px;
+  width: 100px;
 }
 
 /* publis-unpublish button syling */
 .mat-flat-button.mat-publish {
   color: #f0fff3;
-  background-color: #388E3C;
+  background-color: #388e3c;
 }
 
 .mat-flat-button.mat-unpublish {
   color: #f0fff3;
-  background-color: #D32F2F;
+  background-color: #d32f2f;
 }
 
 .mat-flat-button.mat-detail {
-    color: #000000;
-    background-color: #FFEB3B;
-  }
+  color: #000000;
+  background-color: #ffeb3b;
+}

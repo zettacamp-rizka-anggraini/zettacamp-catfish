@@ -19,11 +19,18 @@
         </div>
       </div>
       <h2>How Many You Want To Buy?</h2>
-      <div [formGroup]="counter" class="counter">
+      <div [formGroup]="cartForm" class="cart-form">
         <!-- quantity field -->
-        <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
+        <mat-form-field class="cart-counter" appearance="outline">
             <mat-label>Quantity</mat-label>
             <input type="number" matInput formControlName="quantity" />
+            <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
+              This field is required !
+            </mat-error> -->
+          </mat-form-field>
+          <mat-form-field class="cart-message" appearance="outline">
+            <mat-label>Message</mat-label>
+            <input type="text" matInput formControlName="message" />
             <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
               This field is required !
             </mat-error> -->

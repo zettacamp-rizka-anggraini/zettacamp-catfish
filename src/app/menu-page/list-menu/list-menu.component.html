@@ -1,56 +1,78 @@
-<div class="container dp-block">
-  <div *ngIf="!menulist">
-    <h1>Menu Is Not Here Yet</h1>
-  </div>
-  <div class="flex-container" *ngIf="menulist">
-    <mat-card *ngFor="let item of listMenu">
-      <img class="dp-block-0" src="{{ item?.image }}" />
-      <mat-card-title>{{ item.recipe_name | titlecase }}</mat-card-title>
-      <div class="group-item">
-        <div class="price-item">
-          <mat-card-subtitle>price</mat-card-subtitle>
-          <h2>Rp {{ item?.price }}</h2>
+<div class="container-80 dp-block-1-2">
+  <div *ngIf="menulist; else menuListNone">
+    <div class="flex-container" >
+      <mat-card *ngFor="let item of listMenu; let i = index">
+        <img class="dp-block" src="{{ item?.image }}" />
+        <mat-card-title>{{ item.recipe_name | titlecase }}</mat-card-title>
+        <div class="group-item">
+          <div class="price-item">
+            <mat-card-subtitle>price</mat-card-subtitle>
+            <h2>Rp {{ item?.price }}</h2>
+          </div>
+          <div class="avail-item">
+            <mat-card-subtitle>available</mat-card-subtitle>
+            <h2>{{ item?.available }}</h2>
+          </div>
         </div>
-        <div class="avail-item">
-          <mat-card-subtitle>available</mat-card-subtitle>
-          <h2>{{ item?.available }}</h2>
+        <div [formGroup]="cartForm" class="counter" [disabled]="item?.avalibale">
+          <!-- quantity field -->
+          <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input type="number" matInput formControlName="quantity" name="quantity" [readonly]="item?.available < 1"/>
+              <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
+                This field is required !
+              </mat-error> -->
+            </mat-form-field>
         </div>
-      </div>
-      <div [formGroup]="counter" class="counter">
-        <!-- quantity field -->
-        <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
-            <mat-label>Quantity</mat-label>
-            <input type="number" matInput formControlName="quantity" />
-            <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
-              This field is required !
-            </mat-error> -->
-          </mat-form-field>
-      </div>
-      <mat-card-actions align="center">
-        <button
-          mat-flat-button
-          color="primary"
-          class="detail-menu"
-          (click)="openDetailDialog(item?.id)"
-        >
-          Detail
-        </button>
-        <button
-          mat-flat-button
-          color="addcart"
-          class="add-cart"
-          (click)="addToCart(item?.id)"
-        >
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
+        <mat-card-actions align="center" *ngIf="item?.available > 0; else stockRunOut">
+          <button
+            mat-flat-button
+            color="primary"
+            class="detail-menu"
+            (click)="openDetailDialog(item?.id)"
+          >
+            Detail
+          </button>
+          <button
+            mat-flat-button
+            color="addcart"
+            class="add-cart"
+            (click)="addToCart(item?.id)"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+        <ng-template #stockRunOut>
+          <mat-card-actions align="center">
+            <button
+              mat-flat-button
+              color="primary"
+              class="detail-menu"
+              disabled="true"
+            >
+              Detail
+            </button>
+            <button
+              mat-flat-button
+              class="add-cart"
+              disabled="true"
+            >
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+            <p class="top">out of stock</p>
+          </mat-card-actions>
+        </ng-template>
+      </mat-card>
+    </div>
+    <mat-paginator
+      [length]="totalSize"
+      [pageSizeOptions]="[5, 10]"
+      [pageSize]="pagination?.limit"
+      [pageIndex]="pagination?.page - 1"
+      (page)="handlePage($event)"
+    ></mat-paginator>
   </div>
-  <mat-paginator
-    [length]="totalSize"
-    [pageSizeOptions]="[5, 10]"
-    [pageSize]="pagination?.limit"
-    [pageIndex]="pagination?.page - 1"
-    (page)="handlePage($event)"
-  ></mat-paginator>
+  <ng-template #menuListNone>
+      <h1>Menu Is Not Here Yet</h1>
+  </ng-template>
 </div>

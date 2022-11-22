@@ -1,16 +1,3 @@
-.container{
-    width:80%;
-}
-
-.dp-block{
-    display: block;
-    margin: 1.2rem auto;
-}
-
-.mr-right-2{
-    margin-right: 0.5rem;
-}
-
 button{
     padding: 0 1.5rem;
 }

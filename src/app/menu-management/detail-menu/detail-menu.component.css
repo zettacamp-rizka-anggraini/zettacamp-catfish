@@ -12,11 +12,6 @@
     text-align: center;
 }
 
-.dp-block{
-    display: block;
-    margin: 1.2rem 0;
-}
-
 .menu {
     width: 100%;
     display: flex;

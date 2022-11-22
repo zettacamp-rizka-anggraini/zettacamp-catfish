@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
@@ -27,7 +27,7 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs.sink = this.serviceMenu.getAllStock().subscribe((resp)=>{
       this.allIngredients = resp.data.getAllIngredients.data;
-      console.log(this.allIngredients);
+      // console.log(this.allIngredients);
     })
     
     this.initForm();
@@ -55,13 +55,13 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
   getOnePatchMenu(id:string){
     this.subs.sink = this.serviceMenu.getOneMenu(id).subscribe((resp)=>{
       this.dataMenu = resp.data.getOneRecipes;
-      console.log(this.dataMenu)
+      // console.log(this.dataMenu);
       const ingred = this.dataMenu?.ingredients.length;
 
       for(let i=0; i<ingred; i++){
         this.addNewIngredients();
       }
-      console.log(this.dataMenu);
+      // console.log(this.dataMenu);
 
       let tempIngredId = [];
 
@@ -162,6 +162,10 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
       };
     };
   };
+
+  deleteIngred(i:number){
+    this.ingredientss.removeAt(i);
+  }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();

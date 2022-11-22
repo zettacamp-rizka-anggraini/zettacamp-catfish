@@ -38,7 +38,9 @@ export class TableMenuComponent implements OnInit, OnDestroy {
 
       const publish = resp?.data?.getAllRecipes?.count_publish;
       const unpublish = resp?.data?.getAllRecipes?.count_unpublish;
-      this.totalSize = publish + unpublish;
+      // this.totalSize = publish + unpublish;
+      this.totalSize = resp?.data?.getAllRecipes?.count_total;
+
       // console.log(this.totalSize);
     })
   }
@@ -96,9 +98,37 @@ export class TableMenuComponent implements OnInit, OnDestroy {
     })
   }
 
-  //delete not yet
-  deleteMenu(){
-
+  deleteMenu(id:string, name:string){
+    Swal.fire({
+      title: 'Are you sure want to delete this menu?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subs.sink = this.serviceMenu.deleteMenu(id).subscribe({
+          next: ()=>{
+            Swal.fire(
+              'Deleted!',
+              'Your stock '+ name +' has been deleted.',
+              'success'
+            ),
+            this.serviceMenu.getAllMenu(this.pagination).refetch();
+          },
+          error: ()=>{
+            Swal.fire(
+              'Error!',
+              'Your stock '+ name +' cannot be deleted.',
+              'error'
+            )
+          }
+        });
+      }
+    })
+    console.log(id,name);
   }
 
   ngOnDestroy(): void {

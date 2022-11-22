@@ -9,8 +9,8 @@ export class MenuPageService {
 
   constructor(private apollo:Apollo) { }
 
-  getAllMenuNow(pagination):Observable<any>{
-    return this.apollo.query({
+  getAllMenuNow(pagination){
+    return this.apollo.watchQuery({
       query: gql`
       query GetAllRecipes($page: Int, $limit: Int){
         getAllRecipes(page: $page, limit: $limit) {
@@ -67,4 +67,38 @@ export class MenuPageService {
       }
     });
   };
+
+  createOrder(addMenu:any):Observable<any>{
+    return this.apollo.mutate({
+      mutation: gql`
+      mutation CreateTransactions($menu: [trans_menuInput]) {
+        CreateTransactions(menu: $menu) {
+          id
+          menu {
+            amount
+            note
+            recipe_id {
+              description
+              available
+              id
+              price
+              recipe_name
+              status
+            }
+          }
+          total
+          user_id {
+            email
+            last_name
+          }
+          status
+          order_status
+          order_date
+        }
+      }`,
+      variables: {
+        menu: addMenu
+      }
+    })
+  }
 }
