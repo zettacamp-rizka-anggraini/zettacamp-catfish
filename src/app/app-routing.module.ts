@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AboutPageComponent } from './about-page/about-page.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { HomepageRestaurantComponent } from './homepage-restaurant/homepage-restaurant.component';
+import { LandingPageComponent } from './homepage-restaurant/landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MenuManagementComponent } from './menu-management/menu-management.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
@@ -25,27 +27,33 @@ import { StockManagementComponent } from './stock-management/stock-management.co
 
 const routes: Routes = [
   {path:"", redirectTo:"home-page", pathMatch:"full"},
-  {path:"home-page", component:HomepageRestaurantComponent},
+  {path:"home-page", component:HomepageRestaurantComponent, children:[
+    {path:"", redirectTo:"landing-page", pathMatch:"full"},
+    {path:"landing-page", component:LandingPageComponent},
+    {path:"about-page", loadChildren:()=>import("./about-page/about-page.module").then(m=>m.AboutPageModule)},
+  ]},
   {
     path:"user-page",
     component:HomepageRestaurantComponent,
     children:[
-      {path:"", redirectTo:"menu-page", pathMatch:"full"},
+      {path:"", redirectTo:"cart-page", pathMatch:"full"},
       {path:"menu-page", loadChildren:()=>import("./menu-page/menu-page.module").then(m=>m.MenuPageModule)},
-      {path:"cart-page", loadChildren:()=>import("./cart-page/cart-page.module").then(m=>m.CartPageModule)}
+      {path:"cart-page", loadChildren:()=>import("./cart-page/cart-page.module").then(m=>m.CartPageModule)},
+      {path:"about-page", loadChildren:()=>import("./about-page/about-page.module").then(m=>m.AboutPageModule)}
     ]
   },
   {
     path:"admin-page",
     component:HomepageRestaurantComponent,
     children:[
-      {path:"", redirectTo:"stock-management", pathMatch:"full"},
+      {path:"", redirectTo:"menu-page", pathMatch:"full"},
       {path:"menu-page", loadChildren:()=>import("./menu-page/menu-page.module").then(m=>m.MenuPageModule)},
       {path:"stock-management", loadChildren:()=>import("./stock-management/stock-management.module").then(m=>m.StockManagementModule)},
-      {path:"menu-management", loadChildren:()=>import("./menu-management/menu-management.module").then(m=>m.MenuManagementModule)}
+      {path:"menu-management", loadChildren:()=>import("./menu-management/menu-management.module").then(m=>m.MenuManagementModule)},
+      {path:"about-page", loadChildren:()=>import("./about-page/about-page.module").then(m=>m.AboutPageModule)}
     ]
   },
-  {path:"login-page", loadChildren:() => import("./login-page/login-page.module").then(m=>m.LoginPageModule)},
+  {path:"login-page", loadChildren:() => import("./login-page/login-page.module").then(m=>m.LoginPageModule)}
 ];
 
 @NgModule({

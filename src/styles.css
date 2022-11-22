@@ -1,7 +1,144 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-*{
-    box-sizing: border-box;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* dp-block */
+
+.dp-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.dp-block-1-2 {
+  display: block;
+  margin: 1.2rem auto;
+}
+
+/* container */
+.container-full-all{
+    width:100%;
+    height: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+.container-90 {
+  width: 90%;
+}
+
+.container-80 {
+  width: 80%;
+}
+
+/* color */
+.color-primary {
+  background-color: #c21010;
+}
+
+.color-secondary {
+  background-color: #e64848;
+}
+
+.color-trinary {
+  background-color: #fffde3;
+}
+
+.color-rest {
+  background-color: #cfe8a9;
+}
+
+.color-rest-2 {
+  background-color: #040303;
+}
+
+/* width */
+.full-width {
+  width: 100%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.width-60{
+    width: 60%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.width-40{
+    width: 40%;
+}
+
+/* height */
+.height-40 {
+  height: 40vh;
+}
+
+.height-60 {
+  height: 60vh;
+}
+
+.height-80 {
+  height: 80vh;
+}
+
+.height-100 {
+  height: 100vh;
+}
+
+/* padding */
+.pd-left-2 {
+  padding-left: 2rem;
+}
+
+/* margin */
+.mr-right-1 {
+  margin-right: 1rem;
+}
+
+.mr-left-1 {
+  margin-left: 1rem;
+}
+
+.mr-right-2 {
+  margin-right: 2rem;
+}
+
+.mr-left-2 {
+  margin-left: 2rem;
+}
+
+.mr-right-0-5 {
+  margin-right: 0.5rem;
+}
+
+.mr-left-15 {
+  margin-left: 15px;
+}
+
+.mr-bottom-1 {
+  margin-bottom: 1rem;
+}
+
+.mr-bottom-2 {
+  margin-bottom: 1rem;
+}
+
+.mr-top-1{
+  margin-top: 1rem;
 }

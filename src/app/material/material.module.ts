@@ -16,6 +16,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -38,7 +40,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatChipsModule,
     MatDialogModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDividerModule,
+    MatExpansionModule
   ],
   exports: [
     MatIconModule,
@@ -56,7 +60,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatChipsModule,
     MatDialogModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDividerModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule {}
