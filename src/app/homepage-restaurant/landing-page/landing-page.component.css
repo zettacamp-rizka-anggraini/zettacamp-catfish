@@ -91,24 +91,3 @@ mat-card-content {
     text-align: justify;
    line-height: 1.3rem;
 }
-
-/* footer */
-.footer{
-    color: white;
-    padding-top: 2rem;
-}
-
-.footer-flex {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.footer-list ul li{
-    list-style: none;
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-}
-
-.footer-medsos img{
-    width: 32px;
-}

@@ -1,0 +1,56 @@
+.about-page h1{
+    padding: 2rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+mat-card{
+    height: 500px;
+    margin: 10px;
+}
+
+.a {
+    width: 40%;
+}
+
+.a p {
+    text-align: justify;
+    padding: 0.8rem;
+}
+
+.a img {
+    width: 42px;
+}
+
+.b{
+    width: 60%;
+    overflow: hidden;
+    
+}
+
+.a h2, .b h2{
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.b img {
+    width: 500px;
+    position: relative;
+    bottom: 80px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.pd-right-1 {
+    padding-right: 1rem;
+}

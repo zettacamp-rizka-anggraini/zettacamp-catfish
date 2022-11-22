@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { LoginPageService } from './login-page.service';
 
@@ -13,13 +14,19 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   loginreload:boolean = true;
   loginForm: FormGroup;
-  hide = true;
+  hide:boolean = true;
+  currentLanguage = 'en';
+  srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private serviceLogin: LoginPageService
-  ) { }
+    private serviceLogin: LoginPageService,
+    private translate: TranslateService
+  ) { 
+    translate.addLangs(['en', 'id']);
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -44,6 +51,19 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.router.navigate(['/home-page']);
       }
     });
+  }
+
+  changeLanguage(lang:any) {
+    console.log(lang);
+    if (lang === 'en') {
+      this.translate.use('id');
+      this.currentLanguage = 'id';
+      this.srcImages = "https://cdn-icons-png.flaticon.com/512/3053/3053985.png";
+    } else {
+      this.translate.use('en');
+      this.currentLanguage = 'en';
+      this.srcImages = "https://cdn-icons-png.flaticon.com/512/323/323329.png";
+    }
   }
 
   ngOnDestroy(): void {

@@ -4,6 +4,8 @@ import { HomepageRestaurantComponent } from './homepage-restaurant.component';
 import { MaterialModule } from '../material/material.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
+
 @NgModule({
   declarations: [
     HomepageRestaurantComponent,
@@ -12,7 +14,10 @@ import { RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    TranslateModule.forChild({
+      extend: true
+    })
   ],
   exports:[
     HomepageRestaurantComponent,
