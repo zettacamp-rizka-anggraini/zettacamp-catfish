@@ -1,0 +1,23 @@
+{
+    "home-page": {
+        "home" : "beranda",
+        "menu" : "menu kami",
+        "about" : "tentang kami",
+        "login" : "masuk",
+        "order-now": "pesan sekarang",
+        "see-our-menu": "lihat menu kami"
+    },
+    "title":{
+        "title-medsos": "media sosial kami",
+        "title-email": "masukkan email kamu",
+        "title-password": "masukkan password kamu",
+        "title-logout": "keluar"
+    },
+    "sub-menu": {
+        "Menu": "menu",
+        "About": "tentang kami",
+        "Cart": "keranjang",
+        "Menu Management": "menu manajemen",
+        "Stock Management": "stok manajemen"
+    }
+}

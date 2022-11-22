@@ -1,0 +1,23 @@
+{
+    "home-page": {
+        "home" : "home",
+        "menu" : "menu",
+        "about" : "about",
+        "login" : "login",
+        "order-now": "order now",
+        "see-our-menu": "see our menu"
+    },
+    "title":{
+        "title-medsos": "our media social",
+        "title-email": "enter your email",
+        "title-password": "enter your password",
+        "title-logout": "logout"
+    },
+    "sub-menu": {
+        "Menu": "menu",
+        "About": "about",
+        "Cart": "cart",
+        "Menu Management": "menu management",
+        "Stock Management": "stock management"
+    }
+}
