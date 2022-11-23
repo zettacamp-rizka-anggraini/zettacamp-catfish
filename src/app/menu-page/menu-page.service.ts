@@ -68,36 +68,26 @@ export class MenuPageService {
     });
   };
 
-  createOrder(addMenu:any):Observable<any>{
+  addCart(addMenu:any):Observable<any>{
     return this.apollo.mutate({
       mutation: gql`
-      mutation CreateTransactions($menu: [trans_menuInput]) {
-        CreateTransactions(menu: $menu) {
+      mutation AddCart($menu: [trans_menuInput]) {
+        addCart(menu: $menu) {
           id
           menu {
-            amount
             note
+            amount
+            _id
             recipe_id {
-              description
-              available
-              id
-              price
               recipe_name
-              status
+              price
+              id
             }
           }
-          total
-          user_id {
-            email
-            last_name
-          }
-          status
-          order_status
-          order_date
         }
       }`,
       variables: {
-        menu: addMenu
+        menu: [addMenu]
       }
     })
   }

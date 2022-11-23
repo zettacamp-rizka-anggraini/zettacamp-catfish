@@ -53,7 +53,7 @@ export class DialogDetailMenuComponent implements OnInit {
           amount: quanValue.quantity,
           note: quanValue.message
         }
-        this.subs.sink = this.serviceMenu.createOrder(menuOrder).subscribe();
+        this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
         // console.log(menuOrder);
         this.dialogRef.close();
       });

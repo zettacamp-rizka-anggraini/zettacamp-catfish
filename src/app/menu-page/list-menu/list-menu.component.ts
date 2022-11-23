@@ -64,7 +64,11 @@ export class ListMenuComponent implements OnInit, OnDestroy {
   }
 
   openDetailDialog(id:string){
-    this.dialog.open(DialogDetailMenuComponent, {data:id});
+    const dialogRef = this.dialog.open(DialogDetailMenuComponent, {data:id});
+    dialogRef.afterClosed().subscribe(()=>{
+      this.getDataMenu();
+    })
+    
   }
 
   async addToCart(id:string){
@@ -94,7 +98,8 @@ export class ListMenuComponent implements OnInit, OnDestroy {
             amount: quanValue.quantity,
             note: cartMessage
           }
-          this.subs.sink = this.serviceMenu.createOrder(menuOrder).subscribe();
+          this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
+          this.getDataMenu();
           // console.log(menuOrder);
         });
       }
@@ -103,9 +108,10 @@ export class ListMenuComponent implements OnInit, OnDestroy {
         icon: 'error',
         title: 'Oops...',
         text: 'You Have To Fill The Quantity',
+      }).then(()=>{
+        this.getDataMenu();
       })
     }
-    this.getDataMenu();
   }
 
   ngOnDestroy(): void {
