@@ -65,9 +65,15 @@ export class TableMenuComponent implements OnInit, OnDestroy {
   }
 
   updateStatus(id:string, name:string, status:string){
+    let textStatus: any;
+    if(status == 'publish'){
+      textStatus = 'Unpublish'
+    } else {
+      textStatus = 'Publish'
+    }
     Swal.fire({
       title: 'Change Status',
-      text: 'Are You Sure Want To Change Status?',
+      text: 'Are You Sure Want To Change Status To ' + textStatus + ' ?',
       icon: 'question',
       confirmButtonText: 'Yes, Change Status',
       showCancelButton: true
