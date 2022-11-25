@@ -67,23 +67,29 @@ export class DialogStockComponent implements OnInit, OnDestroy {
                 icon: 'success',
                 confirmButtonText: 'Ok',
               }).then(() => {
-                this.serviceStock.getAllStock(this.pagination).refetch();
                 this.dialogRef.close();
               });
             },
-            error: () => {
+            error: (error) => {
               Swal.fire({
                 title: 'Error!',
-                text: 'Something Happend!',
+                text: error.message,
                 icon: 'error',
                 confirmButtonText: 'OK',
               });
             },
           });
+      } else if(updatedValue.stock < 1){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Stock Cannot Minus!',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
       } else {
         Swal.fire({
           title: 'Error!',
-          text: 'Data Invalid!',
+          text: 'Stock Invalid!',
           icon: 'error',
           confirmButtonText: 'OK',
         });
@@ -101,23 +107,29 @@ export class DialogStockComponent implements OnInit, OnDestroy {
                 icon: 'success',
                 confirmButtonText: 'Ok',
               }).then(() => {
-                this.serviceStock.getAllStock(this.pagination).refetch();
                 this.dialogRef.close();
               });
             },
-            error: () => {
+            error: (error) => {
               Swal.fire({
                 title: 'Error!',
-                text: 'Something Happend!',
+                text: error.message,
                 icon: 'error',
                 confirmButtonText: 'OK',
               });
             },
           });
-      } else {
+      } else if(updatedValue.stock < 1){
         Swal.fire({
           title: 'Error!',
-          text: 'Data Invalid!',
+          text: 'Stock Cannot Minus!',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
+      }else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Stock Invalid!',
           icon: 'error',
           confirmButtonText: 'OK',
         });

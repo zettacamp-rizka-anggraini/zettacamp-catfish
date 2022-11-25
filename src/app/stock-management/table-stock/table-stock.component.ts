@@ -4,8 +4,9 @@ import { StockManagementService } from '../stock-management.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogStockComponent } from '../dialog-stock/dialog-stock.component';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import Swal from 'sweetalert2';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-table-stock',
@@ -23,15 +24,21 @@ export class TableStockComponent implements OnInit, OnDestroy {
     stock: 1
   }
   totalSize = 0;
+
+  //filter name
+  filterStockName: any = new FormControl('');
+  stockNameFilter = '';
+  resultFilter:any;
   
   constructor(private serviceStock:StockManagementService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getData();
+    this.searchNameStockFilter();
   }
 
   getData(){
-    this.subs.sink = this.serviceStock.getAllStock(this.pagination).valueChanges.subscribe((resp:any)=>{
+    this.subs.sink = this.serviceStock.getAllStock(this.pagination, this.resultFilter).valueChanges.subscribe((resp:any)=>{
       this.dataStock = resp?.data;
       this.dataStock = this.dataStock?.getAllIngredients.data;
       this.dataSource = new MatTableDataSource(this.dataStock);
@@ -49,11 +56,20 @@ export class TableStockComponent implements OnInit, OnDestroy {
 
     this.getData();
   }
+
+  searchNameStockFilter(){
+    this.filterStockName.valueChanges.subscribe((name)=>{
+      this.resultFilter = name.toLowerCase();
+      this.getData();
+    })
+  }
   
   openDialog(id:string){
-    // console.log(id);
-    this.dialog.open(DialogStockComponent, {data:id}).afterClosed().subscribe(()=>{
-      // this.serviceStock.getAllStock(this.pagination).refetch();
+    const dialogRef = this.dialog.open(DialogStockComponent, {data:id});
+    dialogRef.afterClosed().subscribe((hasResult)=>{
+      if(hasResult){
+        this.getData();
+      }
     });
   }
 
@@ -75,7 +91,7 @@ export class TableStockComponent implements OnInit, OnDestroy {
               'Your stock '+ name +' has been deleted.',
               'success'
             ),
-            this.serviceStock.getAllStock(this.pagination).refetch();
+            this.getData();
           },
           error: ()=>{
             Swal.fire(

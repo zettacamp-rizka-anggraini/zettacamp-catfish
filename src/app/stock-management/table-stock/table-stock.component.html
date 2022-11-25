@@ -1,4 +1,13 @@
 <div class="container-80 dp-block-1-2">
+  <div class="search-filter">
+    <mat-form-field class="mr-bottom-1" appearance="fill">
+      <mat-label>Stock Name</mat-label>
+      <input type="text" matInput [formControl]="filterStockName" [(ngModel)]="stockNameFilter" placeholder="search stock here"/>
+      <button *ngIf="stockNameFilter" matSuffix mat-icon-button (click)="stockNameFilter=''">
+        clear
+      </button>
+    </mat-form-field>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -38,6 +47,12 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+        No data matching the filter.
+      </td>
+    </tr>
   </table>
   <mat-paginator [length]="totalSize" [pageSizeOptions]="[10]" [pageSize]="pagination?.limit" [pageIndex]="pagination?.page-1" (page)="handlePage($event)" [showFirstLastButtons]="true"></mat-paginator>
 </div>
