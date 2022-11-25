@@ -113,13 +113,23 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
               this.dialogRef.close();
             });
           },
-          error:()=>{
-            Swal.fire({
-              title: "Error!",
-              text: "Something Happend!",
-              icon: "error",
-              confirmButtonText: "OK"
-            });
+          error:(error)=>{
+            console.log(error.message);
+            if(error.message == "bahan kurang"){
+              Swal.fire({
+                title: "Error!",
+                text: "Your Stock Run Out! Quickly Update Your Stock Now!",
+                icon: "error",
+                confirmButtonText: "OK"
+              });
+            }else{
+              Swal.fire({
+                title: "Error!",
+                text: "Something Happend!",
+                icon: "error",
+                confirmButtonText: "OK"
+              });
+            }
           }
         });
       }else{

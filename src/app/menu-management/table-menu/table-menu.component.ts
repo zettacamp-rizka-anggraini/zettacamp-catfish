@@ -75,23 +75,23 @@ export class TableMenuComponent implements OnInit, OnDestroy {
       if(result.isConfirmed){
         if(status=="publish"){
           const tempStatus = "unpublish";
-          this.subs.sink = this.serviceMenu.updateStatusMenu(id, tempStatus).subscribe(()=>{
+          this.subs.sink = this.serviceMenu?.updateStatusMenu(id, tempStatus)?.subscribe(()=>{
             Swal.fire(
               'Change Success!',
               'Your Menu ' + name + ' Has Been ' + tempStatus,
               'success'
             )
-            this.serviceMenu.getAllMenu(this.pagination).refetch();
+            this.serviceMenu?.getAllMenu(this.pagination)?.refetch();
           });
         } else if(status=="unpublish"){
           const tempStatus = "publish";
-          this.subs.sink = this.serviceMenu.updateStatusMenu(id, tempStatus).subscribe(()=>{
+          this.subs.sink = this.serviceMenu?.updateStatusMenu(id, tempStatus)?.subscribe(()=>{
             Swal.fire(
               'Change Success!',
               'Your Menu ' + name + ' Has Been ' + tempStatus,
               'success'
             )
-            this.serviceMenu.getAllMenu(this.pagination).refetch();
+            this.serviceMenu?.getAllMenu(this.pagination)?.refetch();
           });
         }
       }
