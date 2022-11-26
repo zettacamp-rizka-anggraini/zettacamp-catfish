@@ -15,6 +15,11 @@
           }}</a>
         </li>
         <li>
+          <a [routerLink]="['menu-page']">{{
+            "sub-menu.Menu" | translate | titlecase
+          }}</a>
+        </li>
+        <li>
           <a [routerLink]="['about-page']">{{
             "home-page.about" | translate | titlecase
           }}</a>
@@ -126,23 +131,24 @@
     <!-- after login for usertype -->
     <mat-sidenav-container class="user">
       <mat-sidenav [(opened)]="opened" mode="side">
-        <mat-list>
-          <mat-list-item *ngFor="let menu of menuAllow" class="mr-left-15">
+        <ul>
+          <li><a [routerLink]="['menu-offer']"><mat-icon class="mr-right-1">local_offer</mat-icon>Menu Highlight & Offer</a></li>
+          <li *ngFor="let menu of menuAllow">
             <a [routerLink]="[menu?.slug]">
               <mat-icon class="mr-right-1">{{ menu?.icon_name }}</mat-icon
               >{{ "sub-menu." + menu?.name | translate | titlecase }}
             </a>
-          </mat-list-item>
-          <mat-list-item>
+          </li>
+          <li>
             <button
               mat-flat-button
-              class="logout color-secondary dp-block"
+              class="logout color-secondary"
               (click)="logoutPage()"
             >
               {{ "title.title-logout" | translate | titlecase }}
             </button>
-          </mat-list-item>
-        </mat-list>
+          </li>
+        </ul>
       </mat-sidenav>
       <mat-sidenav-content>
         <router-outlet></router-outlet>

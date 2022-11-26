@@ -5,11 +5,13 @@ import { MaterialModule } from '../material/material.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import { MenuHiglightComponent } from './menu-higlight/menu-higlight.component';
 
 @NgModule({
   declarations: [
     HomepageRestaurantComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    MenuHiglightComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {TranslateModule} from '@ngx-translate/core';
   ],
   exports:[
     HomepageRestaurantComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    MenuHiglightComponent
   ]
 })
 export class HomepageRestaurantModule { }

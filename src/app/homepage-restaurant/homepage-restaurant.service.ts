@@ -9,19 +9,34 @@ export class HomepageRestaurantService {
 
   constructor(private apollo:Apollo) { }
 
-  // getAllUser(email:string):Observable<any>{
-  //   return this.apollo.query({
-  //     query: gql`
-  //     query($email: String){
-  //       getAllUser(email: $email){
-  //         data {
-  //           role
-  //         }
-  //       }
-  //     }`,
-  //     variables:{
-  //       email
-  //     }
-  //   })
-  // }
+  getMenuHighlight(pagination:any, highlight:boolean){
+    return this.apollo.watchQuery({
+      query: gql`
+      query GetAllRecipesNoToken($menuHighlight: Boolean, $limit: Int, $page: Int) {
+        getAllRecipesNoToken(menu_highlight: $menuHighlight, limit: $limit, page: $page) {
+          data_recipes {
+            recipe_name
+            menu_highlight
+            image
+            description
+            Special_offers
+            available
+            price
+            status
+            id
+          }
+          count_publish
+          count_unpublish
+          count_total
+          count_deleted
+        }
+      }`,
+      variables:{
+        menuHighlight: highlight, 
+        limit: pagination.limit, 
+        page: pagination.page
+      }
+    })
+  }
+  
 }
