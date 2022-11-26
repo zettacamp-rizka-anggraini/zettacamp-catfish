@@ -43,7 +43,7 @@ export class DialogStockComponent implements OnInit, OnDestroy {
       this.id = this.data;
       this.id = String(this.id);
       this.addData = false;
-      this.serviceStock.getOneStock(this.id).subscribe((resp) => {
+      this.subs.sink = this.serviceStock.getOneStock(this.id).subscribe((resp) => {
         this.dataStock = resp.data.getOneIngredients;
         console.log(this.dataStock);
         this.formStock.patchValue(this.dataStock);

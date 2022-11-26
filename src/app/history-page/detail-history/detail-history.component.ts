@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubSink } from 'subsink';
 import { HistoryPageService } from '../history-page.service';
-import { DetailTransaction } from '../model/detailTransaction.model';
+import { DetailTransaction } from '../../model/transaction.model';
 
 @Component({
   selector: 'app-detail-history',
@@ -15,7 +15,6 @@ export class DetailHistoryComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DetailTransaction,
-    private serviceHistory: HistoryPageService,
     private dialogRef: MatDialogRef<DetailHistoryComponent>
   ) { }
 
