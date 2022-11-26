@@ -23,12 +23,12 @@ export class MenuManagementService {
     });
   };
 
-  getAllMenu(pagination:any){
+  getAllMenu(pagination:any, name:any, status:any){
     // console.log(pagination);
     return this.apollo.watchQuery({
       query: gql`
-      query GetAllRecipes($page: Int, $limit: Int){
-        getAllRecipes(page: $page, limit: $limit) {
+      query GetAllRecipes($page: Int, $limit: Int, $recipeName: String, $status: status_recipe){
+        getAllRecipes(page: $page, limit: $limit, recipe_name: $recipeName, status: $status) {
           count_unpublish
           count_total
           count_publish
@@ -46,7 +46,9 @@ export class MenuManagementService {
       }`,
       variables:{
         page: pagination.page,
-        limit: pagination.limit
+        limit: pagination.limit,
+        recipeName: name,
+        status: status
       },
       fetchPolicy:"network-only"
     });

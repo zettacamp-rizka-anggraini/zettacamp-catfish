@@ -1,4 +1,21 @@
 <div class="container-90 dp-block-1-2">
+  <div class="search-filter">
+    <mat-form-field class="mr-bottom-1" appearance="fill" class="mr-right-1">
+      <mat-label>Menu Name</mat-label>
+      <input type="text" matInput [formControl]="filterMenuName" [(ngModel)]="menuNameFilter" placeholder="search menu here"/>
+      <button *ngIf="menuNameFilter" matSuffix mat-icon-button (click)="stockNameFilter=''">
+        clear
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Status Menu</mat-label>
+      <mat-select [formControl]="statusMenuFilter">
+        <mat-option *ngFor="let status of statusFilter" [value]="status.value">
+          {{status.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="recipe_name">
             <th mat-header-cell *matHeaderCellDef>Name</th>

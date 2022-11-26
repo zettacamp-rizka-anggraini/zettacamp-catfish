@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -24,23 +25,42 @@ export class TableMenuComponent implements OnInit, OnDestroy {
   }
   totalSize = 0;
 
+  //filter name
+  filterMenuName: any = new FormControl('');
+  menuNameFilter = '';
+  resultMenuFilter:any;
+
+  //filter status
+  statusFilter:any = [
+    {viewValue: "All", value: "none"},
+    {viewValue: "Publish", value:"publish"},
+    {viewValue: "Unpublish", value:"unpublish"}
+  ]
+
+  statusMenuFilter = new FormControl('');
+  status:any;
+
   constructor(private serviceMenu:MenuManagementService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getData();
+    this.searchMenu();
   }
 
   getData(){
-    this.subs.sink = this.serviceMenu.getAllMenu(this.pagination).valueChanges.subscribe((resp:any)=>{
+    this.subs.sink = this.serviceMenu.getAllMenu(this.pagination, this.resultMenuFilter, this.status).valueChanges.subscribe((resp:any)=>{
       this.dataMenu = resp.data;
       this.dataMenu = this.dataMenu?.getAllRecipes?.data_recipes;
       this.dataSource = new MatTableDataSource(this.dataMenu);
-
       const publish = resp?.data?.getAllRecipes?.count_publish;
       const unpublish = resp?.data?.getAllRecipes?.count_unpublish;
-      // this.totalSize = publish + unpublish;
-      this.totalSize = resp?.data?.getAllRecipes?.count_total;
-
+      if(this.status == "publish"){
+        this.totalSize = publish;
+      }else if(this.status == "unpublish"){
+        this.totalSize = unpublish;
+      }else if( this.status == null){
+        this.totalSize = publish + unpublish;
+      }
       // console.log(this.totalSize);
     })
   }
@@ -53,14 +73,33 @@ export class TableMenuComponent implements OnInit, OnDestroy {
     this.getData();
   }
 
+  searchMenu(){
+    this.filterMenuName.valueChanges.subscribe((result)=>{
+      this.resultMenuFilter = result.toLowerCase();
+      this.getData();
+    })
+
+    this.statusMenuFilter.valueChanges.subscribe((result)=>{
+      if(result == "none"){
+        this.status = null;
+        this.getData();
+      }else{
+        this.status = result;
+        this.getData();
+      } 
+    });
+  }
+
   openDetailDialog(id:string){
     // console.log(id);
     this.dialog.open(DetailMenuComponent, {data:id});
   }
 
   openDialogMenu(id:string){
-    this.dialog.open(DialogMenuComponent, {data:id}).afterClosed().subscribe(()=>{
-      this.serviceMenu.getAllMenu(this.pagination).refetch();
+    this.dialog.open(DialogMenuComponent, {data:id}).afterClosed().subscribe((result)=>{
+      if(result){
+        this.getData;
+      }
     });
   }
 
@@ -87,7 +126,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
               'Your Menu ' + name + ' Has Been ' + tempStatus,
               'success'
             )
-            this.serviceMenu?.getAllMenu(this.pagination)?.refetch();
+            this.getData();
           });
         } else if(status=="unpublish"){
           const tempStatus = "publish";
@@ -97,7 +136,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
               'Your Menu ' + name + ' Has Been ' + tempStatus,
               'success'
             )
-            this.serviceMenu?.getAllMenu(this.pagination)?.refetch();
+            this.getData();
           });
         }
       }
@@ -122,7 +161,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
               'Your stock '+ name +' has been deleted.',
               'success'
             ),
-            this.serviceMenu.getAllMenu(this.pagination).refetch();
+            this.getData();
           },
           error: ()=>{
             Swal.fire(
