@@ -66,7 +66,6 @@ export class ListCartComponent implements OnInit, OnDestroy {
   }
 
   orderNow(){
-    // console.log(id);
       Swal.fire({
         title: 'Are you sure want to order this cart?',
         text: "You won't be able to revert this!",
