@@ -12,8 +12,8 @@ export class MenuPageService {
   getAllMenuNow(pagination){
     return this.apollo.watchQuery({
       query: gql`
-      query GetAllRecipes($page: Int, $limit: Int){
-        getAllRecipes(page: $page, limit: $limit) {
+      query GetAllRecipesNoToken($page: Int, $limit: Int){
+        getAllRecipesNoToken(page: $page, limit: $limit) {
           count_unpublish
           count_total
           count_publish

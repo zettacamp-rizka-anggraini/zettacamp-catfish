@@ -1,8 +1,14 @@
-<div class="container-80 dp-block-1-2">
+<div class="width-60 dp-block-1-2">
   <div *ngIf="menulist; else menuListNone">
     <div class="flex-container" >
       <mat-card *ngFor="let item of listMenu; let i = index">
-        <img class="dp-block" src="{{ item?.image }}" />
+        <div [ngClass]="item?.available == 0 ? 'greyout' : ''">
+          <img *ngIf="item.image != ''; else menuImageNone" class="dp-block" src="{{ item?.image }}" alt="menu image" />
+          <ng-template #menuImageNone>
+            <img class="dp-block" src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="menu image"/>
+          </ng-template>
+        </div>
         <mat-card-title>{{ item.recipe_name | titlecase }}</mat-card-title>
         <div class="group-item">
           <div class="price-item">
@@ -14,25 +20,7 @@
             <h2>{{ item?.available }}</h2>
           </div>
         </div>
-        <div [formGroup]="cartForm" class="counter" [disabled]="item?.avalibale">
-          <!-- quantity field -->
-          <mat-form-field class="full-width mr-bottom-1 quantity" appearance="outline">
-              <mat-label>Quantity</mat-label>
-              <input type="number" matInput formControlName="quantity" name="quantity" [readonly]="item?.available < 1"/>
-              <!-- <mat-error *ngIf="this.formMenu.get('quantity')?.invalid">
-                This field is required !
-              </mat-error> -->
-            </mat-form-field>
-        </div>
         <mat-card-actions align="center" *ngIf="item?.available > 0; else stockRunOut">
-          <button
-            mat-flat-button
-            color="primary"
-            class="detail-menu"
-            (click)="openDetailDialog(item?.id)"
-          >
-            Detail
-          </button>
           <button
             mat-flat-button
             color="addcart"
@@ -44,14 +32,6 @@
         </mat-card-actions>
         <ng-template #stockRunOut>
           <mat-card-actions align="center">
-            <button
-              mat-flat-button
-              color="primary"
-              class="detail-menu"
-              disabled="true"
-            >
-              Detail
-            </button>
             <button
               mat-flat-button
               class="add-cart"
@@ -66,7 +46,7 @@
     </div>
     <mat-paginator
       [length]="totalSize"
-      [pageSizeOptions]="[5, 10]"
+      [pageSizeOptions]="[10]"
       [pageSize]="pagination?.limit"
       [pageIndex]="pagination?.page - 1"
       (page)="handlePage($event)"

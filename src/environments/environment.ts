@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://0caa-103-236-192-220.ap.ngrok.io',
+  apiUrl: 'https://5bf5-114-142-171-57.ap.ngrok.io',
   tokenKey: 'token',
   role: 'role',
   usertype: 'usertype'

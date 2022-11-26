@@ -32,18 +32,21 @@ export class ListMenuComponent implements OnInit, OnDestroy {
 
   getCounterQuan(){
     this.cartForm = this.fb.group({
-      quantity: [null, [Validators.min(1)]]
+      quantity: [null]
     })
   }
 
+  get cartFormControl(){
+    return this.cartForm.controls;
+  }
+
   getDataMenu(){
-    this.subs.sink = this.serviceMenu.getAllMenuNow(this.pagination).valueChanges.subscribe((resp)=>{
-      this.listMenu = resp?.data;
-      this.listMenu = this.listMenu?.getAllRecipes?.data_recipes;
+    this.subs.sink = this.serviceMenu.getAllMenuNow(this.pagination).valueChanges.subscribe((resp:any)=>{
+      const menu = resp?.data;
+      this.listMenu = menu?.getAllRecipesNoToken?.data_recipes;
       this.listMenu = this.listMenu?.filter(stat => stat.status == "publish");
-      this.totalSize = this.listMenu?.getAllRecipes?.count_publish;
-      this.initStatusListMenu();
-      console.log(this.totalSize);   
+      this.totalSize = menu?.getAllRecipesNoToken?.count_publish;
+      this.initStatusListMenu();  
     })
   }
 
@@ -63,55 +66,11 @@ export class ListMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  openDetailDialog(id:string){
+  addToCart(id:string){
     const dialogRef = this.dialog.open(DialogDetailMenuComponent, {data:id});
     dialogRef.afterClosed().subscribe(()=>{
       this.getDataMenu();
     })
-    
-  }
-
-  async addToCart(id:string){
-    const quanValue = this.cartForm.value;
-    if(quanValue.quantity != null){
-      const { value: cartMessage } = await Swal.fire({
-        input: 'textarea',
-        inputLabel: 'Your Message To Us',
-        inputPlaceholder: 'Type your message here...',
-        inputAttributes: {
-          'aria-label': 'Type your message here'
-        },
-        confirmButtonText: "Add To Cart",
-        showCancelButton: true
-      })
-
-      if(cartMessage || !cartMessage){
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Your Menu Have Been Add To Cart',
-          showConfirmButton: false,
-          timer: 1500
-        }).then(()=>{
-          const menuOrder = {
-            recipe_id : id,
-            amount: quanValue.quantity,
-            note: cartMessage
-          }
-          this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
-          this.getDataMenu();
-          // console.log(menuOrder);
-        });
-      }
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'You Have To Fill The Quantity',
-      }).then(()=>{
-        this.getDataMenu();
-      })
-    }
   }
 
   ngOnDestroy(): void {

@@ -84,6 +84,14 @@ body {
     width: 40%;
 }
 
+.width-30 {
+  width: 30%;
+}
+
+.width-20 {
+  width: 20%;
+}
+
 /* height */
 .height-40 {
   height: 40vh;
@@ -101,6 +109,9 @@ body {
   height: 100vh;
 }
 
+.height-full{
+  height: 100%;
+}
 /* padding */
 .pd-left-2 {
   padding-left: 2rem;
