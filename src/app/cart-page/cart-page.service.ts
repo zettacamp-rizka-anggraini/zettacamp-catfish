@@ -38,7 +38,7 @@ export class CartPageService {
             status
             order_status
             order_date
-        total
+            total_recipe
           }
         }
       }`,
@@ -74,6 +74,7 @@ export class CartPageService {
               note
               amount
               _id
+              total_recipe
             }
             status
             order_status
@@ -87,15 +88,15 @@ export class CartPageService {
         limit: pagination.limit,
         orderStatus: order_status
       },
-      fetchPolicy:'network-only'
+      fetchPolicy:'network-only',
     })
   }
   
-  getOneCart(id:string):Observable<any>{
+  getOneCart():Observable<any>{
     return this.apollo.query({
       query: gql`
-      query GetOneTransaction($getOneTransactionId: ID) {
-        getOneTransaction(id: $getOneTransactionId) {
+      query GetOneTransaction{
+        getOneTransaction {
           id
           menu {
             note
@@ -107,9 +108,6 @@ export class CartPageService {
           }
         }
       }`,
-      variables:{
-        getOneTransactionId:id
-      }
     })
   }
 
@@ -179,34 +177,14 @@ export class CartPageService {
     console.log(id);
     return this.apollo.mutate({
       mutation: gql`
-      mutation DeleteTransaction($deleteTransactionId: ID) {
-        DeleteTransaction(id: $deleteTransactionId) {
+      mutation DeleteCart($deleteCartId: ID) {
+        deleteCart(id: $deleteCartId) {
           id
-          order_date
-          status
-          total
           menu {
             _id
             amount
-            recipe_id {
-              id
-              recipe_name
-            }
+            note
           }
-        }
-      }`,
-      variables: {
-        deleteTransactionId: id,
-      }
-    })
-  }
-
-  orderCart(id:string):Observable<any>{
-    return this.apollo.mutate({
-      mutation: gql`
-      mutation OrderTransaction($orderTransactionId: ID) {
-        OrderTransaction(id: $orderTransactionId) {
-          id
           order_date
           order_status
           status
@@ -214,8 +192,31 @@ export class CartPageService {
         }
       }`,
       variables: {
-        orderTransactionId:id,
+        deleteCartId: id,
       }
+    })
+  }
+
+  orderCart():Observable<any>{
+    return this.apollo.mutate({
+      mutation: gql`
+      mutation OrderTransaction{
+        OrderTransaction {
+          id
+          order_date
+          order_status
+          status
+          total
+          menu {
+            _id
+            amount
+            note
+            recipe_id {
+              recipe_name
+            }
+          }
+        }
+      }`
     })
   }
 }

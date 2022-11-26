@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SubSink } from 'subsink';
 import { CartPageService } from '../cart-page.service';
 import Swal from 'sweetalert2';
@@ -12,24 +12,13 @@ import { DialogCartComponent } from '../dialog-cart/dialog-cart.component';
   styleUrls: ['./list-cart.component.css']
 })
 
-export class ListCartComponent implements OnInit {
+export class ListCartComponent implements OnInit, OnDestroy {
   private subs =  new SubSink();
   panelOpenState = false;
-
-  //Temp Cart
-  private tempCart:any;
 
   //Pending State
   cartListPending:any;
   pendingCart: any;
-
-  //Success State
-  cartListSuccess:any;
-  successCart: any;
-
-   //Failed State
-   cartListFailed:any;
-   failedCart: any;
 
   //Pagination
   pagination = {
@@ -40,40 +29,24 @@ export class ListCartComponent implements OnInit {
   totalPrice:number = 0;
   addSuccess:boolean = true;
 
+  indexToShowSuccess = [];
+  indexToShowFailed = [];
+
   constructor(private serviceCart:CartPageService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.initCartPending();
-    this.initCartSuccess();
-    this.initCartFailed();
   }
 
   initCartPending(){
     const order_status = "pending";
-    this.subs.sink = this.serviceCart.getAllCartStatus(this.pagination, order_status).valueChanges.subscribe((resp:any)=>{
-      this.cartListPending = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat.status == "active");
-      this.pendingCart = resp?.data?.getAllTransaction?.count_pending;
-      console.log(this.cartListPending);
+    this.subs.sink = this.serviceCart?.getAllCartStatus(this.pagination, order_status)?.valueChanges?.subscribe((resp:any)=>{
+        this.cartListPending = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat.status == "active");
+        this.pendingCart = resp?.data?.getAllTransaction?.count_pending;
+        console.log(resp);
     });
   }
 
-  initCartSuccess(){
-    const order_status = "success";
-    this.subs.sink = this.serviceCart.getAllCartStatus(this.pagination, order_status).valueChanges.subscribe((resp:any)=>{
-      this.cartListSuccess = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat.status == "active");
-      this.successCart = resp?.data?.getAllTransaction?.count_success;
-      console.log(this.cartListSuccess);
-    });
-  }
-
-  initCartFailed(){
-    const order_status = "failed";
-    this.subs.sink = this.serviceCart.getAllCartStatus(this.pagination, order_status).valueChanges.subscribe((resp:any)=>{
-      this.cartListFailed = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat.status == "active");
-      this.failedCart = resp?.data?.getAllTransaction?.count_success;
-      console.log(this.cartListFailed);
-    });
-  }
 
   handlePagePending(page: PageEvent){
     this.pagination = {
@@ -83,27 +56,19 @@ export class ListCartComponent implements OnInit {
     this.initCartPending();
   }
 
-  handlePageSuccess(page: PageEvent){
-    this.pagination = {
-      page: page.pageIndex + 1,
-      limit: page.pageSize
-    }
-    this.initCartSuccess();
-  }
-
   addAmount(id:string){
     console.log(id);
-    this.serviceCart.updateAmountPlus(id).subscribe();
-    this.serviceCart.getAllCart(this.pagination).refetch();
+    this.subs.sink = this.serviceCart.updateAmountPlus(id).subscribe();
+    this.initCartPending();
   }
 
   minAmount(id:string){
     console.log(id);
-    this.serviceCart.updateAmountMinus(id).subscribe();
-    this.serviceCart.getAllCart(this.pagination).refetch();
+   this.subs.sink = this.serviceCart.updateAmountMinus(id).subscribe();
+    this.initCartPending();
   }
 
-  orderBuy(id:string){
+  orderNow(){
     // console.log(id);
       Swal.fire({
         title: 'Are you sure want to order this cart?',
@@ -115,14 +80,14 @@ export class ListCartComponent implements OnInit {
         confirmButtonText: 'Yes, i order it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.subs.sink = this.serviceCart.orderCart(id).subscribe({
+          this.subs.sink = this.serviceCart.orderCart().subscribe({
             next: ()=>{
               Swal.fire(
                 'Success!',
                 'Your cart has been order it.',
                 'success'
               ),
-              this.serviceCart.getAllCart(this.pagination).refetch();
+              this.initCartPending();
             },
             error: ()=>{
               Swal.fire(
@@ -137,8 +102,12 @@ export class ListCartComponent implements OnInit {
       })
   }
 
-  editCartDialog(idItem:any, idRecipe:any){
-    this.dialog.open(DialogCartComponent, {data: {id_item:idItem, id_recipe:idRecipe}});
+  editCartDialog(idRecipe:any){
+    const dialogRef = this.dialog.open(DialogCartComponent, {data: {id_recipe:idRecipe}});
+    dialogRef.afterClosed().subscribe(()=>{
+      this.initCartPending();
+    })
+    // console.log(idRecipe);
   }
 
   deleteCart(id:string, name:string){
@@ -160,7 +129,7 @@ export class ListCartComponent implements OnInit {
               'Your cart '+ name +' has been deleted.',
               'success'
             ),
-            this.serviceCart.getAllCart(this.pagination).refetch();
+            this.initCartPending();
           },
           error: ()=>{
             Swal.fire(
@@ -168,11 +137,14 @@ export class ListCartComponent implements OnInit {
               'Your cart '+ name +' cannot be deleted.',
               'error'
             )
-            this.serviceCart.getAllCart(this.pagination).refetch();
+            this.initCartPending();
           }
         });
       }
     })
   }
 
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }

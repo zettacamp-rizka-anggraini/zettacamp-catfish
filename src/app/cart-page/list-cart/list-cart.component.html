@@ -13,47 +13,135 @@
           Your Transaction Is Still in Process
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <div class="list-item" *ngIf="pendingCart > 0; else pendingNotice">
-        <div *ngFor="let item of cartListPending">
+      <div *ngIf="pendingCart >= 1; else pendingNotice">
+        <div class="list-item" *ngFor="let item of cartListPending">
           <div *ngFor="let order of item?.menu; let j = index">
-            <div class="item mr-bottom-1 mr-top-1">
+            <div class="item mr-bottom-1 mr-top-1" *ngIf="order.recipe_id.status == 'publish'; else unpublishMenu">
               <img src="{{ order?.recipe_id?.image }}" alt="menu image" />
               <div class="item-detail">
                 <h3>{{ order?.recipe_id?.recipe_name | titlecase }}</h3>
                 <p>Rp {{ order?.recipe_id?.price }}</p>
-                <p><b>note</b> : {{order?.note}}</p>
+                <p><b>note</b> : {{ order?.note }}</p>
               </div>
               <div class="amount">
                 <h4>Amount</h4>
                 <div class="item-amount">
-                  <button matSuffix mat-icon-button [ngStyle]="{ color: 'blue' }" matTooltip="minus" (click)="minAmount(order?._id)">
+                  <button
+                    matSuffix
+                    mat-icon-button
+                    [ngStyle]="{ color: 'blue' }"
+                    matTooltip="minus"
+                    (click)="minAmount(order?._id)"
+                  >
                     <mat-icon>remove</mat-icon>
                   </button>
-                  <span>{{order.amount}}</span>
-                  <!-- <input matInput disabled formGroupName="amount" value="0"/> -->
-                  <button matSuffix mat-icon-button [ngStyle]="{ color: 'blue' }" matTooltip="plus" (click)="addAmount(order?._id)">
+                  <span>{{ order.amount }}</span>
+                  <button
+                    matSuffix
+                    mat-icon-button
+                    [ngStyle]="{ color: 'blue' }"
+                    matTooltip="plus"
+                    (click)="addAmount(order?._id)"
+                  >
                     <mat-icon>add</mat-icon>
                   </button>
                 </div>
               </div>
               <div class="item-total">
                 <h4>Total Price</h4>
-                <h1>Rp {{ item.total }}</h1>
+                <h1>Rp {{ order?.total_recipe }}</h1>
               </div>
-                <div class="order-button">
-                    <button mat-flat-button color="primary" matTooltip="Order" (click)="orderBuy(item?.id)">
-                        Order Now
-                    </button>
-                    <button mat-flat-button color="edit" matTooltip="Edit Note" (click)="editCartDialog(item?.id, order?._id)">
-                      <mat-icon>edit</mat-icon>
-                  </button>
-                    <button mat-flat-button color="warn" matTooltip="Delete" (click)="deleteCart(item.id, order?.recipe_id?.recipe_name)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </div>
+              <div class="order-button">
+                <button
+                  mat-flat-button
+                  color="edit"
+                  matTooltip="Edit Note"
+                  (click)="editCartDialog(order?._id)"
+                >
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                  mat-flat-button
+                  color="warn"
+                  matTooltip="Delete"
+                  (click)="
+                    deleteCart(order?._id, order?.recipe_id?.recipe_name)
+                  "
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
             </div>
+            <ng-template #unpublishMenu>
+              <div class="item mr-bottom-1 mr-top-1">
+                <img class="greyout" src="{{ order?.recipe_id?.image }}" alt="menu image" />
+                <div class="item-detail grayout">
+                  <h3>{{ order?.recipe_id?.recipe_name | titlecase }}</h3>
+                  <p>{{ order?.recipe_id?.price | currency: "Rp. "}}</p>
+                  <p><b>note</b> : {{ order?.note }}</p>
+                </div>
+                <div class="amount grayout">
+                  <h4>Amount</h4>
+                  <div class="item-amount grayout">
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      [ngStyle]="{ color: 'grey' }"
+                      matTooltip="minus"
+                      disabled="true"
+                    >
+                      <mat-icon>remove</mat-icon>
+                    </button>
+                    <span>{{ order.amount }}</span>
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      [ngStyle]="{ color: 'grey' }"
+                      matTooltip="plus"
+                      disabled="true"
+                    >
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="item-total">
+                  <h4>Total Price</h4>
+                  <h1>{{ order?.total_recipe | currency: "Rp. " }}</h1>
+                </div>
+                <div class="order-button">
+                  <button
+                    mat-flat-button
+                    matTooltip="Edit Note"
+                    [disabled]="true"
+                  >
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button
+                    mat-flat-button
+                    color="warn"
+                    matTooltip="Delete"
+                    (click)="
+                      deleteCart(order?._id, order?.recipe_id?.recipe_name)
+                    "
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </ng-template>
             <mat-divider></mat-divider>
           </div>
+        </div>
+        <div class="order-bar">
+          <h1><sup>Rp</sup> {{ cartListPending[0].total }}</h1>
+          <button
+            mat-flat-button
+            color="primary"
+            matTooltip="Order"
+            (click)="orderNow()"
+          >
+            Order Now
+          </button>
         </div>
       </div>
       <ng-template #pendingNotice>
@@ -63,111 +151,10 @@
   </mat-accordion>
   <mat-paginator
     class="mr-bottom-2"
-    [length]="pendingCart"
+    #paginatorPending="matPaginator"
     [pageSizeOptions]="[10]"
-    [pageSize]="pagination?.limit" 
-    [pageIndex]="pagination?.page-1"
+    [pageSize]="pagination?.limit"
+    [pageIndex]="pagination?.page - 1"
     (page)="handlePagePending($event)"
   ></mat-paginator>
-  <!-- Success -->
-  <mat-accordion class="mr-bottom-1">
-    <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
-      [expanded]="true"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-title> Success </mat-panel-title>
-        <mat-panel-description> Your Transaction Is Success </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="list-item" *ngIf="successCart > 0; else successNotice">
-        <div *ngFor="let item of cartListSuccess">
-          <div *ngFor="let order of item?.menu">
-            <div class="item mr-bottom-1 mr-top-1">
-              <img src="{{ order.recipe_id.image }}" alt="menu image" />
-              <div class="item-detail">
-                <h3>{{ order.recipe_id.recipe_name | titlecase }}</h3>
-                <p>Rp {{ order.recipe_id.price }}</p>
-              </div>
-              <div class="amount">
-                <h4>Amount</h4>
-                <div class="item-amount">
-                  <span>{{order.amount}}</span>
-                </div>
-              </div>
-              <div class="item-total">
-                <h4>Total Price</h4>
-                <h1>Rp {{ item.total }}</h1>
-              </div>
-              <div class="item-status">
-                <h4>Status</h4>
-                <mat-icon matSuffix
-                aria-label="Success"
-                [ngStyle]="{ color: 'green' }">done_all</mat-icon>
-              </div>
-            </div>
-            <mat-divider></mat-divider>
-          </div>
-        </div>
-      </div>
-      <ng-template #successNotice>
-        <h1>No Success Transaction</h1>
-      </ng-template>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-paginator class="mr-bottom-2"
-    [length]="successCart"
-    [pageSizeOptions]="[10]"
-    [pageSize]="pagination?.limit" 
-    [pageIndex]="pagination?.page-1"
-    (page)="handlePageSuccess($event)"></mat-paginator>
-  <!-- Failed -->
-  <mat-accordion>
-    <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
-      [expanded]="true"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-title> Failed </mat-panel-title>
-        <mat-panel-description>
-          Your Transaction is Failed
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="list-item" *ngIf="failedCart > 1 || failedCart != undefined || failedCart != null; else failedNotice">
-        <div *ngFor="let item of cartListFailed">
-          <div *ngFor="let order of item?.menu">
-            <div class="item mr-bottom-1 mr-top-1">
-              <img src="{{ order.recipe_id.image }}" alt="menu image" />
-              <div class="item-detail">
-                <h3>{{ order.recipe_id.recipe_name | titlecase }}</h3>
-                <p>Rp {{ order.recipe_id.price }}</p>
-              </div>
-              <div class="amount">
-                <h4>Amount</h4>
-                <div class="item-amount">
-                  <span>{{order.amount}}</span>
-                </div>
-              </div>
-              <div class="item-total">
-                <h4>Total Price</h4>
-                <h1>Rp {{ item.total }}</h1>
-              </div>
-              <div class="item-status">
-                <h4>Status</h4>
-                <mat-icon matSuffix
-                aria-label="Failed"
-                [ngStyle]="{ color: 'red' }">clear</mat-icon>
-              </div>
-            </div>
-            <mat-divider></mat-divider>
-          </div>
-        </div>
-      </div>
-      <ng-template #failedNotice>
-        <h1>No Transaction Failed</h1>
-      </ng-template>
-    </mat-expansion-panel>
-    <mat-paginator></mat-paginator>
-  </mat-accordion>
-</div>
+  </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SubSink } from 'subsink';
@@ -10,9 +10,8 @@ import Swal from 'sweetalert2';
   templateUrl: './dialog-cart.component.html',
   styleUrls: ['./dialog-cart.component.css']
 })
-export class DialogCartComponent implements OnInit {
+export class DialogCartComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
-  private id_item:any;
   dataCart:any;
   formCart:FormGroup;
   pagination:any = {
@@ -29,7 +28,7 @@ export class DialogCartComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // console.log(this.data.id_item, this.data.id_recipe);
+    console.log(this.data.id_recipe);
     this.initForm();
   }
 
@@ -38,23 +37,21 @@ export class DialogCartComponent implements OnInit {
       note: ['']
     });
 
-    if (this.data) {
-      this.id_item = this.data.id_item;
-      console.log(this.id_item);
-      this.id_item = String(this.id_item);
-      this.serviceCart.getOneCart(this.id_item).subscribe((resp) => {
+    if (this.data.id_recipe) {
+      this.subs.sink = this.serviceCart.getOneCart().subscribe((resp) => {
         this.dataCart = resp?.data?.getOneTransaction;
-        let tempNote:any = {};
-
+        let tempNoteArray:any = [];
         this.dataCart.menu.forEach(menu => {
-          console.log(menu.note);
-          tempNote = {
-            note: menu.note
-          }
+          tempNoteArray.push({
+            id : menu._id,
+            note : menu.note
+          });
         });
-
-        // console.log(this.dataCart)
-        this.formCart.patchValue(tempNote);
+        let tempNote = tempNoteArray.filter((res_id)=> res_id.id == this.data.id_recipe);
+        let note = {
+          note: tempNote[0].note
+        }
+        this.formCart.patchValue(note);
       });
     }
   }
@@ -74,7 +71,6 @@ export class DialogCartComponent implements OnInit {
                 icon: 'success',
                 confirmButtonText: 'Ok',
               }).then(() => {
-                this.serviceCart.getAllCart(this.pagination).refetch();
                 this.dialogRef.close();
               });
             },
@@ -96,6 +92,10 @@ export class DialogCartComponent implements OnInit {
         });
       }
     } 
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

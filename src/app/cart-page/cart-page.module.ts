@@ -14,7 +14,7 @@ const routes : Routes = [
   declarations: [
     CartPageComponent,
     ListCartComponent,
-    DialogCartComponent
+    DialogCartComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,7 @@ const routes : Routes = [
   exports: [
     CartPageComponent,
     ListCartComponent,
-    DialogCartComponent
+    DialogCartComponent,
   ]
 })
 export class CartPageModule { }
