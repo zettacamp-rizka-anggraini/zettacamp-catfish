@@ -18,6 +18,7 @@
         "About": "about",
         "Cart": "cart",
         "Menu Management": "menu management",
-        "Stock Management": "stock management"
+        "Stock Management": "stock management",
+        "History":"history"
     }
 }
