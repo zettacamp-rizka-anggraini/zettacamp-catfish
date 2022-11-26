@@ -43,7 +43,6 @@ export class TableStockComponent implements OnInit, OnDestroy {
       this.dataStock = this.dataStock?.getAllIngredients.data;
       this.dataSource = new MatTableDataSource(this.dataStock);
       this.totalSize = resp?.data?.getAllIngredients?.count_active;
-      // console.log(this.dataStock);
     });
   }
 

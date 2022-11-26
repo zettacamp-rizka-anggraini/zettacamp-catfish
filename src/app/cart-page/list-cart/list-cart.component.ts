@@ -43,7 +43,6 @@ export class ListCartComponent implements OnInit, OnDestroy {
     this.subs.sink = this.serviceCart?.getAllCartStatus(this.pagination, order_status)?.valueChanges?.subscribe((resp:any)=>{
         this.cartListPending = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat.status == "active");
         this.pendingCart = resp?.data?.getAllTransaction?.count_pending;
-        console.log(resp);
     });
   }
 
@@ -57,13 +56,11 @@ export class ListCartComponent implements OnInit, OnDestroy {
   }
 
   addAmount(id:string){
-    console.log(id);
     this.subs.sink = this.serviceCart.updateAmountPlus(id).subscribe();
     this.initCartPending();
   }
 
   minAmount(id:string){
-    console.log(id);
    this.subs.sink = this.serviceCart.updateAmountMinus(id).subscribe();
     this.initCartPending();
   }
@@ -111,7 +108,6 @@ export class ListCartComponent implements OnInit, OnDestroy {
   }
 
   deleteCart(id:string, name:string){
-    console.log(id)
     Swal.fire({
       title: 'Are you sure want to delete this cart?',
       text: "You won't be able to revert this!",

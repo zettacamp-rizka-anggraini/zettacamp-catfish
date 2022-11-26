@@ -9,9 +9,6 @@ export class HistoryPageService {
   constructor(private apollo:Apollo) { }
 
   getAllCartStatus(pagination:any, order_status:any){
-    if(order_status !== ""){
-      
-    }
     return this.apollo.watchQuery({
       query: gql`
       query GetAllTransaction($page: Int, $limit: Int, $orderStatus: oder_status) {

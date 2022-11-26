@@ -12,7 +12,6 @@ export class LoginPageService {
   constructor(private apollo:Apollo) { }
 
   loginUser(email: string, password:string):Observable<any>{
-    console.log(email, password);
     return this.apollo.mutate({
       mutation: gql`
       mutation{
@@ -36,7 +35,6 @@ export class LoginPageService {
   }
 
   userLogin(data:any){
-    console.log(data);
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
     localStorage.setItem(environment.role, JSON.stringify(data.login.role));
     localStorage.setItem(environment.usertype, JSON.stringify(data.login.usertype));

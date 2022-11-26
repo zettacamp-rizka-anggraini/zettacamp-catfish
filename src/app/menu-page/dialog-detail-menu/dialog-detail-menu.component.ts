@@ -75,7 +75,6 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
           note: quanValue.message
         }
         this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
-        // console.log(menuOrder);
         this.dialogRef.close();
       });
     } else {

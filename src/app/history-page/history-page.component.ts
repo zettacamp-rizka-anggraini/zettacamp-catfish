@@ -46,7 +46,6 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   initCart(){
     const order_status = this.status;
-    console.log(order_status);
     this.subs.sink = this.serviceHistory?.getAllCartStatus(this.pagination, order_status)?.valueChanges?.subscribe((resp:any)=>{
       this.cartList = resp?.data?.getAllTransaction?.data_transaction?.filter((stat)=>stat?.order_status == 'success' || stat?.order_status == 'failed');
       const failed = resp?.data?.getAllTransaction?.count_failed;
@@ -61,7 +60,6 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.cartList.forEach(()=>{
         this.indexToShow.push(1);
       })
-      console.log(this.cartList);
     });
   }
 

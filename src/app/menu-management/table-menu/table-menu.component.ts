@@ -98,7 +98,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
   openDialogMenu(id:string){
     this.dialog.open(DialogMenuComponent, {data:id}).afterClosed().subscribe((result)=>{
       if(result){
-        this.getData;
+        this.getData();
       }
     });
   }
@@ -172,8 +172,7 @@ export class TableMenuComponent implements OnInit, OnDestroy {
           }
         });
       }
-    })
-    console.log(id,name);
+    });
   }
 
   ngOnDestroy(): void {

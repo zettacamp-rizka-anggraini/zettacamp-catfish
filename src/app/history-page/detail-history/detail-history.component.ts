@@ -11,7 +11,6 @@ import { DetailTransaction } from '../../model/transaction.model';
 })
 export class DetailHistoryComponent implements OnInit {
   detailsTrans: any;
-  private subs = new SubSink();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DetailTransaction,
@@ -20,7 +19,6 @@ export class DetailHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.detailsTrans = this.data;
-    console.log(this.detailsTrans);
   }
 
 }

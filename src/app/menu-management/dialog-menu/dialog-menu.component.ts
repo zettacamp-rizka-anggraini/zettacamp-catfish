@@ -27,7 +27,6 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs.sink = this.serviceMenu.getAllStock().subscribe((resp)=>{
       this.allIngredients = resp.data.getAllIngredients.data;
-      // console.log(this.allIngredients);
     })
     
     this.initForm();
@@ -55,18 +54,16 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
   getOnePatchMenu(id:string){
     this.subs.sink = this.serviceMenu.getOneMenu(id).subscribe((resp)=>{
       this.dataMenu = resp.data.getOneRecipes;
-      // console.log(this.dataMenu);
+
       const ingred = this.dataMenu?.ingredients.length;
 
       for(let i=0; i<ingred; i++){
         this.addNewIngredients();
       }
-      // console.log(this.dataMenu);
 
       let tempIngredId = [];
 
       this.dataMenu.ingredients.forEach(ingre => {
-        // console.log(ingre);
         tempIngredId.push({
           ingredient_id: ingre.ingredient_id.id, 
           stock_used: ingre.stock_used
@@ -78,7 +75,6 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
         ingredients : tempIngredId
       };
 
-      // console.log(tempMenu);
       this.formMenu.patchValue(tempMenu);
     });
   }
@@ -114,7 +110,6 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
             });
           },
           error:(error)=>{
-            console.log(error.message);
             if(error.message == "bahan kurang"){
               Swal.fire({
                 title: "Error!",

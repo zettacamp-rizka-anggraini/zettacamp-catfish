@@ -28,7 +28,6 @@ export class DialogCartComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-    console.log(this.data.id_recipe);
     this.initForm();
   }
 
