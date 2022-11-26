@@ -61,7 +61,7 @@ export class ListCartComponent implements OnInit, OnDestroy {
   }
 
   minAmount(id:string){
-   this.subs.sink = this.serviceCart.updateAmountMinus(id).subscribe();
+    this.subs.sink = this.serviceCart.updateAmountMinus(id).subscribe();
     this.initCartPending();
   }
 
@@ -91,7 +91,7 @@ export class ListCartComponent implements OnInit, OnDestroy {
                 'Your cart cannot be order it.',
                 'error'
               )
-              this.serviceCart.getAllCart(this.pagination).refetch();
+              this.initCartPending();
             }
           });
         }
@@ -136,7 +136,7 @@ export class ListCartComponent implements OnInit, OnDestroy {
           }
         });
       }
-    })
+    });
   }
 
   ngOnDestroy(): void {
