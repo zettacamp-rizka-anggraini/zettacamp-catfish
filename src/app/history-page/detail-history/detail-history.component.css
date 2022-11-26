@@ -1,0 +1,24 @@
+.width-abs-400{
+    width: 1000px;
+}
+
+table{
+    width: 100%;
+    background-color: black;
+}
+
+th,td{
+    text-align: center;
+    background-color: white;
+}
+
+.image-transaction {
+    width: 100px;
+}
+
+.status-transaction {
+    border-radius: 50px;
+    color: white;
+    padding: 5px 40px;
+    font-weight: 500;
+}

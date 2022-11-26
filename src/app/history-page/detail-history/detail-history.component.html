@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Code Transaction : order-{{detailsTrans?.id | uppercase}}-menu</h2>
+<mat-dialog-content class="width-abs-400">
+    <p>Order Date : {{detailsTrans?.order_date}}</p>
+    <p>Order Menu : </p>
+    <table class="mr-bottom-1">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Note</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Total Price Each Item</th>
+        </tr>
+        <tr *ngFor="let menu of detailsTrans?.menu">
+            <td><img class="image-transaction" src="{{menu?.recipe_id?.image}}" alt="image menu"/></td>
+            <td>{{menu?.recipe_id?.recipe_name}}</td>
+            <td>{{menu?.note}}</td>
+            <td>{{menu?.recipe_id?.price}}</td>
+            <td>{{menu?.amount}}</td>
+            <td>Rp {{menu?.total_recipe}}</td>
+        </tr>
+        <tr>
+            <td colspan="5">Total Price</td>
+            <td>Rp {{detailsTrans?.total}}</td>
+        </tr>
+    </table>
+    <p *ngIf="detailsTrans?.order_status === 'success'; else failed">Order Status : <span class="status-transaction" [ngStyle]="{background:'green'}">{{detailsTrans?.order_status | uppercase}}</span></p>
+    <ng-template #failed>
+        <p>Order Status : <span class="status-transaction" [ngStyle]="{background:'red'}">{{detailsTrans?.order_status | uppercase}}</span></p>
+    </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="warn">Close</button>
+</mat-dialog-actions>
