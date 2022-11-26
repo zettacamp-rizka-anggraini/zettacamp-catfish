@@ -41,6 +41,7 @@ image {
 
 .language{
     padding: 10px 20px;
+    background-color: white;
 }
 
 .language a img {
@@ -50,4 +51,24 @@ image {
 
 .language a{
     cursor: pointer;
+}
+
+.back{
+  display: flex;
+  justify-content: flex-start;
+  width: 25%;
+  color: white;
+  font-size: 1.2rem;
+  padding: 20px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.back:hover{
+  transform: scale(1.09);
+  font-weight: 500;
+}
+
+.back mat-icon {
+  padding-right: 50px;
 }

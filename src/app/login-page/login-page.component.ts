@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { LoginPageService } from './login-page.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-page',
@@ -45,16 +46,41 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   onSubmit(){
     const payload = this.loginForm.value;
     // console.log(payload.email);
-    this.subs.sink = this.serviceLogin.loginUser(payload.email, payload.password).subscribe(resp => {
-      console.log(resp);
-      if(resp) {
-        this.router.navigate(['/home-page']);
-      }
-    });
+    if(this.loginForm.valid){
+      this.subs.sink = this.serviceLogin.loginUser(payload.email, payload.password).subscribe({
+        next: (resp) => {
+          if(resp) {
+            this.router.navigate(['main-page']).then(()=>{
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Welcome Back ' + payload.email.substring(0, payload.email.lastIndexOf("@")).toUpperCase(),
+                showConfirmButton: false,
+                timer: 1500
+              })
+            });
+          }
+        },
+        error: (error)=>{
+          if(error.message == "user tidak ditemukan atau email salah"){
+            Swal.fire(
+              'Your Email Not Found',
+              'Check Again Your Email',
+              'error'
+            )
+          }else if(error.message == "cek kembali email dan password ada yang salah"){
+            Swal.fire(
+              'Your Email & Password Wrong',
+              'Check Again Your Email & Password',
+              'error'
+            )
+          }
+        }
+      });
+    }
   }
 
   changeLanguage(lang:any) {
-    console.log(lang);
     if (lang === 'en') {
       this.translate.use('id');
       this.currentLanguage = 'id';
