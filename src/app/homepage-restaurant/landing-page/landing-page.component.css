@@ -91,3 +91,7 @@ mat-card-content {
     text-align: justify;
    line-height: 1.3rem;
 }
+
+.home-button button:hover{
+    color: black;
+}

@@ -111,7 +111,8 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  width: 250px;
+  width: 240px;
+  overflow-x: none;
 }
 
 .nav-list ul {

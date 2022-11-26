@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-homepage-restaurant',
@@ -9,10 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./homepage-restaurant.component.css'],
 })
 export class HomepageRestaurantComponent implements OnInit {
-  logout: boolean = false;
   opened: boolean = false;
   landingPage: boolean = false;
-  admin: boolean = false;
   menuAllow: any = [];
   currentLanguage = 'en';
   srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
@@ -26,25 +25,13 @@ export class HomepageRestaurantComponent implements OnInit {
     const token = localStorage.getItem(environment.tokenKey);
     const role = JSON.parse(localStorage.getItem(environment.role));
     const usertype = JSON.parse(localStorage.getItem(environment.usertype));
-    // console.log(token);
-    // console.log(role);
-    // console.log(usertype);
     if (token == null) {
       this.landingPage = true;
-    } else if (token !== null && role == 'admin') {
+    } else if (token !== null) {
       this.landingPage = false;
-      this.admin = true;
       this.menuAllow = usertype.filter((resp) => resp.view === true);
-      // console.log(this.menuAllow);
-      this.router.navigate(['/admin-page']);
-    } else if (token !== null && role == 'user') {
-      this.landingPage = false;
-      this.admin = false;
-      this.menuAllow = usertype.filter((resp) => resp.view === true);
-      // console.log(this.menuAllow);
-      this.router.navigate(['./user-page']);
+      this.router.navigate(['main-page']);
     }
-    // console.log(this.menuAllow);
   }
 
   changeLanguage(lang: any) {
@@ -66,10 +53,22 @@ export class HomepageRestaurantComponent implements OnInit {
   }
 
   logoutPage() {
-    localStorage.removeItem(environment.tokenKey);
-    localStorage.removeItem(environment.tokenKey);
-    this.router.navigate(['home-page']);
-    this.logout = false;
-    this.landingPage = true;
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You Want To Logout",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Logout'
+    }).then((result) => {
+      if(result.isConfirmed){
+        localStorage.removeItem(environment.tokenKey);
+        localStorage.removeItem(environment.role);
+        localStorage.removeItem(environment.usertype);
+        this.router.navigate(['home-page']);
+        this.landingPage = true;
+      }
+    })
   }
 }

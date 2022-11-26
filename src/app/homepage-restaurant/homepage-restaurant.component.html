@@ -9,19 +9,29 @@
     </div>
     <div class="nav-list" id="home-page">
       <ul>
-        <li><a [routerLink]="['landing-page']">{{"home-page.home" | translate | titlecase}}</a></li>
-        <li><a [routerLink]="['about-page']">{{"home-page.about" | translate | titlecase}}</a></li>
+        <li>
+          <a [routerLink]="['landing-page']">{{
+            "home-page.home" | translate | titlecase
+          }}</a>
+        </li>
+        <li>
+          <a [routerLink]="['about-page']">{{
+            "home-page.about" | translate | titlecase
+          }}</a>
+        </li>
         <li>
           <button
             mat-flat-button
             class="login color-secondary"
             (click)="loginPage()"
           >
-            {{"home-page.login" | translate | titlecase}}
+            {{ "home-page.login" | translate | titlecase }}
           </button>
         </li>
         <li class="language">
-          <a *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)"><img [src]="srcImages"></a>
+          <a *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)"
+            ><img [src]="srcImages"
+          /></a>
         </li>
       </ul>
     </div>
@@ -41,50 +51,62 @@
         </div>
         <div class="footer-list">
           <ul>
-            <li><a href="#home-page">{{"home-page.home" | translate | titlecase}}</a></li>
-            <li><a (click)="loginPage()">{{"home-page.menu" | translate | titlecase}}</a></li>
-            <li><a [routerLink]="['about-page']">{{"home-page.about" | translate | titlecase}}</a></li>
+            <li>
+              <a href="#home-page">{{
+                "home-page.home" | translate | titlecase
+              }}</a>
+            </li>
+            <li>
+              <a (click)="loginPage()">{{
+                "home-page.menu" | translate | titlecase
+              }}</a>
+            </li>
+            <li>
+              <a [routerLink]="['about-page']">{{
+                "home-page.about" | translate | titlecase
+              }}</a>
+            </li>
           </ul>
         </div>
         <div class="footer-medsos">
-          <h2>{{"title.title-medsos" | translate | titlecase}}</h2>
-            <ul>
-              <li>
-                <a href="https://www.instagram.com/" matTooltip="Instagram">
-                  <img
-                    class="mr-right-2"
-                    src="./assets/img/instagram.png"
-                    alt="media social icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/" matTooltip="Facebook">
-                  <img
-                    class="mr-right-2"
-                    src="/assets/img/facebook.png"
-                    alt="media social icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="https://twitter.com/" matTooltip="Twitter">
-                  <img src="/assets/img/twitter.png" alt="media social icon" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          <h2>{{ "title.title-medsos" | translate | titlecase }}</h2>
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/" matTooltip="Instagram">
+                <img
+                  class="mr-right-2"
+                  src="./assets/img/instagram.png"
+                  alt="media social icon"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/" matTooltip="Facebook">
+                <img
+                  class="mr-right-2"
+                  src="/assets/img/facebook.png"
+                  alt="media social icon"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/" matTooltip="Twitter">
+                <img src="/assets/img/twitter.png" alt="media social icon" />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 <ng-template #landingPageNone>
   <div class="container">
     <mat-toolbar class="color-trinary">
-        <button mat-icon-button (click)="opened = !opened">
-          <mat-icon>menu</mat-icon>
-        </button>
+      <button mat-icon-button (click)="opened = !opened">
+        <mat-icon>menu</mat-icon>
+      </button>
       <div class="nav-logo">
         <img
           src="https://cdn-icons-png.flaticon.com/512/6490/6490275.png"
@@ -96,62 +118,35 @@
         <a [routerLink]="['about-page']"><mat-icon>info</mat-icon></a>
       </div>
       <div class="language-other">
-        <a *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)"><img [src]="srcImages"></a>
+        <a *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)"
+          ><img [src]="srcImages"
+        /></a>
       </div>
     </mat-toolbar>
-      <!-- after login for usertype : Admin -->
-      <div *ngIf="admin; else user">
-        <mat-sidenav-container class="admin">
-          <mat-sidenav [(opened)]="opened" mode="side">
-            <mat-list>
-              <mat-list-item *ngFor="let menu of menuAllow" class="mr-left-15">
-                <a [routerLink]="[menu?.slug]">
-                  <mat-icon class="mr-right-1">{{menu?.icon_name}}</mat-icon
-                  >{{ "sub-menu." + menu?.name | translate | titlecase }}
-                </a>
-              </mat-list-item>
-              <mat-list-item>
-                <button
-                  mat-flat-button
-                  class="logout color-secondary dp-block"
-                  (click)="logoutPage()"
-                >
-                {{"title.title-logout" | translate | titlecase }}
-                </button>
-              </mat-list-item>
-            </mat-list>
-          </mat-sidenav>
-          <mat-sidenav-content>
-            <router-outlet></router-outlet>
-          </mat-sidenav-content>
-        </mat-sidenav-container>
-      </div>
-      <ng-template #user>
-        <!-- after login for usertype : User -->
-        <mat-sidenav-container class="user">
-          <mat-sidenav [(opened)]="opened" mode="side">
-            <mat-list>
-              <mat-list-item *ngFor="let menu of menuAllow" class="mr-left-15">
-                <a class="p-grid" [routerLink]="[menu?.slug]">
-                  <mat-icon class="mr-right-1">{{ menu?.icon_name }}</mat-icon
-                  >{{ "sub-menu." + menu?.name | translate | titlecase}}
-                </a>
-              </mat-list-item>
-              <mat-list-item>
-                <button
-                  mat-flat-button
-                  class="logout color-secondary dp-block"
-                  (click)="logoutPage()"
-                >
-                  {{"title.title-logout" | translate | titlecase }}
-                </button>
-              </mat-list-item>
-            </mat-list>
-          </mat-sidenav>
-          <mat-sidenav-content>
-            <router-outlet></router-outlet>
-          </mat-sidenav-content>
-        </mat-sidenav-container>
-      </ng-template>
-    </div>
+    <!-- after login for usertype -->
+    <mat-sidenav-container class="user">
+      <mat-sidenav [(opened)]="opened" mode="side">
+        <mat-list>
+          <mat-list-item *ngFor="let menu of menuAllow" class="mr-left-15">
+            <a [routerLink]="[menu?.slug]">
+              <mat-icon class="mr-right-1">{{ menu?.icon_name }}</mat-icon
+              >{{ "sub-menu." + menu?.name | translate | titlecase }}
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <button
+              mat-flat-button
+              class="logout color-secondary dp-block"
+              (click)="logoutPage()"
+            >
+              {{ "title.title-logout" | translate | titlecase }}
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </ng-template>
