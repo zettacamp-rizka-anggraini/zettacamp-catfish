@@ -29,7 +29,27 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
       .getOneMenu(this.data)
       .subscribe({
         next: (resp) => {
-        this.detailMenu = resp.data.getOneRecipes;}
+        this.detailMenu = resp.data.getOneRecipes;},
+        error: (error)=>{
+          if(error.message){
+            Swal.fire({
+              title: 'Login First',
+              text: "You dont have permission, please login first",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, Login'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.route.navigate(['login-page']);
+                this.dialogRef.close();
+              }else{
+                this.dialogRef.close();
+              }
+            })
+          }
+        }
       });
     this.getCounterQuan();
   }
