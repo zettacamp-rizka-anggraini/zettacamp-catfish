@@ -38,7 +38,7 @@ export class DialogMenuComponent implements OnInit, OnDestroy {
       price: ['', [Validators.required, Validators.min(1)]],
       image: [''],
       description: [''],
-      status: [''],
+      status: ['', [Validators.required]],
       ingredients: this.fb.array([]),
     });
 
