@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'main-page',
     component: HomepageRestaurantComponent,
     children: [
-      { path: '', redirectTo: 'menu-management', pathMatch: 'full' },
+      { path: '', redirectTo: 'menu-page', pathMatch: 'full' },
       {
         path: 'menu-page',
         loadChildren: () =>
