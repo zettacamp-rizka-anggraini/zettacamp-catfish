@@ -34,7 +34,7 @@ const routes: Routes = [
     path: 'main-page',
     component: HomepageRestaurantComponent,
     children: [
-      { path: '', redirectTo: 'menu-management', pathMatch: 'full' },
+      { path: '', redirectTo: 'menu-offer', pathMatch: 'full' },
       {
         path: 'menu-page',
         loadChildren: () =>
@@ -87,6 +87,9 @@ const routes: Routes = [
     loadChildren: () =>
       import('./login-page/login-page.module').then((m) => m.LoginPageModule),
   },
+  {
+    path:'**', component:HomepageRestaurantComponent
+  }
 ];
 
 @NgModule({
