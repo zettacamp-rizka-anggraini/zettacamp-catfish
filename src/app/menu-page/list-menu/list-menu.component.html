@@ -13,7 +13,7 @@
         <div class="group-item">
           <div class="price-item">
             <mat-card-subtitle>price</mat-card-subtitle>
-            <h2>Rp {{ item?.price }}</h2>
+            <h2> {{ item?.price | currency:"Rp. " }}</h2>
           </div>
           <div class="avail-item">
             <mat-card-subtitle>available</mat-card-subtitle>

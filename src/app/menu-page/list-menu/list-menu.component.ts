@@ -41,11 +41,17 @@ export class ListMenuComponent implements OnInit, OnDestroy {
   }
 
   getDataMenu(){
-    this.subs.sink = this.serviceMenu.getAllMenuNow(this.pagination).valueChanges.subscribe((resp:any)=>{
-      const menu = resp?.data;
-      this.listMenu = menu?.getAllRecipesNoToken?.data_recipes;
-      this.totalSize = menu?.getAllRecipesNoToken?.count_publish;
-      this.initStatusListMenu();  
+    this.subs.sink = this.serviceMenu.getAllMenuNow(this.pagination).valueChanges.subscribe({
+      next: (resp:any)=>{
+        const menu = resp?.data;
+        this.listMenu = menu?.getAllRecipesNoToken?.data_recipes;
+        this.totalSize = menu?.getAllRecipesNoToken?.count_publish;
+        this.initStatusListMenu();  
+        console.log(this.listMenu)
+      },
+      error: (error:any)=>{
+        this.menulist = false;
+      }
     })
   }
 
@@ -63,10 +69,6 @@ export class ListMenuComponent implements OnInit, OnDestroy {
     }else{
       this.menulist = false;
     }
-  }
-
-  imageHasBeenLoaded(data){
-    console.log(data);
   }
 
   addToCart(id:string){
