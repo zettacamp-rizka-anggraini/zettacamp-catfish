@@ -1,7 +1,7 @@
 <mat-card>
-  <!-- <div class="label-tag">
-    <p>Recomended</p>
-  </div> -->
+  <div class="label-tag">
+    <p>Highlight</p>
+  </div>
   <div [ngClass]="itemMenu?.available == 0 ? 'greyout' : ''">
     <img
       *ngIf="itemMenu?.image != ''; else menuImageNone"

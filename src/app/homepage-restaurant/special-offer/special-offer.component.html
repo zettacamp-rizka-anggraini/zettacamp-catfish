@@ -1,4 +1,7 @@
 <mat-card>
+  <div class="label-tag">
+    <p> discount up to {{itemMenu?.discount}} %</p>
+  </div>
   <div [ngClass]="itemMenu?.available == 0 ? 'greyout' : ''">
     <img
       *ngIf="itemMenu?.image != ''; else menuImageNone"
