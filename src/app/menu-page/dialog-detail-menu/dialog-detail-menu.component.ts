@@ -5,6 +5,7 @@ import { SubSink } from 'subsink';
 import { MenuPageService } from '../menu-page.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dialog-detail-menu',
@@ -21,7 +22,8 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private dialogRef:MatDialogRef<DialogDetailMenuComponent>,
-    private route:Router
+    private route:Router,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -33,13 +35,14 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
         error: (error)=>{
           if(error.message){
             Swal.fire({
-              title: 'Login First',
-              text: "You dont have permission, please login first",
+              title: this.translate.instant('alert-login.title'),
+              text: this.translate.instant('alert-login.text'),
               icon: 'warning',
               showCancelButton: true,
+              cancelButtonText: this.translate.instant('alert-login.cancel-btn'),
               confirmButtonColor: '#3085d6',
               cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, Login'
+              confirmButtonText: this.translate.instant('alert-login.confrim-btn')
             }).then((result) => {
               if (result.isConfirmed) {
                 this.route.navigate(['login-page']);
@@ -65,9 +68,9 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
     const quanValue = this.cartForm?.value;
     if (quanValue?.quantity != null && this.cartForm.valid) {
       Swal.fire({
+        title: this.translate.instant('alert-menu.title'),
+        text: this.translate.instant('alert-menu.text'),
         icon: 'success',
-        title: 'Success!',
-        text: 'Your Menu Have Been Added To Cart',
       }).then(()=>{
         const menuOrder = {
           recipe_id : id,
@@ -75,15 +78,19 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
           note: quanValue.message
         }
         this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
-        this.dialogRef.close();
+        this.dialogRef.close({data:this.detailMenu});
       });
     } else {
       Swal.fire({
+        title: this.translate.instant('alert-menu-fail.title'),
+        text: this.translate.instant('alert-menu-fail.text'),
         icon: 'error',
-        title: 'Oops...',
-        text: 'You Have To Fill The Quantity',
       });
     }
+  }
+
+  cancelButton(){
+    this.dialogRef.close();
   }
 
   ngOnDestroy(): void {
