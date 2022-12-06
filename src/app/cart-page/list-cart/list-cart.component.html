@@ -26,25 +26,29 @@
               <div class="amount">
                 <h4>{{"cart.amount" | translate | titlecase}}</h4>
                 <div class="item-amount">
-                  <button
-                    matSuffix
-                    mat-icon-button
-                    [ngStyle]="{ color: 'blue' }"
-                    matTooltip="minus"
-                    (click)="minAmount(order?._id)"
-                  >
-                    <mat-icon>remove</mat-icon>
-                  </button>
-                  <span>{{ order.amount }}</span>
-                  <button
-                    matSuffix
-                    mat-icon-button
-                    [ngStyle]="{ color: 'blue' }"
-                    matTooltip="plus"
-                    (click)="addAmount(order?._id)"
-                  >
-                    <mat-icon>add</mat-icon>
-                  </button>
+                  <div [matTooltip]="order?.amount == 1 ? 'reach limit':'minus'">
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      [ngStyle]="order?.amount == 1 ? {color: 'grey'} : { color: 'blue' }"
+                      [disabled]="order?.amount == 1"
+                      (click)="minAmount(order?._id)"
+                    >
+                      <mat-icon>remove</mat-icon>
+                    </button>
+                  </div>
+                  <span>{{ order?.amount }}</span>
+                  <div [matTooltip]="order?.amount >= order?.recipe_id?.available? 'reach limit':'plus'">
+                    <button
+                      matSuffix
+                      mat-icon-button
+                      [ngStyle]="order?.amount >= order?.recipe_id?.available ? {color: 'grey'}:{ color: 'blue' }"
+                      [disabled]="order?.amount >= order?.recipe_id?.available"
+                      (click)="addAmount(order?._id)"
+                    >
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div class="item-total">
