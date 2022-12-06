@@ -5,6 +5,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import { LoginPageService } from './login-page.service';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { ValidationDialogComponent } from './validation-dialog/validation-dialog.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog.component';
 
 @Component({
   selector: 'app-login-page',
@@ -23,10 +26,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private router: Router,
     private serviceLogin: LoginPageService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private dialog:MatDialog
   ) { 
-    translate.addLangs(['en', 'id']);
-    translate.setDefaultLang('en');
   }
 
   ngOnInit(): void {
@@ -38,8 +40,25 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
   initFormGroup(){
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(8)]]
+    })
+  }
+
+  forgotPassword(){
+    const dialogRefVal = this.dialog.open(ValidationDialogComponent, {
+       width: '400px',
+       height: '260px'
+    });
+
+    dialogRefVal.afterClosed().subscribe((resp)=>{
+      if(resp.data != null){
+        this.dialog.open(PasswordDialogComponent, {
+          data:resp.data,
+          width: '500px',
+          height: '350px'
+        });
+      }
     })
   }
 
