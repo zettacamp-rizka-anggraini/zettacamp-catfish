@@ -337,5 +337,9 @@
     "reset": "mengatur ulang kata sandi",
     "text-pass": "tolong isi kata sandi anda",
     "reset-btn": "atur ulang kata sandi"
+  },
+  "shared":{
+    "text-1": "telah ditambahkan ke keranjang",
+    "cart-btn": "lihat kerancang"
   }
 }

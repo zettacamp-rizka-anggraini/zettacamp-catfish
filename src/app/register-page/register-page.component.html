@@ -40,7 +40,7 @@
                       formControlName="firstName"
                       required
                     />
-                    <mat-error *ngIf="this.registerForm.get('firstName').invalid">This Field Is Required</mat-error>
+                    <mat-error *ngIf="this.registerForm.get('firstName').invalid">{{"cart-dialog.error-message" | translate | titlecase}}</mat-error>
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>{{"title.lastname" | translate | titlecase}}</mat-label>
@@ -49,7 +49,7 @@
                       formControlName="lastName"
                       required
                     />
-                    <mat-error *ngIf="this.registerForm.get('lastName').invalid">This Field Is Required</mat-error>
+                    <mat-error *ngIf="this.registerForm.get('lastName').invalid">{{"cart-dialog.error-message" | translate | titlecase}}</mat-error>
                   </mat-form-field>
                     <mat-form-field appearance="outline">
                       <mat-label>{{"title.email" | translate | titlecase}}</mat-label>
@@ -59,7 +59,7 @@
                         formControlName="email"
                         required
                       />
-                      <mat-error *ngIf="this.registerForm.get('email').invalid">You Must Fill This Field With Your Email</mat-error>
+                      <mat-error *ngIf="this.registerForm.get('email').invalid">{{"mat-error.fill-email" | translate | titlecase}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                       <mat-label>{{"title.password" | translate | titlecase}}</mat-label>
@@ -68,7 +68,7 @@
                         formControlName="password"
                         [type]="hide ? 'password' : 'text'"
                       />
-                      <mat-error *ngIf="this.registerForm.get('password').invalid">You Must Fill This Field With Your Password</mat-error>
+                      <mat-error *ngIf="this.registerForm.get('password').invalid">{{"mat-error.fill-password" | translate | titlecase}}</mat-error>
                       <button
                         mat-icon-button
                         matSuffix

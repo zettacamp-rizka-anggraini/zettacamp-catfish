@@ -337,5 +337,14 @@
     "reset": "reset password",
     "text-pass": "please enter your new password",
     "reset-btn": "reset password"
+  },
+  "shared":{
+    "text-1": "has been added to cart",
+    "cart-btn": "see cart"
+  },
+  "register":{
+    "title-1":"Do You Want To Create Account ?",
+    "title-2":"Your Account Has Been Create, You Can Login Now",
+    "confrim-btn":"Yes, create account"
   }
 }
