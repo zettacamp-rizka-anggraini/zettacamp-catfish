@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { LoginPageService } from '../login-page.service';
@@ -14,7 +15,7 @@ export class PasswordDialogComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   hide:boolean = true;
   resetForm: FormGroup;
-  constructor(private fb:FormBuilder, private serviceReset: LoginPageService, @Inject(MAT_DIALOG_DATA) private data:any, private dialogRef:MatDialogRef<PasswordDialogComponent>) { }
+  constructor(private fb:FormBuilder, private serviceReset: LoginPageService, @Inject(MAT_DIALOG_DATA) private data:any, private dialogRef:MatDialogRef<PasswordDialogComponent>, private translate:TranslateService) { }
 
   ngOnInit(): void {
     this.initResetForm();
@@ -34,8 +35,8 @@ export class PasswordDialogComponent implements OnInit, OnDestroy {
       this.subs.sink = this.serviceReset.resetPassword(payload).subscribe({
         next: ()=>{
           Swal.fire(
-            'Success!',
-            'your password has been reset',
+            this.translate.instant("validation.success"),
+            this.translate.instant("validation.password"),
             'success'
           ).then(()=>{
             this.dialogRef.close();
@@ -43,7 +44,7 @@ export class PasswordDialogComponent implements OnInit, OnDestroy {
         },
         error: (error)=>{
           Swal.fire(
-            'Error!',
+            this.translate.instant("validation.error"),
             error.message,
             'error'
           )

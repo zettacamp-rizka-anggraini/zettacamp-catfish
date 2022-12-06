@@ -6,6 +6,7 @@ import { MenuPageService } from '../menu-page.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dialog-detail-menu',
@@ -16,6 +17,7 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   detailMenu: any;
   cartForm: FormGroup;
+  role:any;
 
   constructor(
     private serviceMenu: MenuPageService,
@@ -27,13 +29,12 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subs.sink = this.serviceMenu
-      .getOneMenu(this.data)
-      .subscribe({
+    this.role = JSON.parse(localStorage?.getItem(environment.role));
+    this.subs.sink = this.serviceMenu?.getOneMenu(this.data)?.subscribe({
         next: (resp) => {
-        this.detailMenu = resp.data.getOneRecipes;},
+        this.detailMenu = resp?.data?.getOneRecipes;},
         error: (error)=>{
-          if(error.message){
+          if(error?.message){
             Swal.fire({
               title: this.translate.instant('alert-login.title'),
               text: this.translate.instant('alert-login.text'),
@@ -58,7 +59,7 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
   }
 
   getCounterQuan() {
-    this.cartForm = this.fb.group({
+    this.cartForm = this.fb?.group({
       quantity: [null, [Validators.min(1)]],
       message: [''],
     });
@@ -66,34 +67,44 @@ export class DialogDetailMenuComponent implements OnInit, OnDestroy {
 
   addToCart(id: string) {
     const quanValue = this.cartForm?.value;
-    if (quanValue?.quantity != null && this.cartForm.valid) {
-      Swal.fire({
-        title: this.translate.instant('alert-menu.title'),
-        text: this.translate.instant('alert-menu.text'),
-        icon: 'success',
-      }).then(()=>{
-        const menuOrder = {
-          recipe_id : id,
-          amount: quanValue.quantity,
-          note: quanValue.message
+    if (quanValue?.quantity != null && this.cartForm?.valid) {
+      const menuOrder = {
+        recipe_id : id,
+        amount: quanValue?.quantity,
+        note: quanValue?.message
+      }
+      this.subs.sink = this.serviceMenu?.addCart(menuOrder)?.subscribe({
+        next: ()=>{
+          Swal.fire(
+            this.translate?.instant('alert-menu.title'),
+            this.translate?.instant('alert-menu.text'),
+            'success',
+          ).then(()=>{
+            this.dialogRef?.close({data:this.detailMenu});
+          });
+        },
+        error: (error)=>{
+          Swal.fire(
+            this.translate?.instant('alert-menu-fail.title'),
+            error?.message ,
+            'error',
+          );
         }
-        this.subs.sink = this.serviceMenu.addCart(menuOrder).subscribe();
-        this.dialogRef.close({data:this.detailMenu});
-      });
+      });  
     } else {
-      Swal.fire({
-        title: this.translate.instant('alert-menu-fail.title'),
-        text: this.translate.instant('alert-menu-fail.text'),
-        icon: 'error',
-      });
+      Swal.fire(
+        this.translate?.instant('alert-menu-fail.title'),
+        this.translate?.instant('alert-menu-fail.text'),
+        'error',
+      );
     }
   }
 
   cancelButton(){
-    this.dialogRef.close();
+    this.dialogRef?.close();
   }
 
   ngOnDestroy(): void {
-    this.subs.unsubscribe();
+    this.subs?.unsubscribe();
   }
 }

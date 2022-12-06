@@ -43,8 +43,18 @@
           mat-flat-button
           color="addcart"
           class="add-cart"
+          *ngIf="role == 'user'; else admin"
           (click)="addToCart(detailMenu?.id)"
         >
           <mat-icon>add_shopping_cart</mat-icon>
-        </button>
+  </button>
+  <ng-template #admin>
+    <button
+            mat-flat-button
+            class="add-cart"
+            disabled="true"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </ng-template>
 </mat-dialog-actions>

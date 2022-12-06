@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { LoginPageService } from '../login-page.service';
@@ -13,7 +14,7 @@ import { LoginPageService } from '../login-page.service';
 export class ValidationDialogComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
   validationForm:FormGroup;
-  constructor(private fb:FormBuilder, private serviceValidation:LoginPageService, private dialogRef:MatDialogRef<ValidationDialogComponent>) { }
+  constructor(private fb:FormBuilder, private serviceValidation:LoginPageService, private dialogRef:MatDialogRef<ValidationDialogComponent>, private translate:TranslateService) { }
 
   ngOnInit(): void {
     this.initValidationForm();
@@ -32,8 +33,8 @@ export class ValidationDialogComponent implements OnInit, OnDestroy {
       this.subs.sink = this.serviceValidation.checkValidation(payload.email).subscribe({
         next: (resp)=>{
           Swal.fire(
-            'Success!',
-            'Your validation success',
+            this.translate.instant("validation.success"),
+            this.translate.instant("validation.email"),
             'success'
           ).then(()=>{
             let valResp = resp?.data?.getOneUser[0];
@@ -42,7 +43,7 @@ export class ValidationDialogComponent implements OnInit, OnDestroy {
         },
         error: (error)=>{
           Swal.fire(
-            'Error!',
+            this.translate.instant("validation.error"),
             error.message,
             'error'
           )
