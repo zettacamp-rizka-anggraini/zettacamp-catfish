@@ -58,6 +58,8 @@
   "cart-dialog": {
     "title-dialog": "edit note cart",
     "error-message": "this field is required",
+    "error-min": "order is lacking of our availability",
+    "error-max": "order exceeds our availability",
     "cancel-btn": "cancel",
     "submit-btn": "submit"
   },
@@ -180,7 +182,8 @@
     "close-btn": "close",
     "quantity-used": "quantity used",
     "title-discount": "update discount",
-    "amount": "amount"
+    "amount": "amount",
+    "quantity-buy": "quantity"
   },
   "status": {
     "active":"active",

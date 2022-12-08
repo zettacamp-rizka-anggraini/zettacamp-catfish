@@ -58,6 +58,8 @@
   "cart-dialog": {
     "title-dialog": "edit catatan",
     "error-message": "bagian ini diperlukan",
+    "error-min": "pesanan kurang dari ketersediaan kami",
+    "error-max": "pesanan melebihi ketersediaan kami",
     "cancel-btn": "batalkan",
     "submit-btn": "simpan"
   },
@@ -180,7 +182,8 @@
     "close-btn": "tutup",
     "quantity-used": "jumlah yang digunakan",
     "title-discount": "perbaharui diskon",
-    "amount": "jumlah"
+    "amount": "jumlah",
+    "quantity-buy": "jumlah beli"
   },
   "status": {
     "active":"aktif",
