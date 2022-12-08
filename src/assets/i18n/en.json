@@ -60,8 +60,12 @@
     "error-message": "this field is required",
     "error-min": "order is lacking of our availability",
     "error-max": "order exceeds our availability",
+    "error-maxLength": "exceeds 100 characters",
     "cancel-btn": "cancel",
     "submit-btn": "submit"
+  },
+  "stock-dialog":{
+    "error-min": "stock can't be minus"
   },
   "stock-manage": {
     "add-btn": "add",
@@ -185,6 +189,12 @@
     "amount": "amount",
     "quantity-buy": "quantity"
   },
+  "menu-error": {
+    "error-min-ingred" : "amount ingredients used can't minus",
+    "error-length-desc" : "min. characters is 30",
+    "error-length-recipe": "min. characters is 3",
+    "error-price": "min. price is 100"
+  },
   "status": {
     "active":"active",
     "success":"success",
@@ -298,7 +308,9 @@
   "option-stat": {
     "all": "all",
     "success": "sucess",
-    "failed": "failed"
+    "failed": "failed",
+    "publish": "publish",
+    "unpublish": "unpublish"
   },
   "none":{
     "highlight": "none menu highlight",
