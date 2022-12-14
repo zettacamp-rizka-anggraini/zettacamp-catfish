@@ -26,7 +26,7 @@
           <p>{{ detailMenu?.available }}</p>
         </div>
       </div>
-      <div *ngIf="role == 'user'">
+      <div *ngIf="role != 'admin'">
         <h2>{{"menu-list.title-buy" | translate | titlecase}}</h2>
         <div [formGroup]="cartForm" class="cart-form">
           <mat-form-field class="cart-counter" appearance="outline">
@@ -57,7 +57,7 @@
   <button type="submit" mat-flat-button
           color="addcart"
           class="add-cart"
-          *ngIf="role == 'user'"
+          *ngIf="role != 'admin'"
           (click)="addToCart(detailMenu?.id)"
         >
           <mat-icon>add_shopping_cart</mat-icon>
